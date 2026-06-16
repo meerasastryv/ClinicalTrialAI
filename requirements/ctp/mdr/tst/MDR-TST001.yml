@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- MDR-FRD001: QPukvtIxiahXiqDvPnmGgRpFVGSMggrAg57Ov3V-jdU=
+normative: true
+ref: ''
+reviewed: 7dCuK2lhdwNr6MiFZ5-Zq1o6sMUwlWm_ayqWI-arpCU=
+text: |
+  Verify that authorized users can create, modify, approve, and retire master data entities.

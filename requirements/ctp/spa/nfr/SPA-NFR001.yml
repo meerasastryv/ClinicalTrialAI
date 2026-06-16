@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- SPA-BRD001: XdNmUDGpdRFwKwHPoJ2zSoNtW0gLxQvTFZQHewYbiBA=
+normative: true
+ref: ''
+reviewed: oZU03vNqZxxX6cRDLk6S1j0a0dEexKQ0Ka72HCdbTOk=
+text: |
+  Master data retrieval shall complete within 2 seconds for 95% of requests.

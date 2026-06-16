@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- CDR-BRD001: _whVDMq1M1kSB1lUV-dJbYc5MERomQzHVd1C9ZRcqh8=
+normative: true
+ref: ''
+reviewed: OXduiuey9-gk9qQuvlG3gBCnXXs07bUq8np91J7LKBk=
+text: |
+  The system shall support storage, retrieval, versioning, and audit tracking of clinical data.

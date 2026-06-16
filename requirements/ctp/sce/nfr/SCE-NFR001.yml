@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- SCE-BRD001: BiNY6v6m7-n8YrHfEQYWXss5f6AbUMgmxsGnZYqDuJs=
+normative: true
+ref: ''
+reviewed: LEOuc7DiJKAq8PfGRVaC41-slIJ4AP8i7Md2B1OY0-A=
+text: |
+  Study configuration updates shall be saved within 2 seconds for 95% of requests.

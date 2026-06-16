@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- CTP-BRD001: a2aDkEEJodncXjFwU_nCbLnqXNhDXRdt75Ggv0WA2S4=
+normative: true
+ref: ''
+reviewed: lMgOFvHs1wnK_i7jKhFZ2h8Zb3mYZPuri9De-Phd6Hk=
+text: |
+  The Master Data Repository shall provide centralized management of reference and master data.

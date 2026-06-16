@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- CTP-BRD001: a2aDkEEJodncXjFwU_nCbLnqXNhDXRdt75Ggv0WA2S4=
+normative: true
+ref: ''
+reviewed: QOnEkJumVLL4gzbTEZ1zf5LjE9bdBl7q5oRlVmtGz9Y=
+text: |
+  The System Platform Architecture shall provide centralized authentication, authorization, configuration, and platform services.

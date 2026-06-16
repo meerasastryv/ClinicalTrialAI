@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- CDR-FRD001: HBh7j1SD0jPxZgdSVNXlMFcPq3fBjxVKk_Y7Q0XV5_8=
+normative: true
+ref: ''
+reviewed: A6H9mPuDjtO-YPlD_S4cM8sU6xleRBgnbAXWDgGWVwI=
+text: |
+  Verify that clinical data can be stored, retrieved, versioned, and audited successfully.

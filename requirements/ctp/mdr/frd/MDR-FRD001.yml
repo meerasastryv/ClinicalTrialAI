@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- MDR-BRD001: BdlEFTEG53b8lrXbi2torgAuSgmeI6eedXa1ohC-Sk4=
+normative: true
+ref: ''
+reviewed: yHrEMu6Lhvj-wnM8jcCS-K_zW-OyS53NZHgpCc6_oD0=
+text: |
+  The system shall support creation, modification, approval, and retirement of master data entities.

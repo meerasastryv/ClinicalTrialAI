@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- SCE-FRD001: InvYqALd6x2Me-lMn9Rq3uUgQ7i6uLqbIxeYVu5NGHk=
+normative: true
+ref: ''
+reviewed: d7BJfJkA8yv36keAAjNKPNvgSRH0m5pWdEl2HSatOzY=
+text: |
+  Verify that study configurations can be created, modified, versioned, and approved successfully.

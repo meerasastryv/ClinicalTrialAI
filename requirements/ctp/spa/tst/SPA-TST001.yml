@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- SPA-FRD001: a-WeK1jTASEquqv_k6ZeoltffX6mNLbxH5bDiE0w-Qo=
+normative: true
+ref: ''
+reviewed: lbAOvmGNfMYZL25RpKusDouByFr_Mk3tGLHs5XGoOdA=
+text: |
+  Verify that Single Sign-On authentication using SAML is successful for valid user credentials.

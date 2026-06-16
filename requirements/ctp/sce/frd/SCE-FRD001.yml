@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- SCE-BRD001: BiNY6v6m7-n8YrHfEQYWXss5f6AbUMgmxsGnZYqDuJs=
+normative: true
+ref: ''
+reviewed: nvhIgVGLUQKSogW7ZmylFk1hbcAeXFHKNyBBdy9G5wQ=
+text: |
+  The system shall support creation, modification, versioning, and approval of study configurations.

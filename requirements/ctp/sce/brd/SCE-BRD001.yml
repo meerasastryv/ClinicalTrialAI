@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- CTP-BRD001: a2aDkEEJodncXjFwU_nCbLnqXNhDXRdt75Ggv0WA2S4=
+normative: true
+ref: ''
+reviewed: -8pw8-w-Iu5ZVJkvahTN0i3blPg5veRyd_rysJwoo_4=
+text: |
+  The Study Configuration Engine shall support creation and management of clinical study configurations.

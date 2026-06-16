@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- CTP-BRD001: a2aDkEEJodncXjFwU_nCbLnqXNhDXRdt75Ggv0WA2S4=
+normative: true
+ref: ''
+reviewed: WNBDAnSkqeyhX1Rmgt0PHmk1gntU3qePp1VBrPPjI-E=
+text: "\tThe Clinical Data Repository shall provide centralized storage and management\
+  \ of clinical study data.\n"

@@ -1,0 +1,6 @@
+settings:
+  digits: 3
+  itemformat: yaml
+  parent: DSW-BRD
+  prefix: DSW-NFR
+  sep: ''

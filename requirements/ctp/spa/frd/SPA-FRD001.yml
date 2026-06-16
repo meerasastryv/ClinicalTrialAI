@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- SPA-BRD001: XdNmUDGpdRFwKwHPoJ2zSoNtW0gLxQvTFZQHewYbiBA=
+normative: true
+ref: ''
+reviewed: WQqMNllRSTgtRJrS9WUXAsEApuvleALoD7xFRB7sGxQ=
+text: |
+  The system shall support Single Sign-On using SAML and OAuth2.

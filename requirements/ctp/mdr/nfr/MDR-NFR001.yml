@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- MDR-BRD001: BdlEFTEG53b8lrXbi2torgAuSgmeI6eedXa1ohC-Sk4=
+normative: true
+ref: ''
+reviewed: PRPx3kDq1rerDmg1LgceMdkPbIaHdOEgIY0ZKDa45hk=
+text: |
+  Master data retrieval shall complete within 2 seconds for 95% of requests.

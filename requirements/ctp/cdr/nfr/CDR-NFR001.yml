@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- CDR-BRD001: _whVDMq1M1kSB1lUV-dJbYc5MERomQzHVd1C9ZRcqh8=
+normative: true
+ref: ''
+reviewed: yhVvneOBuVUD37n3MlzO8q5xb2nabofxVVM40ffqsqE=
+text: |
+  Clinical data retrieval shall complete within 2 seconds for 95% of requests.

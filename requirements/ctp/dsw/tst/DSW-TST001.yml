@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- DSW-FRD001: W1iRn8Z8Mlv6UxwILPnGYzYhjxqywqTknbAGbjSSszo=
+normative: true
+ref: ''
+reviewed: C6B7RbZNsGzN1TRS5HlJiKjmEsaYFIgYsKktX1FeXQw=
+text: |
+  Verify that users can create tasks, share documents, receive notifications, and collaborate within the workspace.

@@ -1,0 +1,6 @@
+settings:
+  digits: 3
+  itemformat: yaml
+  parent: MDR-FRD
+  prefix: MDR-TST
+  sep: ''

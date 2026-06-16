@@ -1,0 +1,11 @@
+active: true
+derived: false
+header: ''
+level: 1.0
+links:
+- DSW-BRD001: sC7xsBzRnfavymo1zZmXLVjJnj1ssL1MMWAhtGD4-ds=
+normative: true
+ref: ''
+reviewed: hcxuwXpW0a3ppvNBChcQ4tZYIbnkzmIIowAH_B4a2ng=
+text: |
+  Workspace pages shall load within 3 seconds for 95% of requests.
