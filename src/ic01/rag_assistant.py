@@ -93,12 +93,14 @@ def ask_requirement_assistant(question):
 
     context = build_context(results)
 
+    source_ids = results["ids"][0]
+   
     answer = ask_llm(
         question,
         context
     )
 
-    return answer
+    return answer , source_ids
 
 
 if __name__ == "__main__":
@@ -110,10 +112,13 @@ if __name__ == "__main__":
         if question.lower() == "exit":
             break
 
-        answer = ask_requirement_assistant(
+        answer, source_ids = ask_requirement_assistant(
             question
         )
-
         print("\nAnswer")
         print("=" * 60)
         print(answer)
+        print("\nSources")
+        print("=" * 60)
+        for source in source_ids:
+           print(source)
