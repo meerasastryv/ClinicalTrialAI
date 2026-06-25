@@ -1,6 +1,6 @@
 from src.ic02.models.requirement import Requirement
-from src.ic02.generators.scenario_generator import ScenarioGenerator
-from src.ic02.generators.condition_generator import ConditionGenerator
+from src.ic02.engine.test_design_engine import TestDesignEngine
+
 
 def main():
 
@@ -17,42 +17,61 @@ def main():
         ]
     )
 
-    # generator = ScenarioGenerator()
+    engine = TestDesignEngine()
 
-    # scenarios = generator.generate(requirement)
+    results = engine.generate(requirement)
 
-    scenario_generator = ScenarioGenerator()
-    condition_generator = ConditionGenerator()
-
-    scenarios = scenario_generator.generate(requirement)
-    
     print("\nGenerated Scenarios\n")
 
-    #for scenario in scenarios:
-    #    print(
-    #        f"{scenario.scenario_id} | "
-    #         f"{scenario.scenario_name} | "
-     #       f"{scenario.scenario_type}"
-     #   )
+    for scenario_result in results:
 
-    # print("\nGenerated Scenarios\n")
+        scenario = scenario_result["scenario"]
 
-    for scenario in scenarios:
         print(
-             f"{scenario.scenario_id} | "
-             f"{scenario.scenario_name} | "
-             f"{scenario.scenario_type}"
+            f"{scenario.scenario_id} | "
+            f"{scenario.scenario_name} | "
+            f"{scenario.scenario_type}"
         )
 
-        conditions = condition_generator.generate(scenario)
+        for condition_result in scenario_result["conditions"]:
 
-        for condition in conditions:
+            condition = condition_result["condition"]
 
-            print(f"    {condition.condition_id} | "
-                  f"{condition.description}"
+            print(
+                f"    {condition.condition_id} | "
+                f"{condition.description}"
             )
 
-    print()
+            for testcase in condition_result["testcases"]:
+
+                print(f"        Test Case ID      : {testcase.testcase_id}")
+                print(f"        Requirement ID   : {testcase.requirement_id}")
+                print(f"        Scenario ID      : {testcase.scenario_id}")
+                print(f"        Condition ID     : {testcase.condition_id}")
+                print(f"        Title            : {testcase.title}")
+                print(f"        Priority         : {testcase.priority}")
+                print(f"        Test Type        : {testcase.test_type}")
+                print(f"        Automation       : {testcase.automation_candidate}")
+
+                print("\n        Preconditions:")
+
+                for precondition in testcase.preconditions:
+                    print(f"            - {precondition}")
+
+                print("\n        Steps:")
+
+                for index, step in enumerate(testcase.steps, start=1):
+                    print(f"            {index}. {step}")
+
+                print("\n        Expected Results:")
+
+                for result in testcase.expected_results:
+                    print(f"            - {result}")
+
+                print()
+
+        print()
+
 
 if __name__ == "__main__":
     main()
