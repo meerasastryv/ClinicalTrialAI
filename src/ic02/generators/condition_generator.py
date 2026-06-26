@@ -7,8 +7,12 @@ from src.ic02.data.condition_repository import CONDITION_LIBRARY
 
 class ConditionGenerator:
 
-    def generate(self, scenario: Scenario) -> List[TestCondition]:
+    #def generate(self, scenario: Scenario) -> List[TestCondition]:
+    from typing import List
+    from src.ic02.models.scenario import Scenario
+    from src.ic02.models.test_condition import TestCondition
 
+    def generate(self, scenario: Scenario) -> List[TestCondition]:
         conditions = []
 
         condition_counter = 1

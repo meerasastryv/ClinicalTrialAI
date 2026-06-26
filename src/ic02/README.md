@@ -1,305 +1,280 @@
-# IC-02: Test Design Engine
+# IC-02 Milestone 4 – Boundary Value Generator (BVA)
 
-## ClinicalTrialAI Platform
+## ClinicalTrialAI – AI-Enabled Quality Engineering Platform
 
-**Intelligence Component:** IC-02
-**Component Name:** Test Design Engine
-**Version:** 1.0
-**Status:** In Development
-**Author:** Meera Sastry
-**Platform:** ClinicalTrialAI
+### Overview
 
----
+The Boundary Value Generator (BVA) is the fourth milestone of the IC-02 Test Design Engine within the ClinicalTrialAI platform.
 
-# 1. Vision
+This component automatically detects boundary constraints from natural language requirements and generates Boundary Value Analysis (BVA) test cases.
 
-The Test Design Engine (IC-02) is the second Intelligence Component of the ClinicalTrialAI platform.
-
-Its objective is to transform software requirements into structured, traceable, enterprise-grade testing artifacts using intelligent rule-based generation and AI-assisted techniques.
-
-IC-02 consumes the structured outputs produced by IC-01 Requirement Intelligence Engine and generates comprehensive test design assets that can later be used for automation, traceability, risk analysis, and intelligent quality engineering.
+Instead of manually identifying minimum and maximum values, the engine extracts constraints, applies Boundary Value Analysis rules, and produces executable test cases together with machine-readable JSON output.
 
 ---
 
-# 2. Position within ClinicalTrialAI
+# Objectives
+
+The Boundary Value Generator is designed to:
+
+* Detect boundary constraints from natural language requirements.
+* Generate standard Boundary Value Analysis (BVA) values.
+* Automatically create executable boundary test cases.
+* Export results to JSON.
+* Serve as a reusable component within the ClinicalTrialAI platform.
+
+---
+
+# Features
+
+* Natural language boundary detection
+* Boundary Value Analysis rule engine
+* Automatic test case generation
+* JSON export
+* Automated unit testing
+* Modular architecture
+* Extensible design
+
+---
+
+# Supported Requirement Patterns
+
+Examples of supported requirements:
 
 ```
-IC-01 Requirement Intelligence Engine
-            │
-            ▼
-IC-02 Test Design Engine
-            │
-            ▼
-IC-03 Code Intelligence Engine
-            │
-            ▼
-Remaining Intelligence Components
-```
+Age should be between 18 and 60.
 
-IC-02 serves as the bridge between understanding requirements and designing high-quality software tests.
+Password length should be 8-20 characters.
 
----
+Quantity should be at least 1.
 
-# 3. Objectives
-
-The primary objectives of IC-02 are:
-
-* Generate functional test scenarios
-* Generate test conditions
-* Generate enterprise test cases
-* Maintain complete traceability
-* Support automation readiness
-* Improve test coverage
-* Enable intelligent test design
-* Provide structured outputs for downstream AI components
-
----
-
-# 4. Current Features
-
-## Scenario Generation
-
-Generate positive and negative test scenarios from requirements.
-
-Example:
-
-```
-Requirement
-        ↓
-Successful Login
-
-Invalid Password
-
-Empty Username
-
-Locked Account
+Discount should be at most 50.
 ```
 
 ---
 
-## Test Condition Generation
-
-Each scenario is decomposed into detailed test conditions.
-
-Example:
-
-```
-Scenario
-        ↓
-
-Valid Username
-
-Valid Password
-
-Authentication Service Available
-```
-
----
-
-## Enterprise Test Case Generation
-
-Each test condition generates enterprise-ready test cases containing:
-
-* Test Case ID
-* Requirement ID
-* Scenario ID
-* Condition ID
-* Title
-* Priority
-* Test Type
-* Automation Candidate
-* Preconditions
-* Test Steps
-* Expected Results
-
----
-
-# 5. Current Architecture
-
-```
-Requirement
-        │
-        ▼
-TestDesignEngine
-        │
-        ├──────────────┐
-        ▼              ▼
-Scenario Generator
-        │
-        ▼
-Condition Generator
-        │
-        ▼
-TestCase Generator
-        │
-        ▼
-Enterprise Test Cases
-```
-
----
-
-# 6. Project Structure
+# Project Structure
 
 ```
 src/ic02/
 
-engine/
-    test_design_engine.py
-
-models/
-    requirement.py
-    scenario.py
-    test_condition.py
-    test_case.py
-
-generators/
-    scenario_generator.py
-    condition_generator.py
-    testcase_generator.py
-
-data/
-    scenario_repository.py
-    condition_repository.py
-    testcase_repository.py
-
-analyzers/
-    coverage_analyzer.py
-    risk_analyzer.py
-
-traceability/
-    traceability_engine.py
-
-main.py
+├── boundary_models.py
+├── boundary_detector.py
+├── boundary_rules.py
+├── boundary_value_generator.py
+├── boundary_exporter.py
+├── test_boundary_generator.py
+├── sample_requirements/
+├── output/
+│   └── boundary_analysis.json
+└── README.md
 ```
 
 ---
 
-# 7. Enterprise Test Case Model
+# Architecture
 
-Each generated Test Case contains:
-
-* Test Case ID
-* Requirement ID
-* Scenario ID
-* Condition ID
-* Title
-* Priority
-* Test Type
-* Automation Candidate
-* Preconditions
-* Test Steps
-* Expected Results
-
-This enables complete end-to-end traceability across the ClinicalTrialAI platform.
-
----
-
-# 8. Completed Milestones
-
-| Milestone                            | Status |
-| ------------------------------------ | ------ |
-| M1 – Project Foundation              | ✅      |
-| M2A – Scenario Repository            | ✅      |
-| M2B – Test Condition Generator       | ✅      |
-| M3 – Enterprise Test Case Generator  | ✅      |
-| M3A – Test Design Engine Refactoring | ✅      |
-
----
-
-# 9. Planned Milestones
-
-## Milestone 4
-
-Boundary Value Generator
-
-## Milestone 5
-
-Equivalence Partition Generator
-
-## Milestone 6
-
-Negative Test Generator
-
-## Milestone 7
-
-Test Data Generator
-
-## Milestone 8
-
-Coverage Analyzer
-
-## Milestone 9
-
-Traceability Engine
-
-## Milestone 10
-
-Interactive Test Design Assistant
-
----
-
-# 10. Execution
-
-Run the application from the project root:
-
-```bash
-python -m src.ic02.main
+```
+Natural Language Requirement
+               │
+               ▼
+      BoundaryDetector
+               │
+               ▼
+     BoundaryConstraint
+               │
+               ▼
+     BoundaryRuleEngine
+               │
+               ▼
+     Boundary Values
+               │
+               ▼
+ Boundary Test Case Builder
+               │
+               ▼
+ BoundaryAnalysisResult
+               │
+               ▼
+     BoundaryExporter
+               │
+               ▼
+boundary_analysis.json
 ```
 
 ---
 
-# 11. Sample Processing Flow
+# Components
 
-```
-Requirement
-        │
-        ▼
-Scenario
-        │
-        ▼
-Condition
-        │
-        ▼
-Enterprise Test Case
-```
+## boundary_detector.py
+
+Extracts minimum and maximum boundary constraints from natural language requirements.
+
+---
+
+## boundary_rules.py
+
+Generates Boundary Value Analysis values.
 
 Example:
 
 ```
-REQ-001
-        │
-        ▼
-SCN-001 Successful Login
-        │
-        ▼
-TCND-001 Valid Username
-        │
-        ▼
-TC-001 Verify Valid Username
+Minimum = 18
+
+Maximum = 60
+```
+
+Produces:
+
+```
+17
+18
+19
+39
+59
+60
+61
 ```
 
 ---
 
-# 12. Future Roadmap
+## boundary_value_generator.py
 
-The Test Design Engine will evolve into an AI-assisted quality engineering system capable of:
+Acts as the Facade for the complete Boundary Value Analysis workflow.
 
-* Boundary Value Analysis
-* Equivalence Partitioning
-* Decision Table Testing
-* State Transition Testing
-* Pairwise Testing
-* Risk-Based Test Design
-* Requirement Traceability
-* Test Optimization
-* Automation Recommendation
-* Intelligent Test Design using Large Language Models (LLMs)
+Responsibilities:
+
+* Detect boundaries
+* Generate boundary values
+* Create test cases
+* Return BoundaryAnalysisResult
 
 ---
 
-# 13. Long-Term Vision
+## boundary_exporter.py
 
-The Test Design Engine will become the central intelligence component responsible for transforming business requirements into comprehensive, optimized, and traceable software testing assets.
+Exports BoundaryAnalysisResult into formatted JSON.
 
-Together with IC-01 Requirement Intelligence Engine, it establishes the foundation for an AI-enabled Quality Engineering Platform capable of supporting enterprise software delivery across healthcare, life sciences, and other regulated industries.
+---
+
+## test_boundary_generator.py
+
+Contains automated tests verifying:
+
+* Boundary detection
+* Rule engine
+* Test case generation
+* Complete workflow
+
+---
+
+# Example Output
+
+Requirement
+
+```
+Age should be between 18 and 60.
+```
+
+Generated Boundary Values
+
+| Label   | Value | Expected |
+| ------- | ----: | -------- |
+| Min-1   |    17 | Rejected |
+| Min     |    18 | Accepted |
+| Min+1   |    19 | Accepted |
+| Nominal |    39 | Accepted |
+| Max-1   |    59 | Accepted |
+| Max     |    60 | Accepted |
+| Max+1   |    61 | Rejected |
+
+---
+
+# JSON Output
+
+The generator exports:
+
+```
+src/ic02/output/boundary_analysis.json
+```
+
+The JSON contains:
+
+* Boundary constraint
+* Boundary values
+* Generated test cases
+
+---
+
+# Running the Component
+
+Run the Boundary Generator:
+
+```bash
+python src/ic02/boundary_value_generator.py
+```
+
+Run Unit Tests:
+
+```bash
+python src/ic02/test_boundary_generator.py
+```
+
+---
+
+# Design Principles
+
+The implementation follows:
+
+* Single Responsibility Principle (SRP)
+* Facade Pattern
+* Modular architecture
+* Dataclass-based domain models
+* Separation of concerns
+* Reusable components
+* Extensible design
+
+---
+
+# Future Enhancements
+
+Planned improvements include:
+
+* Decimal boundary detection
+* Date boundary analysis
+* Time boundary analysis
+* Currency boundary analysis
+* File size boundaries
+* Clinical visit number boundaries
+* Protocol version boundaries
+* AI-assisted boundary extraction using LLMs
+* Integration with IC-01 Requirement Intelligence Engine
+* Integration with Decision Table Generator
+* Integration with State Transition Generator
+
+---
+
+# Milestone Status
+
+Milestone 4 has successfully implemented:
+
+* Boundary Detection
+* Boundary Rule Engine
+* Boundary Value Generation
+* Automatic Test Case Generation
+* JSON Export
+* Automated Unit Testing
+
+---
+
+# Author
+
+Meera Sastry
+
+ClinicalTrialAI
+
+AI-Enabled Quality Engineering Platform
+
+IC-02 Test Design Engine
+
+Milestone 4 – Boundary Value Generator
 

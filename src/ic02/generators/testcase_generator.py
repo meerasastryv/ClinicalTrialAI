@@ -24,30 +24,36 @@ class TestCaseGenerator:
 
         if testcase_data:
 
-            testcase = TestCase(
+            # testcase = TestCase(
+            #    testcase_id=f"TC-{self.testcase_counter:03}",
+            #    requirement_id=requirement_id,
+            #    scenario_id=condition.scenario_id,
+            #    condition_id=condition.condition_id,
+            #    title=testcase_data["title"],
+            #    priority=testcase_data["priority"],
+            #    test_type=testcase_data["test_type"],
+            #    automation_candidate=testcase_data["automation_candidate"],
+            #    preconditions=testcase_data["preconditions"],
+            #    steps=testcase_data["steps"],
+            #    expected_results=testcase_data["expected_results"]
+            #)
 
-                testcase_id=f"TC-{self.testcase_counter:03}",
+            kwargs = {
+                      "test_case_id": f"TC-{self.testcase_counter:03}",
+                      "requirement_id": requirement_id,
+                      "scenario_id": condition.scenario_id,
+                      "condition_id": condition.condition_id,
+                      "title": testcase_data["title"],
+                      "priority": testcase_data["priority"],
+                      "test_type": testcase_data["test_type"],
+                      "automation_candidate": testcase_data["automation_candidate"],
+                      "preconditions": testcase_data["preconditions"],
+                      "steps": testcase_data["steps"],
+                      "expected_results": testcase_data["expected_results"],
+                     }
 
-                requirement_id=requirement_id,
+            testcase = TestCase(**kwargs)
 
-                scenario_id=condition.scenario_id,
-
-                condition_id=condition.condition_id,
-
-                title=testcase_data["title"],
-
-                priority=testcase_data["priority"],
-
-                test_type=testcase_data["test_type"],
-
-                automation_candidate=testcase_data["automation_candidate"],
-
-                preconditions=testcase_data["preconditions"],
-
-                steps=testcase_data["steps"],
-
-                expected_results=testcase_data["expected_results"]
-            )
 
             testcases.append(testcase)
 
