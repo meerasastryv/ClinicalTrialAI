@@ -3,7 +3,7 @@ from src.ic02.engine.test_design_engine import TestDesignEngine
 
 from src.ic02.generators.boundary_value_generator import BoundaryValueGenerator
 from src.ic02.generators.decision_table_generator import DecisionTableGenerator
-
+from src.ic02.formatters.report_formatter import ReportFormatter
 
 def main():
 
@@ -22,14 +22,9 @@ def main():
         ]
     )
 
-
-
-
     # Generate scenarios, conditions, test cases and test data
     engine = TestDesignEngine()
     results = engine.generate(requirement)
-
-    print("\nGenerated Scenarios\n")
 
     # Boundary Value Analysis
     boundary_generator = BoundaryValueGenerator()
@@ -38,97 +33,10 @@ def main():
     # Decision Table
     decision_generator = DecisionTableGenerator()
     decision_rules = decision_generator.generate(requirement)
-
-    # Print generated scenarios
-    for scenario_result in results:
-
-        scenario = scenario_result["scenario"]
-
-        print(
-            f"{scenario.scenario_id} | "
-            f"{scenario.scenario_name} | "
-            f"{scenario.scenario_type}"
-        )
-
-        for condition_result in scenario_result["conditions"]:
-
-            condition = condition_result["condition"]
-
-            print(
-                f"    {condition.condition_id} | "
-                f"{condition.description}"
-            )
-
-            for testcase in condition_result["testcases"]:
-
-                print(f"        Test Case ID    : {testcase.test_case_id}")
-                print(f"        Requirement ID : {testcase.requirement_id}")
-                print(f"        Scenario ID    : {testcase.scenario_id}")
-                print(f"        Condition ID   : {testcase.condition_id}")
-                print(f"        Title          : {testcase.title}")
-                print(f"        Priority       : {testcase.priority}")
-                print(f"        Test Type      : {testcase.test_type}")
-                print(f"        Automation     : {testcase.automation_candidate}")
-
-                print("\n        Preconditions:")
-                for precondition in testcase.preconditions:
-                    print(f"            - {precondition}")
-
-                print("\n        Steps:")
-                for index, step in enumerate(testcase.steps, start=1):
-                    print(f"            {index}. {step}")
-
-                print("\n        Expected Results:")
-                for expected in testcase.expected_results:
-                    print(f"            - {expected}")
-
-                print("\n        Test Data:")
-                for data in condition_result["testdata"]:
-                    if data.testcase_id == testcase.test_case_id:
-                        for key, value in data.input_data.items():
-                            print(f"            {key}: {value}")
-
-                print()
-
-    # Boundary Value Test Cases
-    print("\n" + "=" * 80)
-    print("BOUNDARY VALUE TEST CASES")
-    print("=" * 80)
-
-    for boundary in boundary_cases:
-        print(
-            f"{boundary.requirement_id:10}"
-            f"{boundary.boundary_type:15}"
-            f"{boundary.input_value:10}"
-            f"{boundary.expected_result}"
-        )
-
-    # Decision Table Rules
-    print("\n" + "=" * 80)
-    print("DECISION TABLE RULES")
-    print("=" * 80)
-
-    for rule in decision_rules:
-
-        print(f"\nRule ID        : {rule.rule_id}")
-        print(f"Requirement ID : {rule.requirement_id}")
-
-        print("\nConditions")
-        print("-" * 40)
-        for condition in rule.conditions:
-            print(f"  • {condition}")
-
-        print("\nActions")
-        print("-" * 40)
-        for action in rule.actions:
-            print(f"  • {action}")
-
-        print("\nExpected Result")
-        print("-" * 40)
-        print(f"  {rule.expected_result}")
-
-        print("-" * 80)
-
+    formatter = ReportFormatter()
+    formatter.print_scenarios(results)
+    formatter.print_boundary_cases(boundary_cases)
+    formatter.print_decision_tables(decision_rules)
 
 if __name__ == "__main__":
     main()
