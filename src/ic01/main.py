@@ -6,10 +6,10 @@ from search import (
     find_by_link
 )
 
-requirements = load_requirements(
-    "../../requirements/ctp"
-)
-
+#requirements = load_requirements(
+#    "../../requirements/ctp"
+#)
+requirements = load_requirements("requirements/ctp")
 print(f"\nLoaded {len(requirements)} requirements\n")
 
 
