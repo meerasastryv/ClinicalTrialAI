@@ -1,11 +1,18 @@
 
-from interfaces.service_interface import ServiceInterface
+from ..repository.code_repository import CodeRepository
+from ..models.code_model import CodeModel
 
 
-class CodeService(ServiceInterface):
-
-
+class CodeService:
     """
-    Orchestrates the Code Intelligence Engine.
+    Service for managing the project's CodeModel.
     """
-    pass
+
+    def __init__(self):
+        self.repository = CodeRepository()
+
+    def load(self, code_model: CodeModel):
+        self.repository.save(code_model)
+
+    def get_code_model(self) -> CodeModel | None:
+        return self.repository.get()

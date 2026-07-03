@@ -1,9 +1,17 @@
 
-from interfaces.repository_interface import RepositoryInterface
+from ..models.code_model import CodeModel
 
 
-class CodeRepository(RepositoryInterface):
+class CodeRepository:
     """
-    Repository for storing and retrieving CodeModel objects.
+    Stores the complete project CodeModel.
     """
-    pass
+
+    def __init__(self):
+        self.code_model: CodeModel | None = None
+
+    def save(self, code_model: CodeModel):
+        self.code_model = code_model
+
+    def get(self) -> CodeModel | None:
+        return self.code_model

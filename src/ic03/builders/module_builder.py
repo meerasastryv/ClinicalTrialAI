@@ -1,15 +1,26 @@
 
-from models.module_model import ModuleModel
+from src.ic03.models.module_model import ModuleModel
 
 
 class ModuleBuilder:
     """
-    Builds ModuleModel objects.
+    Builds a ModuleModel from parsed module information.
     """
 
-    def build(self, name: str, path: str) -> ModuleModel:
-
+    def build_module(
+        self,
+        name,
+        imports,
+        classes,
+        functions,
+        path="",
+        language="Python",
+    ):
         return ModuleModel(
             name=name,
+            imports=imports,
+            classes=classes,
+            functions=functions,
             path=path,
+            language=language,
         )

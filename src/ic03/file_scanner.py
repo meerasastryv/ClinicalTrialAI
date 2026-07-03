@@ -1,9 +1,8 @@
 from pathlib import Path
 from datetime import datetime
 
-from config import SUPPORTED_EXTENSIONS, IGNORE_DIRECTORIES
-from models import SourceFile
-
+from .config import SUPPORTED_EXTENSIONS, IGNORE_DIRECTORIES
+from .models.source_file import SourceFile
 
 class FileScanner:
 

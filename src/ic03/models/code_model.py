@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from .module_model import ModuleModel
 
 @dataclass
 class CodeModel:

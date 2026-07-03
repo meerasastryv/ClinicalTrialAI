@@ -1,44 +1,51 @@
 from pathlib import Path
-from visitors.class_visitor import ClassVisitor
-from parsers.python_ast_parser import PythonASTParser
-from visitors.import_visitor import ImportVisitor
-parser = PythonASTParser()
 
-#tree = parser.parse(Path("src/ic03/main.py"))
-tree = parser.parse(Path("src/ic03/project_loader.py"))
-visitor = ImportVisitor()
-visitor.visit(tree)
-print("\nImports Found")
-print("-" * 40)
-for item in visitor.imports:
-    print(item)
-class_visitor = ClassVisitor()
-class_visitor.visit(tree)
-print("\nClasses Found")
-print("-" * 40)
+from src.ic03.services.project_analysis_service import ProjectAnalysisService
+from src.ic03.services.dependency_analysis_service import DependencyAnalysisService
+from src.ic03.reports.dependency_report import DependencyReport
 
-for cls in class_visitor.classes:
-    print(cls)
-from visitors.function_visitor import FunctionVisitor
-function_visitor = FunctionVisitor()
-function_visitor.visit(tree)
-print("\nFunctions Found")
-print("-" * 40)
-for function in function_visitor.functions:
-    print(function)
 
-from visitors.method_visitor import MethodVisitor
+def main():
+    print("=" * 70)
+    print("           IC-03 Code Intelligence Engine")
+    print("=" * 70)
 
-method_visitor = MethodVisitor()
+    project_path = Path(".")
 
-method_visitor.visit(tree)
+    #
+    # Build Code Model
+    #
+    print("\nBuilding Code Model...")
 
-print("\nMethods Found")
-print("-" * 40)
+    project_service = ProjectAnalysisService()
 
-for cls, methods in method_visitor.methods.items():
+    code_model = project_service.analyze(project_path)
 
-    print(f"\nClass : {cls}")
+    print("✓ Code Model Generated")
 
-    for method in methods:
-        print(method)
+    print(f"Project : {code_model.project_name}")
+    print(f"Files   : {len(code_model.source_files)}")
+    print(f"Modules : {len(code_model.modules)}")
+    print(f"Classes : {len(code_model.classes)}")
+    print(f"Functions : {len(code_model.functions)}")
+
+    #
+    # Dependency Analysis
+    #
+    print("\nRunning Dependency Analysis...")
+
+    dependency_service = DependencyAnalysisService()
+
+    dependency_service.analyze_project(project_path)
+
+    report = DependencyReport(dependency_service)
+
+    print()
+
+    report.print_report()
+
+    print("\n✓ IC-03 analysis completed successfully.")
+
+
+if __name__ == "__main__":
+    main()

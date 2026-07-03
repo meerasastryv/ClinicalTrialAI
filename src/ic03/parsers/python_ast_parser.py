@@ -2,7 +2,7 @@ import ast
 from pathlib import Path
 
 
-from interfaces.parser_interface import ParserInterface
+from src.ic03.interfaces.parser_interface import ParserInterface
 
 
 class PythonASTParser(ParserInterface):

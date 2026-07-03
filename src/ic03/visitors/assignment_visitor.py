@@ -1,4 +1,4 @@
-from visitors.base_visitor import BaseVisitor
+from .base_visitor import BaseVisitor
 
 
 class AssignmentVisitor(BaseVisitor):
