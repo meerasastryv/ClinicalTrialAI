@@ -1,8 +1,18 @@
 from pathlib import Path
 
 from src.ic03.services.project_analysis_service import ProjectAnalysisService
-from src.ic03.services.dependency_analysis_service import DependencyAnalysisService
+
+from src.ic03.services.dependency_analysis_service import (
+    DependencyAnalysisService,
+)
 from src.ic03.reports.dependency_report import DependencyReport
+
+from src.ic03.services.class_dependency_analysis_service import (
+    ClassDependencyAnalysisService,
+)
+from src.ic03.reports.class_dependency_report import (
+    ClassDependencyReport,
+)
 
 
 def main():
@@ -30,7 +40,7 @@ def main():
     print(f"Functions : {len(code_model.functions)}")
 
     #
-    # Dependency Analysis
+    # Import Dependency Analysis
     #
     print("\nRunning Dependency Analysis...")
 
@@ -38,11 +48,26 @@ def main():
 
     dependency_service.analyze_project(project_path)
 
-    report = DependencyReport(dependency_service)
+    dependency_report = DependencyReport(dependency_service)
 
     print()
 
-    report.print_report()
+    dependency_report.print_report()
+
+    #
+    # Class Dependency Analysis
+    #
+    print("\nRunning Class Dependency Analysis...")
+
+    class_service = ClassDependencyAnalysisService()
+
+    class_service.analyze_project(project_path)
+
+    class_report = ClassDependencyReport(class_service)
+
+    print()
+
+    class_report.print_report()
 
     print("\n✓ IC-03 analysis completed successfully.")
 
