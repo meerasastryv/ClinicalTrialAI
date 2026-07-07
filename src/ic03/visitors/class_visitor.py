@@ -1,17 +1,17 @@
 import ast
 
 from .base_visitor import BaseVisitor
+from src.ic03.models.class_model import ClassModel
 
 
 class ClassVisitor(BaseVisitor):
     """
-    Visits Python class definitions.
+    Visits Python class definitions and builds ClassModel objects.
     """
 
     def __init__(self):
         super().__init__()
-
-        self.classes = []
+        self.classes: list[ClassModel] = []
 
     def visit_ClassDef(self, node: ast.ClassDef):
         """
@@ -28,13 +28,19 @@ class ClassVisitor(BaseVisitor):
             elif isinstance(base, ast.Attribute):
                 base_classes.append(base.attr)
 
-        class_info = {
-            "name": node.name,
-            "bases": base_classes,
-            "line_number": node.lineno,
-            "docstring": ast.get_docstring(node),
-        }
+        class_model = ClassModel(
+            name=node.name,
+            base_classes=base_classes,
+            line_number=node.lineno,
+            docstring=ast.get_docstring(node) or "",
+        )
 
-        self.classes.append(class_info)
+        self.classes.append(class_model)
 
         self.generic_visit(node)
+
+    def get_classes(self) -> list[ClassModel]:
+        """
+        Return all discovered classes.
+        """
+        return self.classes

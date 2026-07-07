@@ -11,17 +11,47 @@ class DependencyReport:
         Print dependency statistics.
         """
 
-        print("=" * 60)
-        print("        Dependency Analysis Report")
-        print("=" * 60)
+        print("=" * 70)
+        print("               Dependency Analysis Report")
+        print("=" * 70)
 
         print(f"Total Dependencies : {self.service.get_total_dependencies()}")
+        print(f"Classes Found      : {len(self.service.get_classes())}")
 
         print()
+
         print("Top Imported Modules")
-        print("-" * 60)
+        print("-" * 70)
 
         for module, count in self.service.get_top_imports():
-            print(f"{module:<35} {count}")
+            print(f"{module:<40} {count}")
 
-        print("=" * 60)
+        print()
+
+        print("Inheritance Hierarchy")
+        print("-" * 70)
+
+        hierarchy = self.service.get_inheritance_hierarchy()
+
+        if hierarchy:
+
+            for parent in sorted(hierarchy):
+
+                print(parent)
+
+                for child in sorted(hierarchy[parent]):
+                    print(f"   └── {child}")
+
+        else:
+            print("No inheritance relationships found.")
+
+        print()
+
+        print("Summary")
+        print("-" * 70)
+
+        print(f"Dependencies           : {self.service.get_total_dependencies()}")
+        print(f"Classes               : {len(self.service.get_classes())}")
+        print(f"Inheritance Roots     : {len(hierarchy)}")
+
+        print("=" * 70)
