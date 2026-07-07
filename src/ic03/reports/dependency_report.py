@@ -20,6 +20,9 @@ class DependencyReport:
 
         print()
 
+        #
+        # Top Imports
+        #
         print("Top Imported Modules")
         print("-" * 70)
 
@@ -28,6 +31,9 @@ class DependencyReport:
 
         print()
 
+        #
+        # Inheritance Hierarchy
+        #
         print("Inheritance Hierarchy")
         print("-" * 70)
 
@@ -47,11 +53,39 @@ class DependencyReport:
 
         print()
 
+        #
+        # Method Call Graph
+        #
+        print("Method Call Graph")
+        print("-" * 70)
+
+        calls = self.service.get_call_graph()
+
+        if calls:
+
+            max_calls = 50
+
+            for call in calls[:max_calls]:
+                print(f"{call.source:<45} -> {call.target}")
+
+            if len(calls) > max_calls:
+                print()
+                print(f"... {len(calls) - max_calls} additional method calls not shown ...")
+
+        else:
+            print("No method calls found.")
+
+        print()
+
+        #
+        # Summary
+        #
         print("Summary")
         print("-" * 70)
 
-        print(f"Dependencies           : {self.service.get_total_dependencies()}")
-        print(f"Classes               : {len(self.service.get_classes())}")
-        print(f"Inheritance Roots     : {len(hierarchy)}")
+        print(f"Dependencies        : {self.service.get_total_dependencies()}")
+        print(f"Classes             : {len(self.service.get_classes())}")
+        print(f"Method Calls        : {self.service.get_total_method_calls()}")
+        print(f"Inheritance Trees   : {len(hierarchy)}")
 
         print("=" * 70)
