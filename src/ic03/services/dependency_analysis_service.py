@@ -2,7 +2,7 @@
 from pathlib import Path
 from collections import Counter
 from src.ic03.builders.dependency_builder import DependencyBuilder
-from src.ic03.repositories.dependency_repository import DependencyRepository
+from src.ic03.repository.dependency_repository import DependencyRepository
 
 
 class DependencyAnalysisService:

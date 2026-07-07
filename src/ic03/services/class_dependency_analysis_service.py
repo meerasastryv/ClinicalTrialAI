@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from ..builders.class_dependency_builder import ClassDependencyBuilder
-from ..repositories.dependency_repository import DependencyRepository
+from ..repository.dependency_repository import DependencyRepository
 
 
 class ClassDependencyAnalysisService:

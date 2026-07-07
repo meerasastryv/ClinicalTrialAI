@@ -1,7 +1,7 @@
 import ast
 from pathlib import Path
 
-from src.ic03.repositories.dependency_repository import DependencyRepository
+from src.ic03.repository.dependency_repository import DependencyRepository
 from src.ic03.visitors.import_visitor import ImportVisitor
 
 

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from ..repositories.dependency_repository import DependencyRepository
+from ..repository.dependency_repository import DependencyRepository
 from ..parsers.python_ast_parser import PythonASTParser
 from ..visitors.class_dependency_visitor import ClassDependencyVisitor
 
