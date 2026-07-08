@@ -4,6 +4,10 @@ from src.ic03.repository.relationship_repository import (
     RelationshipRepository,
 )
 
+from src.ic03.models.relationship_type import (
+    RelationshipType,
+)
+
 
 class RelationshipQueryService:
     """
@@ -42,19 +46,29 @@ class RelationshipQueryService:
         return self.repository.get_by_type(relationship_type)
 
     def get_method_calls(self):
-        return self.get_relationships_by_type("METHOD_CALL")
+        return self.get_relationships_by_type(
+            RelationshipType.CALLS.value
+        )
 
     def get_imports(self):
-        return self.get_relationships_by_type("IMPORT")
+        return self.get_relationships_by_type(
+            RelationshipType.IMPORTS.value
+        )
 
     def get_inheritance_relationships(self):
-        return self.get_relationships_by_type("INHERITANCE")
+        return self.get_relationships_by_type(
+            RelationshipType.INHERITS.value
+        )
 
     def get_class_dependencies(self):
-        return self.get_relationships_by_type("CLASS_DEPENDENCY")
+        return self.get_relationships_by_type(
+            RelationshipType.CLASS_DEPENDENCY.value
+        )
 
     def get_file_dependencies(self):
-        return self.get_relationships_by_type("FILE_DEPENDENCY")
+        return self.get_relationships_by_type(
+            RelationshipType.FILE_DEPENDENCY.value
+        )
 
     # ---------------------------------------------------------
     # Graph Queries
@@ -130,7 +144,7 @@ class RelationshipQueryService:
         return relationships
 
     # ---------------------------------------------------------
-    # Summary
+    # Statistics
     # ---------------------------------------------------------
 
     def relationship_summary(self):
@@ -140,6 +154,10 @@ class RelationshipQueryService:
         )
 
         return dict(counter)
+
+    # ---------------------------------------------------------
+    # Display
+    # ---------------------------------------------------------
 
     def print_summary(self):
         print("\nRelationship Summary")
