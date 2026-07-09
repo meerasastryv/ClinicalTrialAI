@@ -134,12 +134,14 @@ digraph "Module Dependency Graph" {
     "src/ic03/interfaces/repository_interface.py" -> "abc";
     "src/ic03/interfaces/service_interface.py" -> "abc";
     "src/ic03/main.py" -> "pathlib";
+    "src/ic03/main.py" -> "src.ic03.reports.advanced_architecture_report";
     "src/ic03/main.py" -> "src.ic03.reports.architecture_metrics_report";
     "src/ic03/main.py" -> "src.ic03.reports.class_dependency_report";
     "src/ic03/main.py" -> "src.ic03.reports.dependency_report";
     "src/ic03/main.py" -> "src.ic03.reports.graph_traversal_report";
     "src/ic03/main.py" -> "src.ic03.reports.impact_analysis_report";
     "src/ic03/main.py" -> "src.ic03.reports.relationship_query_report";
+    "src/ic03/main.py" -> "src.ic03.services.advanced_architecture_analysis_service";
     "src/ic03/main.py" -> "src.ic03.services.architecture_metrics_service";
     "src/ic03/main.py" -> "src.ic03.services.class_dependency_analysis_service";
     "src/ic03/main.py" -> "src.ic03.services.dependency_analysis_service";
@@ -236,11 +238,13 @@ digraph "Module Dependency Graph" {
     "src/ic03/services/temp_das.py" -> "src.ic03.visitors.call_graph_visitor";
     "src/ic03/services/temp_das.py" -> "src.ic03.visitors.class_visitor";
     "src/ic03/temp_main.py" -> "pathlib";
+    "src/ic03/temp_main.py" -> "src.ic03.reports.architecture_metrics_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.class_dependency_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.dependency_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.graph_traversal_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.impact_analysis_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.relationship_query_report";
+    "src/ic03/temp_main.py" -> "src.ic03.services.architecture_metrics_service";
     "src/ic03/temp_main.py" -> "src.ic03.services.class_dependency_analysis_service";
     "src/ic03/temp_main.py" -> "src.ic03.services.dependency_analysis_service";
     "src/ic03/temp_main.py" -> "src.ic03.services.dependency_visualization_service";

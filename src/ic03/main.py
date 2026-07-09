@@ -43,6 +43,13 @@ from src.ic03.reports.architecture_metrics_report import (
     ArchitectureMetricsReport,
 )
 
+from src.ic03.services.advanced_architecture_analysis_service import (
+    AdvancedArchitectureAnalysisService,
+)
+from src.ic03.reports.advanced_architecture_report import (
+    AdvancedArchitectureReport,
+)
+
 from src.ic03.services.class_dependency_analysis_service import (
     ClassDependencyAnalysisService,
 )
@@ -52,6 +59,7 @@ from src.ic03.reports.class_dependency_report import (
 
 
 def main():
+
     print("=" * 70)
     print("              IC-03 Code Intelligence Engine")
     print("=" * 70)
@@ -172,6 +180,23 @@ def main():
     print()
 
     metrics_report.print_report()
+
+    #
+    # Advanced Architecture Analysis Engine
+    #
+    print("\nRunning Advanced Architecture Analysis Engine...")
+
+    advanced_service = AdvancedArchitectureAnalysisService(
+        traversal_service
+    )
+
+    advanced_report = AdvancedArchitectureReport(
+        advanced_service
+    )
+
+    print()
+
+    advanced_report.print_report()
 
     #
     # Class Dependency Analysis
