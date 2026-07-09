@@ -36,6 +36,13 @@ from src.ic03.services.dependency_visualization_service import (
     DependencyVisualizationService,
 )
 
+from src.ic03.services.architecture_metrics_service import (
+    ArchitectureMetricsService,
+)
+from src.ic03.reports.architecture_metrics_report import (
+    ArchitectureMetricsReport,
+)
+
 from src.ic03.services.class_dependency_analysis_service import (
     ClassDependencyAnalysisService,
 )
@@ -148,6 +155,23 @@ def main():
     print()
 
     visualization_service.export_all()
+
+    #
+    # Architecture Metrics Engine
+    #
+    print("\nRunning Architecture Metrics Engine...")
+
+    metrics_service = ArchitectureMetricsService(
+        traversal_service
+    )
+
+    metrics_report = ArchitectureMetricsReport(
+        metrics_service
+    )
+
+    print()
+
+    metrics_report.print_report()
 
     #
     # Class Dependency Analysis

@@ -32,6 +32,10 @@ from src.ic03.reports.impact_analysis_report import (
     ImpactAnalysisReport,
 )
 
+from src.ic03.services.dependency_visualization_service import (
+    DependencyVisualizationService,
+)
+
 from src.ic03.services.class_dependency_analysis_service import (
     ClassDependencyAnalysisService,
 )
@@ -131,6 +135,19 @@ def main():
     print()
 
     impact_report.print_report()
+
+    #
+    # Dependency Visualization Engine
+    #
+    print("\nRunning Dependency Visualization Engine...")
+
+    visualization_service = DependencyVisualizationService(
+        dependency_service.relationship_repository
+    )
+
+    print()
+
+    visualization_service.export_all()
 
     #
     # Class Dependency Analysis
