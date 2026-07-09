@@ -1,0 +1,2612 @@
+======================================================================
+              IC-03 Code Intelligence Engine
+======================================================================
+
+Building Code Model...
+✓ Code Model Generated
+Project   : ClinicalTrialAI
+Files     : 144
+Modules   : 144
+Classes   : 104
+Functions : 0
+
+Running Dependency Analysis...
+
+======================================================================
+               Dependency Analysis Report
+======================================================================
+Total Dependencies : 310
+Classes Found      : 104
+
+Top Imported Modules
+----------------------------------------------------------------------
+dataclasses                              19
+pathlib                                  18
+typing                                   18
+base_visitor                             13
+ast                                      12
+collections                              8
+models                                   6
+models.code_model                        5
+boundary_models                          4
+src.ic02.models.requirement              4
+
+Inheritance Hierarchy
+----------------------------------------------------------------------
+ABC
+   └── ParserInterface
+   └── RepositoryInterface
+   └── ServiceInterface
+BaseVisitor
+   └── AnnotationVisitor
+   └── AssignmentVisitor
+   └── CallGraphVisitor
+   └── ClassDependencyVisitor
+   └── ClassVisitor
+   └── ComplexityVisitor
+   └── DependencyVisitor
+   └── DocstringVisitor
+   └── ExceptionVisitor
+   └── FunctionVisitor
+   └── ImportVisitor
+   └── InheritanceVisitor
+   └── MethodVisitor
+   └── VariableVisitor
+Enum
+   └── DependencyType
+   └── RelationshipType
+NodeVisitor
+   └── BaseVisitor
+ParserInterface
+   └── PythonASTParser
+
+Method Call Graph
+----------------------------------------------------------------------
+UserService.__init__                          -> Repository
+UserService.__init__                          -> Logger
+main                                          -> print
+main                                          -> print
+main                                          -> print
+main                                          -> Path
+main                                          -> print
+main                                          -> ProjectAnalysisService
+main                                          -> analyze
+main                                          -> print
+main                                          -> print
+main                                          -> print
+main                                          -> len
+main                                          -> print
+main                                          -> len
+main                                          -> print
+main                                          -> len
+main                                          -> print
+main                                          -> len
+main                                          -> print
+main                                          -> DependencyAnalysisService
+main                                          -> analyze_project
+main                                          -> DependencyReport
+main                                          -> print
+main                                          -> print_report
+main                                          -> print
+main                                          -> RelationshipQueryService
+main                                          -> RelationshipQueryReport
+main                                          -> print
+main                                          -> print_report
+main                                          -> print
+main                                          -> GraphTraversalService
+main                                          -> GraphTraversalReport
+main                                          -> print
+main                                          -> print_report
+main                                          -> print
+main                                          -> ImpactAnalysisService
+main                                          -> ImpactAnalysisReport
+main                                          -> print
+main                                          -> print_report
+main                                          -> print
+main                                          -> DependencyVisualizationService
+main                                          -> print
+main                                          -> export_all
+main                                          -> print
+main                                          -> ArchitectureMetricsService
+main                                          -> ArchitectureMetricsReport
+main                                          -> print
+main                                          -> print_report
+main                                          -> print
+
+... 1535 additional method calls not shown ...
+
+Summary
+----------------------------------------------------------------------
+Dependencies        : 310
+Classes             : 104
+Method Calls        : 1585
+Inheritance Trees   : 5
+======================================================================
+
+Running Relationship Query Engine...
+
+======================================================================
+              RELATIONSHIP QUERY REPORT
+======================================================================
+
+Repository Statistics
+----------------------------------------
+Total Relationships : 1916
+
+Relationship Types
+----------------------------------------
+CALLS                    1585
+IMPORTS                  310
+INHERITS                 21
+
+Method Calls
+----------------------------------------
+UserService.__init__  --->  Repository
+UserService.__init__  --->  Logger
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  Path
+main  --->  print
+main  --->  ProjectAnalysisService
+main  --->  analyze
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  len
+main  --->  print
+main  --->  len
+main  --->  print
+main  --->  len
+main  --->  print
+main  --->  len
+main  --->  print
+main  --->  DependencyAnalysisService
+main  --->  analyze_project
+main  --->  DependencyReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  RelationshipQueryService
+main  --->  RelationshipQueryReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  GraphTraversalService
+main  --->  GraphTraversalReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  ImpactAnalysisService
+main  --->  ImpactAnalysisReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  DependencyVisualizationService
+main  --->  print
+main  --->  export_all
+main  --->  print
+main  --->  ArchitectureMetricsService
+main  --->  ArchitectureMetricsReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  AdvancedArchitectureAnalysisService
+main  --->  AdvancedArchitectureReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  CodeIntelligenceQueryService
+main  --->  CodeIntelligenceQueryReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  ClassDependencyAnalysisService
+main  --->  analyze_project
+main  --->  ClassDependencyReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+FileScanner.scan  --->  FileScanner.rglob
+FileScanner.scan  --->  FileScanner.is_file
+FileScanner.scan  --->  any
+FileScanner.scan  --->  FileScanner.lower
+FileScanner.scan  --->  FileScanner.stat
+FileScanner.scan  --->  FileScanner.append
+FileScanner.scan  --->  SourceFile
+FileScanner.scan  --->  FileScanner.relative_to
+FileScanner.scan  --->  FileScanner.fromtimestamp
+format_datetime  --->  strftime
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  Path
+main  --->  print
+main  --->  ProjectAnalysisService
+main  --->  analyze
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  len
+main  --->  print
+main  --->  len
+main  --->  print
+main  --->  len
+main  --->  print
+main  --->  len
+main  --->  print
+main  --->  DependencyAnalysisService
+main  --->  analyze_project
+main  --->  DependencyReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  RelationshipQueryService
+main  --->  RelationshipQueryReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  GraphTraversalService
+main  --->  GraphTraversalReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  ImpactAnalysisService
+main  --->  ImpactAnalysisReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  DependencyVisualizationService
+main  --->  print
+main  --->  export_all
+main  --->  print
+main  --->  ArchitectureMetricsService
+main  --->  ArchitectureMetricsReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  AdvancedArchitectureAnalysisService
+main  --->  AdvancedArchitectureReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  CodeIntelligenceQueryService
+main  --->  CodeIntelligenceQueryReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  AICodeAssistantService
+main  --->  AICodeAssistantReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+main  --->  ClassDependencyAnalysisService
+main  --->  analyze_project
+main  --->  ClassDependencyReport
+main  --->  print
+main  --->  print_report
+main  --->  print
+ProjectLoader.__init__  --->  ProjectLoader.resolve
+ProjectLoader.__init__  --->  ProjectLoader.expanduser
+ProjectLoader.__init__  --->  Path
+ProjectLoader.exists  --->  ProjectLoader.exists
+ProjectLoader.is_directory  --->  ProjectLoader.is_dir
+ProjectLoader.validate  --->  ProjectLoader.exists
+ProjectLoader.validate  --->  FileNotFoundError
+ProjectLoader.validate  --->  ProjectLoader.is_directory
+ProjectLoader.validate  --->  NotADirectoryError
+ProjectLoader.get_project_root  --->  ProjectLoader.validate
+BoundaryRuleEngine.generate  --->  BoundaryRuleEngine.extend
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryRuleEngine.extend
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryRuleEngine.extend
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+BoundaryRuleEngine.generate  --->  BoundaryValue
+main  --->  Requirement
+main  --->  TestDesignEngine
+main  --->  generate
+main  --->  print
+main  --->  BoundaryValueGenerator
+main  --->  generate
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  enumerate
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  items
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+test_age_boundary  --->  BoundaryValueGenerator
+test_age_boundary  --->  generate
+test_age_boundary  --->  len
+test_age_boundary  --->  len
+test_age_boundary  --->  print
+test_password_boundary  --->  BoundaryValueGenerator
+test_password_boundary  --->  generate
+test_password_boundary  --->  len
+test_password_boundary  --->  print
+test_quantity_boundary  --->  BoundaryValueGenerator
+test_quantity_boundary  --->  generate
+test_quantity_boundary  --->  len
+test_quantity_boundary  --->  print
+BoundaryExporter.export_to_json  --->  asdict
+BoundaryExporter.export_to_json  --->  Path
+BoundaryExporter.export_to_json  --->  BoundaryExporter.mkdir
+BoundaryExporter.export_to_json  --->  open
+BoundaryExporter.export_to_json  --->  BoundaryExporter.dump
+BoundaryExporter.export_to_json  --->  print
+main  --->  Requirement
+main  --->  TestDesignEngine
+main  --->  generate
+main  --->  BoundaryValueGenerator
+main  --->  generate
+main  --->  DecisionTableGenerator
+main  --->  generate
+main  --->  ReportFormatter
+main  --->  print_scenarios
+main  --->  print_boundary_cases
+main  --->  print_decision_tables
+BoundaryValueGenerator.__init__  --->  BoundaryDetector
+BoundaryValueGenerator.__init__  --->  BoundaryRuleEngine
+BoundaryValueGenerator.generate  --->  BoundaryValueGenerator.detect
+BoundaryValueGenerator.generate  --->  BoundaryValueGenerator.generate
+BoundaryValueGenerator.generate  --->  enumerate
+BoundaryValueGenerator.generate  --->  BoundaryValueGenerator.append
+BoundaryValueGenerator.generate  --->  BoundaryTestCase
+BoundaryValueGenerator.generate  --->  BoundaryAnalysisResult
+BoundaryDetector.detect  --->  BoundaryDetector.lower
+BoundaryDetector.detect  --->  BoundaryDetector.search
+BoundaryDetector.detect  --->  BoundaryConstraint
+BoundaryDetector.detect  --->  BoundaryDetector.group
+BoundaryDetector.detect  --->  float
+BoundaryDetector.detect  --->  BoundaryDetector.group
+BoundaryDetector.detect  --->  float
+BoundaryDetector.detect  --->  BoundaryDetector.group
+BoundaryDetector.detect  --->  BoundaryDetector.search
+BoundaryDetector.detect  --->  BoundaryConstraint
+BoundaryDetector.detect  --->  BoundaryDetector.group
+BoundaryDetector.detect  --->  float
+BoundaryDetector.detect  --->  BoundaryDetector.group
+BoundaryDetector.detect  --->  float
+BoundaryDetector.detect  --->  BoundaryDetector.group
+BoundaryDetector.detect  --->  BoundaryDetector.search
+BoundaryDetector.detect  --->  BoundaryConstraint
+BoundaryDetector.detect  --->  BoundaryDetector.group
+BoundaryDetector.detect  --->  float
+BoundaryDetector.detect  --->  BoundaryDetector.group
+BoundaryDetector.detect  --->  BoundaryDetector.search
+BoundaryDetector.detect  --->  BoundaryConstraint
+BoundaryDetector.detect  --->  BoundaryDetector.group
+BoundaryDetector.detect  --->  float
+BoundaryDetector.detect  --->  BoundaryDetector.group
+classify_requirement  --->  lower
+classify_requirement  --->  append
+classify_requirement  --->  append
+classify_requirement  --->  append
+classify_requirement  --->  append
+classify_requirement  --->  any
+classify_requirement  --->  append
+classify_requirement  --->  any
+classify_requirement  --->  append
+classify_requirement  --->  any
+classify_requirement  --->  append
+extract_metadata  --->  lower
+extract_metadata  --->  any
+extract_metadata  --->  any
+extract_metadata  --->  any
+extract_metadata  --->  any
+retrieve_context  --->  tolist
+retrieve_context  --->  encode
+retrieve_context  --->  query
+build_context  --->  join
+ask_llm  --->  chat
+ask_requirement_assistant  --->  retrieve_context
+ask_requirement_assistant  --->  print
+ask_requirement_assistant  --->  print
+ask_requirement_assistant  --->  range
+ask_requirement_assistant  --->  len
+ask_requirement_assistant  --->  print
+ask_requirement_assistant  --->  print
+ask_requirement_assistant  --->  build_context
+ask_requirement_assistant  --->  ask_llm
+store_requirement  --->  tolist
+store_requirement  --->  encode
+store_requirement  --->  add
+semantic_search  --->  tolist
+semantic_search  --->  encode
+semantic_search  --->  query
+analyze_impact  --->  print
+analyze_impact  --->  semantic_search
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  get
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  enumerate
+analyze_impact  --->  print
+analyze_impact  --->  len
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  input
+main  --->  analyze_impact
+analyze_impact  --->  print
+analyze_impact  --->  semantic_search
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  get
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  enumerate
+analyze_impact  --->  print
+analyze_impact  --->  len
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  print
+analyze_impact  --->  print
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  input
+main  --->  analyze_impact
+load_requirements  --->  rglob
+load_requirements  --->  Path
+load_requirements  --->  open
+load_requirements  --->  safe_load
+load_requirements  --->  split
+load_requirements  --->  get
+load_requirements  --->  isinstance
+load_requirements  --->  extend
+load_requirements  --->  keys
+load_requirements  --->  append
+load_requirements  --->  Requirement
+load_requirements  --->  strip
+load_requirements  --->  get
+load_requirements  --->  append
+find_by_product  --->  upper
+find_by_product  --->  upper
+find_by_type  --->  upper
+find_by_type  --->  upper
+find_by_keyword  --->  lower
+find_by_keyword  --->  lower
+summarize_requirement  --->  len
+generate_acceptance_criteria  --->  lower
+generate_acceptance_criteria  --->  append
+generate_acceptance_criteria  --->  append
+generate_acceptance_criteria  --->  append
+generate_acceptance_criteria  --->  append
+generate_acceptance_criteria  --->  append
+generate_acceptance_criteria  --->  append
+generate_acceptance_criteria  --->  append
+generate_acceptance_criteria  --->  append
+generate_acceptance_criteria  --->  append
+generate_acceptance_criteria  --->  append
+analyze_requirement  --->  lower
+analyze_requirement  --->  append
+analyze_requirement  --->  len
+analyze_requirement  --->  len
+build_relationship_graph  --->  defaultdict
+build_relationship_graph  --->  append
+build_relationship_graph  --->  dict
+get_children  --->  get
+print_graph  --->  items
+print_graph  --->  print
+print_graph  --->  print
+BaseVisitor.__init__  --->  BaseVisitor.__init__
+BaseVisitor.__init__  --->  super
+ClassDependencyVisitor.__init__  --->  ClassDependencyVisitor.__init__
+ClassDependencyVisitor.__init__  --->  super
+ClassDependencyVisitor.visit_ClassDef  --->  ClassDependencyVisitor.generic_visit
+ClassDependencyVisitor.visit_Call  --->  isinstance
+ClassDependencyVisitor.visit_Call  --->  Dependency
+ClassDependencyVisitor.visit_Call  --->  ClassDependencyVisitor.append
+ClassDependencyVisitor.visit_Call  --->  ClassDependencyVisitor.generic_visit
+FunctionVisitor.__init__  --->  FunctionVisitor.__init__
+FunctionVisitor.__init__  --->  super
+ExceptionVisitor.__init__  --->  ExceptionVisitor.__init__
+ExceptionVisitor.__init__  --->  super
+ComplexityVisitor.__init__  --->  ComplexityVisitor.__init__
+ComplexityVisitor.__init__  --->  super
+DocstringVisitor.__init__  --->  DocstringVisitor.__init__
+DocstringVisitor.__init__  --->  super
+InheritanceVisitor.__init__  --->  InheritanceVisitor.__init__
+InheritanceVisitor.__init__  --->  super
+InheritanceVisitor.visit_ClassDef  --->  isinstance
+InheritanceVisitor.visit_ClassDef  --->  Dependency
+InheritanceVisitor.visit_ClassDef  --->  InheritanceVisitor.append
+InheritanceVisitor.visit_ClassDef  --->  isinstance
+InheritanceVisitor.visit_ClassDef  --->  Dependency
+InheritanceVisitor.visit_ClassDef  --->  InheritanceVisitor.append
+InheritanceVisitor.visit_ClassDef  --->  InheritanceVisitor.generic_visit
+DependencyVisitor.__init__  --->  DependencyVisitor.__init__
+DependencyVisitor.__init__  --->  super
+ClassVisitor.__init__  --->  ClassVisitor.__init__
+ClassVisitor.__init__  --->  super
+ClassVisitor.visit_ClassDef  --->  isinstance
+ClassVisitor.visit_ClassDef  --->  ClassVisitor.append
+ClassVisitor.visit_ClassDef  --->  isinstance
+ClassVisitor.visit_ClassDef  --->  ClassVisitor.append
+ClassVisitor.visit_ClassDef  --->  ClassModel
+ClassVisitor.visit_ClassDef  --->  ClassVisitor.get_docstring
+ClassVisitor.visit_ClassDef  --->  ClassVisitor.append
+ClassVisitor.visit_ClassDef  --->  ClassVisitor.generic_visit
+AssignmentVisitor.__init__  --->  AssignmentVisitor.__init__
+AssignmentVisitor.__init__  --->  super
+ImportVisitor.__init__  --->  ImportVisitor.__init__
+ImportVisitor.__init__  --->  super
+ImportVisitor.__init__  --->  set
+ImportVisitor.visit_Import  --->  ImportVisitor.add
+ImportVisitor.visit_Import  --->  Dependency
+ImportVisitor.visit_Import  --->  ImportVisitor.append
+ImportVisitor.visit_Import  --->  ImportVisitor.generic_visit
+ImportVisitor.visit_ImportFrom  --->  ImportVisitor.generic_visit
+ImportVisitor.visit_ImportFrom  --->  ImportVisitor.add
+ImportVisitor.visit_ImportFrom  --->  Dependency
+ImportVisitor.visit_ImportFrom  --->  ImportVisitor.append
+ImportVisitor.visit_ImportFrom  --->  ImportVisitor.generic_visit
+ImportVisitor.get_imports  --->  sorted
+VariableVisitor.__init__  --->  VariableVisitor.__init__
+VariableVisitor.__init__  --->  super
+AnnotationVisitor.__init__  --->  AnnotationVisitor.__init__
+AnnotationVisitor.__init__  --->  super
+CallGraphVisitor.__init__  --->  CallGraphVisitor.__init__
+CallGraphVisitor.__init__  --->  super
+CallGraphVisitor.visit_ClassDef  --->  CallGraphVisitor.generic_visit
+CallGraphVisitor.visit_FunctionDef  --->  CallGraphVisitor.generic_visit
+CallGraphVisitor.visit_Call  --->  isinstance
+CallGraphVisitor.visit_Call  --->  CallGraphVisitor.append
+CallGraphVisitor.visit_Call  --->  Dependency
+CallGraphVisitor.visit_Call  --->  isinstance
+CallGraphVisitor.visit_Call  --->  CallGraphVisitor.append
+CallGraphVisitor.visit_Call  --->  Dependency
+CallGraphVisitor.visit_Call  --->  CallGraphVisitor.generic_visit
+MethodVisitor.__init__  --->  MethodVisitor.__init__
+MethodVisitor.__init__  --->  super
+MethodVisitor.visit_ClassDef  --->  isinstance
+MethodVisitor.visit_ClassDef  --->  MethodVisitor.append
+MethodVisitor.visit_ClassDef  --->  hasattr
+MethodVisitor.visit_ClassDef  --->  MethodVisitor.unparse
+MethodVisitor.visit_ClassDef  --->  MethodVisitor.get_docstring
+MethodVisitor.visit_ClassDef  --->  MethodVisitor.generic_visit
+InheritanceBuilder.__init__  --->  defaultdict
+InheritanceBuilder.__init__  --->  defaultdict
+InheritanceBuilder.build  --->  InheritanceBuilder.clear
+InheritanceBuilder.build  --->  InheritanceBuilder.clear
+InheritanceBuilder.build  --->  InheritanceBuilder.append
+InheritanceBuilder.build  --->  InheritanceBuilder.append
+InheritanceBuilder.get_children  --->  InheritanceBuilder.get
+InheritanceBuilder.get_parents  --->  InheritanceBuilder.get
+InheritanceBuilder.get_hierarchy  --->  dict
+InheritanceBuilder.print_hierarchy  --->  print
+InheritanceBuilder.print_hierarchy  --->  print
+InheritanceBuilder.print_hierarchy  --->  print
+InheritanceBuilder.print_hierarchy  --->  sorted
+InheritanceBuilder.print_hierarchy  --->  print
+InheritanceBuilder.print_hierarchy  --->  sorted
+InheritanceBuilder.print_hierarchy  --->  print
+RelationshipRepository.add_relationship  --->  RelationshipRepository.append
+RelationshipRepository.clear  --->  RelationshipRepository.clear
+RelationshipRepository.count  --->  len
+MethodRepository.add  --->  MethodRepository.append
+FunctionRepository.add  --->  FunctionRepository.append
+ModuleRepository.add  --->  ModuleRepository.append
+DependencyRepository.add_dependency  --->  DependencyRepository.append
+DependencyRepository.clear  --->  DependencyRepository.clear
+DependencyRepository.exists  --->  DependencyRepository.find
+DependencyRepository.count  --->  len
+ClassRepository.add  --->  ClassRepository.append
+PythonASTParser.parse  --->  PythonASTParser.read_text
+PythonASTParser.parse  --->  PythonASTParser.parse
+PythonASTParser.parse  --->  str
+ClassDependencyBuilder.__init__  --->  PythonASTParser
+ClassDependencyBuilder.build  --->  ClassDependencyBuilder.parse
+ClassDependencyBuilder.build  --->  ClassDependencyVisitor
+ClassDependencyBuilder.build  --->  ClassDependencyBuilder.visit
+ClassDependencyBuilder.build  --->  ClassDependencyBuilder.get_dependencies
+ClassDependencyBuilder.build  --->  ClassDependencyBuilder.add_dependency
+FunctionBuilder.build_function  --->  FunctionModel
+DependencyBuilder.build  --->  open
+DependencyBuilder.build  --->  DependencyBuilder.parse
+DependencyBuilder.build  --->  DependencyBuilder.read
+DependencyBuilder.build  --->  ImportVisitor
+DependencyBuilder.build  --->  str
+DependencyBuilder.build  --->  DependencyBuilder.visit
+DependencyBuilder.build  --->  DependencyBuilder.get_dependencies
+DependencyBuilder.build  --->  DependencyBuilder.add_dependency
+ModuleBuilder.build_module  --->  ModuleModel
+MethodBuilder.build_method  --->  MethodModel
+CodeModelBuilder.build_code  --->  CodeModel
+main  --->  CodeRepository
+main  --->  CodeModel
+main  --->  save
+main  --->  print
+main  --->  print
+main  --->  get
+main  --->  PythonASTParser
+main  --->  parse
+main  --->  Path
+main  --->  ImportVisitor
+main  --->  visit
+main  --->  print
+main  --->  print
+main  --->  sorted
+main  --->  print
+main  --->  ClassVisitor
+main  --->  visit
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  FunctionVisitor
+main  --->  visit
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  FunctionBuilder
+main  --->  print
+main  --->  print
+main  --->  build_function
+main  --->  append
+main  --->  print
+main  --->  MethodVisitor
+main  --->  visit
+main  --->  print
+main  --->  print
+main  --->  items
+main  --->  print
+main  --->  print
+main  --->  MethodBuilder
+main  --->  print
+main  --->  print
+main  --->  items
+main  --->  print
+main  --->  build_method
+main  --->  print
+main  --->  ClassBuilder
+main  --->  print
+main  --->  print
+main  --->  build_class
+main  --->  append
+main  --->  print
+main  --->  ModuleBuilder
+main  --->  build_module
+main  --->  sorted
+main  --->  build_class
+main  --->  build_function
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  CodeModelBuilder
+main  --->  build_code
+main  --->  build_class
+main  --->  build_function
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  CodeService
+main  --->  CodeModel
+main  --->  load
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  get_code_model
+main  --->  SearchService
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  get_functions
+main  --->  print
+main  --->  get_methods
+main  --->  print
+main  --->  find_class
+main  --->  DependencyService
+main  --->  print
+main  --->  print
+main  --->  print
+main  --->  get_dependencies
+main  --->  ProjectAnalysisService
+main  --->  analyze
+main  --->  print
+main  --->  print
+DependencyAnalysisService.__init__  --->  DependencyRepository
+DependencyAnalysisService.__init__  --->  DependencyBuilder
+DependencyAnalysisService.__init__  --->  InheritanceBuilder
+DependencyAnalysisService.__init__  --->  RelationshipRepository
+DependencyAnalysisService.analyze_file  --->  DependencyAnalysisService.build
+DependencyAnalysisService.analyze_classes  --->  open
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.parse
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.read
+DependencyAnalysisService.analyze_classes  --->  ClassVisitor
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.visit
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.extend
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.get_classes
+DependencyAnalysisService.analyze_call_graph  --->  open
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.parse
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.read
+DependencyAnalysisService.analyze_call_graph  --->  CallGraphVisitor
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.visit
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.extend
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.get_calls
+DependencyAnalysisService.build_relationships  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.build_relationships  --->  DependencyAnalysisService.get_all_dependencies
+DependencyAnalysisService.build_relationships  --->  DependencyAnalysisService.add_relationship
+DependencyAnalysisService.build_relationships  --->  Relationship
+DependencyAnalysisService.build_relationships  --->  DependencyAnalysisService.add_relationship
+DependencyAnalysisService.build_relationships  --->  Relationship
+DependencyAnalysisService.build_relationships  --->  DependencyAnalysisService.items
+DependencyAnalysisService.build_relationships  --->  DependencyAnalysisService.get_hierarchy
+DependencyAnalysisService.build_relationships  --->  DependencyAnalysisService.add_relationship
+DependencyAnalysisService.build_relationships  --->  Relationship
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.rglob
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.analyze_file
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.analyze_classes
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.analyze_call_graph
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.build
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.build_relationships
+DependencyAnalysisService.get_dependencies  --->  DependencyAnalysisService.get_all_dependencies
+DependencyAnalysisService.get_total_dependencies  --->  len
+DependencyAnalysisService.get_total_dependencies  --->  DependencyAnalysisService.get_all_dependencies
+DependencyAnalysisService.get_import_statistics  --->  Counter
+DependencyAnalysisService.get_import_statistics  --->  DependencyAnalysisService.get_all_dependencies
+DependencyAnalysisService.get_top_imports  --->  DependencyAnalysisService.most_common
+DependencyAnalysisService.get_top_imports  --->  DependencyAnalysisService.get_import_statistics
+DependencyAnalysisService.get_inheritance_hierarchy  --->  DependencyAnalysisService.get_hierarchy
+DependencyAnalysisService.get_children  --->  DependencyAnalysisService.get_children
+DependencyAnalysisService.get_total_method_calls  --->  len
+DependencyAnalysisService.get_relationships  --->  DependencyAnalysisService.get_all
+DependencyAnalysisService.get_relationships_by_source  --->  DependencyAnalysisService.get_by_source
+DependencyAnalysisService.get_relationships_by_target  --->  DependencyAnalysisService.get_by_target
+DependencyAnalysisService.get_relationships_by_type  --->  DependencyAnalysisService.get_by_type
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+AdvancedArchitectureAnalysisService.orphan_components  --->  AdvancedArchitectureAnalysisService.get_nodes
+AdvancedArchitectureAnalysisService.orphan_components  --->  AdvancedArchitectureAnalysisService.in_degree
+AdvancedArchitectureAnalysisService.orphan_components  --->  AdvancedArchitectureAnalysisService.out_degree
+AdvancedArchitectureAnalysisService.orphan_components  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService.orphan_components  --->  sorted
+AdvancedArchitectureAnalysisService.highly_coupled_components  --->  AdvancedArchitectureAnalysisService.get_nodes
+AdvancedArchitectureAnalysisService.highly_coupled_components  --->  AdvancedArchitectureAnalysisService.in_degree
+AdvancedArchitectureAnalysisService.highly_coupled_components  --->  AdvancedArchitectureAnalysisService.out_degree
+AdvancedArchitectureAnalysisService.highly_coupled_components  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService.highly_coupled_components  --->  AdvancedArchitectureAnalysisService.sort
+AdvancedArchitectureAnalysisService.total_components  --->  AdvancedArchitectureAnalysisService.node_count
+AdvancedArchitectureAnalysisService.total_relationships  --->  AdvancedArchitectureAnalysisService.edge_count
+AdvancedArchitectureAnalysisService.summary  --->  AdvancedArchitectureAnalysisService.total_components
+AdvancedArchitectureAnalysisService.summary  --->  AdvancedArchitectureAnalysisService.total_relationships
+AdvancedArchitectureAnalysisService.summary  --->  len
+AdvancedArchitectureAnalysisService.summary  --->  AdvancedArchitectureAnalysisService.orphan_components
+AdvancedArchitectureAnalysisService.summary  --->  len
+AdvancedArchitectureAnalysisService.summary  --->  AdvancedArchitectureAnalysisService.highly_coupled_components
+AdvancedArchitectureAnalysisService.detect_cycles  --->  set
+AdvancedArchitectureAnalysisService.detect_cycles  --->  set
+AdvancedArchitectureAnalysisService.detect_cycles  --->  AdvancedArchitectureAnalysisService.get_nodes
+AdvancedArchitectureAnalysisService.detect_cycles  --->  AdvancedArchitectureAnalysisService._dfs_cycle_detection
+AdvancedArchitectureAnalysisService.detect_cycles  --->  set
+AdvancedArchitectureAnalysisService.detect_cycles  --->  tuple
+AdvancedArchitectureAnalysisService.detect_cycles  --->  sorted
+AdvancedArchitectureAnalysisService.detect_cycles  --->  AdvancedArchitectureAnalysisService.add
+AdvancedArchitectureAnalysisService.detect_cycles  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService._dfs_cycle_detection  --->  AdvancedArchitectureAnalysisService.add
+AdvancedArchitectureAnalysisService._dfs_cycle_detection  --->  AdvancedArchitectureAnalysisService.add
+AdvancedArchitectureAnalysisService._dfs_cycle_detection  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService._dfs_cycle_detection  --->  AdvancedArchitectureAnalysisService.get_neighbors
+AdvancedArchitectureAnalysisService._dfs_cycle_detection  --->  AdvancedArchitectureAnalysisService._dfs_cycle_detection
+AdvancedArchitectureAnalysisService._dfs_cycle_detection  --->  AdvancedArchitectureAnalysisService.index
+AdvancedArchitectureAnalysisService._dfs_cycle_detection  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService._dfs_cycle_detection  --->  AdvancedArchitectureAnalysisService.remove
+AdvancedArchitectureAnalysisService._dfs_cycle_detection  --->  AdvancedArchitectureAnalysisService.pop
+AdvancedArchitectureAnalysisService.cycle_count  --->  len
+AdvancedArchitectureAnalysisService.cycle_count  --->  AdvancedArchitectureAnalysisService.detect_cycles
+AdvancedArchitectureAnalysisService.find_deep_dependency_chains  --->  AdvancedArchitectureAnalysisService.get_nodes
+AdvancedArchitectureAnalysisService.find_deep_dependency_chains  --->  AdvancedArchitectureAnalysisService._longest_chain
+AdvancedArchitectureAnalysisService.find_deep_dependency_chains  --->  len
+AdvancedArchitectureAnalysisService.find_deep_dependency_chains  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService.find_deep_dependency_chains  --->  AdvancedArchitectureAnalysisService.sort
+AdvancedArchitectureAnalysisService.dfs  --->  len
+AdvancedArchitectureAnalysisService.dfs  --->  len
+AdvancedArchitectureAnalysisService.dfs  --->  list
+AdvancedArchitectureAnalysisService.dfs  --->  AdvancedArchitectureAnalysisService.get_neighbors
+AdvancedArchitectureAnalysisService.dfs  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService.dfs  --->  dfs
+AdvancedArchitectureAnalysisService.dfs  --->  AdvancedArchitectureAnalysisService.pop
+AdvancedArchitectureAnalysisService._longest_chain  --->  dfs
+AdvancedArchitectureAnalysisService.longest_dependency_chain  --->  AdvancedArchitectureAnalysisService.find_deep_dependency_chains
+AdvancedArchitectureAnalysisService.maximum_dependency_depth  --->  AdvancedArchitectureAnalysisService.longest_dependency_chain
+AdvancedArchitectureAnalysisService.maximum_dependency_depth  --->  max
+AdvancedArchitectureAnalysisService.maximum_dependency_depth  --->  len
+AdvancedArchitectureAnalysisService.hub_components  --->  AdvancedArchitectureAnalysisService.get_nodes
+AdvancedArchitectureAnalysisService.hub_components  --->  AdvancedArchitectureAnalysisService.in_degree
+AdvancedArchitectureAnalysisService.hub_components  --->  AdvancedArchitectureAnalysisService.out_degree
+AdvancedArchitectureAnalysisService.hub_components  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService.hub_components  --->  AdvancedArchitectureAnalysisService.sort
+AdvancedArchitectureAnalysisService.architecture_smells  --->  AdvancedArchitectureAnalysisService.highly_coupled_components
+AdvancedArchitectureAnalysisService.architecture_smells  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService.architecture_smells  --->  AdvancedArchitectureAnalysisService.hub_components
+AdvancedArchitectureAnalysisService.architecture_smells  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService.architecture_smells  --->  AdvancedArchitectureAnalysisService.detect_cycles
+AdvancedArchitectureAnalysisService.architecture_smells  --->  AdvancedArchitectureAnalysisService.append
+AdvancedArchitectureAnalysisService.architecture_smells  --->  AdvancedArchitectureAnalysisService.join
+AdvancedArchitectureAnalysisService.stability_index  --->  AdvancedArchitectureAnalysisService.total_components
+AdvancedArchitectureAnalysisService.stability_index  --->  len
+AdvancedArchitectureAnalysisService.stability_index  --->  AdvancedArchitectureAnalysisService.highly_coupled_components
+AdvancedArchitectureAnalysisService.stability_index  --->  max
+AdvancedArchitectureAnalysisService.stability_index  --->  round
+AdvancedArchitectureAnalysisService.detailed_summary  --->  AdvancedArchitectureAnalysisService.total_components
+AdvancedArchitectureAnalysisService.detailed_summary  --->  AdvancedArchitectureAnalysisService.total_relationships
+AdvancedArchitectureAnalysisService.detailed_summary  --->  len
+AdvancedArchitectureAnalysisService.detailed_summary  --->  AdvancedArchitectureAnalysisService.orphan_components
+AdvancedArchitectureAnalysisService.detailed_summary  --->  len
+AdvancedArchitectureAnalysisService.detailed_summary  --->  AdvancedArchitectureAnalysisService.highly_coupled_components
+AdvancedArchitectureAnalysisService.detailed_summary  --->  AdvancedArchitectureAnalysisService.cycle_count
+AdvancedArchitectureAnalysisService.detailed_summary  --->  AdvancedArchitectureAnalysisService.maximum_dependency_depth
+AdvancedArchitectureAnalysisService.detailed_summary  --->  len
+AdvancedArchitectureAnalysisService.detailed_summary  --->  AdvancedArchitectureAnalysisService.hub_components
+AdvancedArchitectureAnalysisService.detailed_summary  --->  len
+AdvancedArchitectureAnalysisService.detailed_summary  --->  AdvancedArchitectureAnalysisService.architecture_smells
+AdvancedArchitectureAnalysisService.detailed_summary  --->  AdvancedArchitectureAnalysisService.stability_index
+ProjectAnalysisService.__init__  --->  PythonASTParser
+ProjectAnalysisService.__init__  --->  MethodBuilder
+ProjectAnalysisService.__init__  --->  FunctionBuilder
+ProjectAnalysisService.__init__  --->  ClassBuilder
+ProjectAnalysisService.__init__  --->  ModuleBuilder
+ProjectAnalysisService.__init__  --->  CodeModelBuilder
+ProjectAnalysisService.__init__  --->  CodeRepository
+ProjectAnalysisService.__init__  --->  ModuleRepository
+ProjectAnalysisService.__init__  --->  ClassRepository
+ProjectAnalysisService.__init__  --->  FunctionRepository
+ProjectAnalysisService.__init__  --->  MethodRepository
+ProjectAnalysisService.analyze  --->  ProjectLoader
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.get_project_root
+ProjectAnalysisService.analyze  --->  FileScanner
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.scan
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.parse
+ProjectAnalysisService.analyze  --->  ImportVisitor
+ProjectAnalysisService.analyze  --->  str
+ProjectAnalysisService.analyze  --->  ClassVisitor
+ProjectAnalysisService.analyze  --->  FunctionVisitor
+ProjectAnalysisService.analyze  --->  MethodVisitor
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.visit
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.visit
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.visit
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.visit
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.values
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.build_method
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.append
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.build_function
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.append
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.build_class
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.append
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.build_module
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.add
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.add
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.add
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.add
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.build_code
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.get_all
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.get_all
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.get_all
+ProjectAnalysisService.analyze  --->  ProjectAnalysisService.save
+CodeService.__init__  --->  CodeRepository
+CodeService.load  --->  CodeService.save
+CodeService.get_code_model  --->  CodeService.get
+AICodeAssistantService.project_summary  --->  AICodeAssistantService.project_summary
+AICodeAssistantService.architecture_summary  --->  AICodeAssistantService.architecture_summary
+AICodeAssistantService.health_summary  --->  AICodeAssistantService.health_summary
+AICodeAssistantService.platform_summary  --->  AICodeAssistantService.summary
+AICodeAssistantService.explain_component  --->  AICodeAssistantService.incoming_relationships
+AICodeAssistantService.explain_component  --->  AICodeAssistantService.outgoing_relationships
+AICodeAssistantService.explain_component  --->  AICodeAssistantService.append
+AICodeAssistantService.explain_component  --->  AICodeAssistantService.append
+AICodeAssistantService.explain_component  --->  len
+AICodeAssistantService.explain_component  --->  len
+AICodeAssistantService.explain_component  --->  len
+AICodeAssistantService.explain_component  --->  len
+AICodeAssistantService.explain_component  --->  AICodeAssistantService.append
+AICodeAssistantService.explain_component  --->  len
+AICodeAssistantService.explain_component  --->  len
+AICodeAssistantService.explain_component  --->  AICodeAssistantService.append
+AICodeAssistantService.explain_component  --->  AICodeAssistantService.append
+AICodeAssistantService.explain_component  --->  AICodeAssistantService.join
+AICodeAssistantService.explain_impact  --->  AICodeAssistantService.impact_summary
+AICodeAssistantService.explain_impact  --->  len
+AICodeAssistantService.search  --->  AICodeAssistantService.search_component
+AICodeAssistantService.architecture_hotspots  --->  AICodeAssistantService.architecture_hotspots
+AICodeAssistantService.circular_dependencies  --->  AICodeAssistantService.circular_dependencies
+AICodeAssistantService.highly_coupled_components  --->  AICodeAssistantService.highly_coupled_components
+AICodeAssistantService.answer  --->  AICodeAssistantService.lower
+AICodeAssistantService.answer  --->  AICodeAssistantService._architecture_summary_text
+AICodeAssistantService.answer  --->  AICodeAssistantService._health_summary_text
+AICodeAssistantService.answer  --->  AICodeAssistantService._hotspots_text
+AICodeAssistantService.answer  --->  AICodeAssistantService._cycles_text
+AICodeAssistantService.answer  --->  AICodeAssistantService._coupling_text
+AICodeAssistantService._architecture_summary_text  --->  AICodeAssistantService.architecture_summary
+AICodeAssistantService._health_summary_text  --->  AICodeAssistantService.health_summary
+AICodeAssistantService._hotspots_text  --->  AICodeAssistantService.architecture_hotspots
+AICodeAssistantService._hotspots_text  --->  len
+AICodeAssistantService._cycles_text  --->  AICodeAssistantService.circular_dependencies
+AICodeAssistantService._cycles_text  --->  len
+AICodeAssistantService._coupling_text  --->  AICodeAssistantService.highly_coupled_components
+AICodeAssistantService._coupling_text  --->  len
+DependencyAnalysisService.__init__  --->  DependencyRepository
+DependencyAnalysisService.__init__  --->  DependencyBuilder
+DependencyAnalysisService.__init__  --->  InheritanceBuilder
+DependencyAnalysisService.__init__  --->  RelationshipRepository
+DependencyAnalysisService.analyze_file  --->  DependencyAnalysisService.build
+DependencyAnalysisService.analyze_classes  --->  open
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.parse
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.read
+DependencyAnalysisService.analyze_classes  --->  ClassVisitor
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.visit
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.extend
+DependencyAnalysisService.analyze_classes  --->  DependencyAnalysisService.get_classes
+DependencyAnalysisService.analyze_call_graph  --->  open
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.parse
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.read
+DependencyAnalysisService.analyze_call_graph  --->  CallGraphVisitor
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.visit
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.extend
+DependencyAnalysisService.analyze_call_graph  --->  DependencyAnalysisService.get_calls
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.rglob
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.analyze_file
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.analyze_classes
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.analyze_call_graph
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.build_relationships
+DependencyAnalysisService.analyze_project  --->  DependencyAnalysisService.build
+DependencyAnalysisService.get_dependencies  --->  DependencyAnalysisService.get_all_dependencies
+DependencyAnalysisService.get_total_dependencies  --->  len
+DependencyAnalysisService.get_total_dependencies  --->  DependencyAnalysisService.get_all_dependencies
+DependencyAnalysisService.get_import_statistics  --->  Counter
+DependencyAnalysisService.get_import_statistics  --->  DependencyAnalysisService.get_all_dependencies
+DependencyAnalysisService.get_top_imports  --->  DependencyAnalysisService.most_common
+DependencyAnalysisService.get_top_imports  --->  DependencyAnalysisService.get_import_statistics
+DependencyAnalysisService.get_inheritance_hierarchy  --->  DependencyAnalysisService.get_hierarchy
+DependencyAnalysisService.get_children  --->  DependencyAnalysisService.get_children
+DependencyAnalysisService.get_total_method_calls  --->  len
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+DependencyAnalysisService.clear  --->  DependencyAnalysisService.clear
+ImpactAnalysisService.analyze_impact  --->  ImpactAnalysisService.affected_nodes
+ImpactAnalysisService.analyze_impact  --->  len
+ImpactAnalysisService.analyze_impact  --->  ImpactAnalysisService.impact_score
+ImpactAnalysisService.analyze_impact  --->  ImpactAnalysisService.dependency_depth
+ImpactAnalysisService.affected_nodes  --->  ImpactAnalysisService.reachable_nodes
+ImpactAnalysisService.directly_affected_nodes  --->  ImpactAnalysisService.get_outgoing_neighbors
+ImpactAnalysisService.indirectly_affected_nodes  --->  set
+ImpactAnalysisService.indirectly_affected_nodes  --->  ImpactAnalysisService.directly_affected_nodes
+ImpactAnalysisService.indirectly_affected_nodes  --->  set
+ImpactAnalysisService.indirectly_affected_nodes  --->  ImpactAnalysisService.affected_nodes
+ImpactAnalysisService.indirectly_affected_nodes  --->  sorted
+ImpactAnalysisService.impact_score  --->  len
+ImpactAnalysisService.impact_score  --->  ImpactAnalysisService.affected_nodes
+ImpactAnalysisService.dependency_depth  --->  ImpactAnalysisService.reachable_nodes
+ImpactAnalysisService.dependency_depth  --->  ImpactAnalysisService.shortest_path
+ImpactAnalysisService.dependency_depth  --->  len
+ImpactAnalysisService.critical_nodes  --->  ImpactAnalysisService.get_nodes
+ImpactAnalysisService.critical_nodes  --->  ImpactAnalysisService.impact_score
+ImpactAnalysisService.critical_nodes  --->  ImpactAnalysisService.append
+ImpactAnalysisService.critical_nodes  --->  ImpactAnalysisService.sort
+ImpactAnalysisService.high_impact_nodes  --->  ImpactAnalysisService.get_nodes
+ImpactAnalysisService.high_impact_nodes  --->  ImpactAnalysisService.append
+ImpactAnalysisService.high_impact_nodes  --->  ImpactAnalysisService.impact_score
+ImpactAnalysisService.high_impact_nodes  --->  ImpactAnalysisService.sort
+ImpactAnalysisService.impact_summary  --->  ImpactAnalysisService.get_nodes
+ImpactAnalysisService.impact_summary  --->  ImpactAnalysisService.impact_score
+ImpactAnalysisService.impact_summary  --->  sum
+ImpactAnalysisService.impact_summary  --->  len
+ImpactAnalysisService.impact_summary  --->  len
+ImpactAnalysisService.impact_summary  --->  round
+ImpactAnalysisService.impact_summary  --->  max
+ImpactAnalysisService.impact_summary  --->  len
+ImpactAnalysisService.impact_summary  --->  ImpactAnalysisService.critical_nodes
+ImpactAnalysisService.print_summary  --->  ImpactAnalysisService.impact_summary
+ImpactAnalysisService.print_summary  --->  print
+ImpactAnalysisService.print_summary  --->  print
+ImpactAnalysisService.print_summary  --->  print
+ImpactAnalysisService.print_summary  --->  print
+ImpactAnalysisService.print_summary  --->  print
+ImpactAnalysisService.print_summary  --->  print
+ImpactAnalysisService.print_summary  --->  print
+ImpactAnalysisService.print_summary  --->  print
+ImpactAnalysisService.node_exists  --->  ImpactAnalysisService.get_nodes
+ImpactAnalysisService.refresh  --->  ImpactAnalysisService.refresh
+ArchitectureMetricsService.get_node_count  --->  ArchitectureMetricsService.node_count
+ArchitectureMetricsService.get_edge_count  --->  ArchitectureMetricsService.edge_count
+ArchitectureMetricsService.get_fan_out  --->  ArchitectureMetricsService.out_degree
+ArchitectureMetricsService.get_fan_in  --->  ArchitectureMetricsService.in_degree
+ArchitectureMetricsService.average_fan_out  --->  ArchitectureMetricsService.get_nodes
+ArchitectureMetricsService.average_fan_out  --->  sum
+ArchitectureMetricsService.average_fan_out  --->  ArchitectureMetricsService.get_fan_out
+ArchitectureMetricsService.average_fan_out  --->  round
+ArchitectureMetricsService.average_fan_out  --->  len
+ArchitectureMetricsService.average_fan_in  --->  ArchitectureMetricsService.get_nodes
+ArchitectureMetricsService.average_fan_in  --->  sum
+ArchitectureMetricsService.average_fan_in  --->  ArchitectureMetricsService.get_fan_in
+ArchitectureMetricsService.average_fan_in  --->  round
+ArchitectureMetricsService.average_fan_in  --->  len
+ArchitectureMetricsService.top_fan_out  --->  ArchitectureMetricsService.get_nodes
+ArchitectureMetricsService.top_fan_out  --->  ArchitectureMetricsService.get_fan_out
+ArchitectureMetricsService.top_fan_out  --->  ArchitectureMetricsService.sort
+ArchitectureMetricsService.top_fan_in  --->  ArchitectureMetricsService.get_nodes
+ArchitectureMetricsService.top_fan_in  --->  ArchitectureMetricsService.get_fan_in
+ArchitectureMetricsService.top_fan_in  --->  ArchitectureMetricsService.sort
+ArchitectureMetricsService.hotspots  --->  ArchitectureMetricsService.get_nodes
+ArchitectureMetricsService.hotspots  --->  ArchitectureMetricsService.get_fan_in
+ArchitectureMetricsService.hotspots  --->  ArchitectureMetricsService.get_fan_out
+ArchitectureMetricsService.hotspots  --->  ArchitectureMetricsService.append
+ArchitectureMetricsService.hotspots  --->  ArchitectureMetricsService.sort
+ArchitectureMetricsService.health_score  --->  len
+ArchitectureMetricsService.health_score  --->  ArchitectureMetricsService.hotspots
+ArchitectureMetricsService.health_score  --->  max
+ArchitectureMetricsService.summary  --->  ArchitectureMetricsService.get_node_count
+ArchitectureMetricsService.summary  --->  ArchitectureMetricsService.get_edge_count
+ArchitectureMetricsService.summary  --->  ArchitectureMetricsService.average_fan_in
+ArchitectureMetricsService.summary  --->  ArchitectureMetricsService.average_fan_out
+ArchitectureMetricsService.summary  --->  ArchitectureMetricsService.health_score
+ArchitectureMetricsService.summary  --->  len
+ArchitectureMetricsService.summary  --->  ArchitectureMetricsService.hotspots
+SearchService.__init__  --->  ClassRepository
+SearchService.__init__  --->  FunctionRepository
+SearchService.__init__  --->  MethodRepository
+SearchService.find_class  --->  SearchService.find_by_name
+SearchService.get_functions  --->  SearchService.get_all
+SearchService.get_methods  --->  SearchService.get_all
+RelationshipQueryService.get_all_relationships  --->  RelationshipQueryService.get_all
+RelationshipQueryService.count_relationships  --->  RelationshipQueryService.count
+RelationshipQueryService.relationship_exists  --->  any
+RelationshipQueryService.relationship_exists  --->  RelationshipQueryService.get_all
+RelationshipQueryService.get_relationships_by_type  --->  RelationshipQueryService.get_by_type
+RelationshipQueryService.get_method_calls  --->  RelationshipQueryService.get_relationships_by_type
+RelationshipQueryService.get_imports  --->  RelationshipQueryService.get_relationships_by_type
+RelationshipQueryService.get_inheritance_relationships  --->  RelationshipQueryService.get_relationships_by_type
+RelationshipQueryService.get_class_dependencies  --->  RelationshipQueryService.get_relationships_by_type
+RelationshipQueryService.get_file_dependencies  --->  RelationshipQueryService.get_relationships_by_type
+RelationshipQueryService.get_outgoing_relationships  --->  RelationshipQueryService.get_by_source
+RelationshipQueryService.get_incoming_relationships  --->  RelationshipQueryService.get_by_target
+RelationshipQueryService.get_callers  --->  RelationshipQueryService.get_method_calls
+RelationshipQueryService.get_callees  --->  RelationshipQueryService.get_method_calls
+RelationshipQueryService.get_parent_classes  --->  RelationshipQueryService.get_inheritance_relationships
+RelationshipQueryService.get_child_classes  --->  RelationshipQueryService.get_inheritance_relationships
+RelationshipQueryService.find_relationships  --->  RelationshipQueryService.get_all
+RelationshipQueryService.relationship_summary  --->  Counter
+RelationshipQueryService.relationship_summary  --->  RelationshipQueryService.get_all
+RelationshipQueryService.relationship_summary  --->  dict
+RelationshipQueryService.print_summary  --->  print
+RelationshipQueryService.print_summary  --->  print
+RelationshipQueryService.print_summary  --->  RelationshipQueryService.relationship_summary
+RelationshipQueryService.print_summary  --->  print
+RelationshipQueryService.print_summary  --->  sorted
+RelationshipQueryService.print_summary  --->  print
+GraphTraversalService.__init__  --->  defaultdict
+GraphTraversalService.__init__  --->  defaultdict
+GraphTraversalService.__init__  --->  set
+GraphTraversalService.__init__  --->  GraphTraversalService.build_graph
+GraphTraversalService.build_graph  --->  GraphTraversalService.clear
+GraphTraversalService.build_graph  --->  GraphTraversalService.clear
+GraphTraversalService.build_graph  --->  GraphTraversalService.clear
+GraphTraversalService.build_graph  --->  GraphTraversalService.get_all
+GraphTraversalService.build_graph  --->  GraphTraversalService.add
+GraphTraversalService.build_graph  --->  GraphTraversalService.add
+GraphTraversalService.build_graph  --->  GraphTraversalService.add
+GraphTraversalService.build_graph  --->  GraphTraversalService.add
+GraphTraversalService.get_nodes  --->  sorted
+GraphTraversalService.node_count  --->  len
+GraphTraversalService.edge_count  --->  len
+GraphTraversalService.edge_count  --->  GraphTraversalService.get_all
+GraphTraversalService.get_neighbors  --->  GraphTraversalService.get_outgoing_neighbors
+GraphTraversalService.get_outgoing_neighbors  --->  sorted
+GraphTraversalService.get_outgoing_neighbors  --->  GraphTraversalService.get
+GraphTraversalService.get_outgoing_neighbors  --->  set
+GraphTraversalService.get_incoming_neighbors  --->  sorted
+GraphTraversalService.get_incoming_neighbors  --->  GraphTraversalService.get
+GraphTraversalService.get_incoming_neighbors  --->  set
+GraphTraversalService.out_degree  --->  len
+GraphTraversalService.out_degree  --->  GraphTraversalService.get
+GraphTraversalService.out_degree  --->  set
+GraphTraversalService.in_degree  --->  len
+GraphTraversalService.in_degree  --->  GraphTraversalService.get
+GraphTraversalService.in_degree  --->  set
+GraphTraversalService.breadth_first_search  --->  set
+GraphTraversalService.breadth_first_search  --->  deque
+GraphTraversalService.breadth_first_search  --->  GraphTraversalService.popleft
+GraphTraversalService.breadth_first_search  --->  GraphTraversalService.add
+GraphTraversalService.breadth_first_search  --->  GraphTraversalService.append
+GraphTraversalService.breadth_first_search  --->  sorted
+GraphTraversalService.breadth_first_search  --->  GraphTraversalService.get
+GraphTraversalService.breadth_first_search  --->  set
+GraphTraversalService.breadth_first_search  --->  GraphTraversalService.append
+GraphTraversalService.depth_first_search  --->  set
+GraphTraversalService.depth_first_search  --->  GraphTraversalService._dfs
+GraphTraversalService._dfs  --->  GraphTraversalService.add
+GraphTraversalService._dfs  --->  GraphTraversalService.append
+GraphTraversalService._dfs  --->  sorted
+GraphTraversalService._dfs  --->  GraphTraversalService.get
+GraphTraversalService._dfs  --->  set
+GraphTraversalService._dfs  --->  GraphTraversalService._dfs
+GraphTraversalService.reachable_nodes  --->  GraphTraversalService.breadth_first_search
+GraphTraversalService.has_path  --->  set
+GraphTraversalService.has_path  --->  deque
+GraphTraversalService.has_path  --->  GraphTraversalService.popleft
+GraphTraversalService.has_path  --->  GraphTraversalService.add
+GraphTraversalService.has_path  --->  GraphTraversalService.get
+GraphTraversalService.has_path  --->  set
+GraphTraversalService.has_path  --->  GraphTraversalService.append
+GraphTraversalService.transitive_dependencies  --->  GraphTraversalService.reachable_nodes
+GraphTraversalService.incoming_dependencies  --->  GraphTraversalService.get_incoming_neighbors
+GraphTraversalService.outgoing_dependencies  --->  GraphTraversalService.get_outgoing_neighbors
+GraphTraversalService.shortest_path  --->  deque
+GraphTraversalService.shortest_path  --->  GraphTraversalService.popleft
+GraphTraversalService.shortest_path  --->  sorted
+GraphTraversalService.shortest_path  --->  GraphTraversalService.get
+GraphTraversalService.shortest_path  --->  set
+GraphTraversalService.shortest_path  --->  GraphTraversalService.add
+GraphTraversalService.shortest_path  --->  GraphTraversalService.append
+GraphTraversalService.root_nodes  --->  sorted
+GraphTraversalService.root_nodes  --->  GraphTraversalService.in_degree
+GraphTraversalService.leaf_nodes  --->  sorted
+GraphTraversalService.leaf_nodes  --->  GraphTraversalService.out_degree
+GraphTraversalService.isolated_nodes  --->  sorted
+GraphTraversalService.isolated_nodes  --->  GraphTraversalService.in_degree
+GraphTraversalService.isolated_nodes  --->  GraphTraversalService.out_degree
+GraphTraversalService.graph_statistics  --->  GraphTraversalService.node_count
+GraphTraversalService.graph_statistics  --->  GraphTraversalService.edge_count
+GraphTraversalService.graph_statistics  --->  len
+GraphTraversalService.graph_statistics  --->  GraphTraversalService.root_nodes
+GraphTraversalService.graph_statistics  --->  len
+GraphTraversalService.graph_statistics  --->  GraphTraversalService.leaf_nodes
+GraphTraversalService.graph_statistics  --->  len
+GraphTraversalService.graph_statistics  --->  GraphTraversalService.isolated_nodes
+GraphTraversalService.refresh  --->  GraphTraversalService.build_graph
+GraphTraversalService.clear  --->  GraphTraversalService.clear
+GraphTraversalService.clear  --->  GraphTraversalService.clear
+GraphTraversalService.clear  --->  GraphTraversalService.clear
+CodeIntelligenceQueryService.project_summary  --->  CodeIntelligenceQueryService.get_node_count
+CodeIntelligenceQueryService.project_summary  --->  CodeIntelligenceQueryService.get_edge_count
+CodeIntelligenceQueryService.project_summary  --->  CodeIntelligenceQueryService.health_score
+CodeIntelligenceQueryService.project_summary  --->  CodeIntelligenceQueryService.stability_index
+CodeIntelligenceQueryService.architecture_summary  --->  CodeIntelligenceQueryService.detailed_summary
+CodeIntelligenceQueryService.graph_statistics  --->  CodeIntelligenceQueryService.node_count
+CodeIntelligenceQueryService.graph_statistics  --->  CodeIntelligenceQueryService.edge_count
+CodeIntelligenceQueryService.health_summary  --->  CodeIntelligenceQueryService.health_score
+CodeIntelligenceQueryService.health_summary  --->  CodeIntelligenceQueryService.stability_index
+CodeIntelligenceQueryService.architecture_hotspots  --->  CodeIntelligenceQueryService.hotspots
+CodeIntelligenceQueryService.highly_coupled_components  --->  CodeIntelligenceQueryService.highly_coupled_components
+CodeIntelligenceQueryService.circular_dependencies  --->  CodeIntelligenceQueryService.detect_cycles
+CodeIntelligenceQueryService.longest_dependency_chain  --->  CodeIntelligenceQueryService.longest_dependency_chain
+CodeIntelligenceQueryService.architecture_smells  --->  CodeIntelligenceQueryService.architecture_smells
+CodeIntelligenceQueryService.hub_components  --->  CodeIntelligenceQueryService.hub_components
+CodeIntelligenceQueryService.orphan_components  --->  CodeIntelligenceQueryService.orphan_components
+CodeIntelligenceQueryService.impact_summary  --->  CodeIntelligenceQueryService.impact_summary
+CodeIntelligenceQueryService.dependency_path  --->  CodeIntelligenceQueryService.shortest_path
+CodeIntelligenceQueryService.incoming_relationships  --->  CodeIntelligenceQueryService.get_incoming_relationships
+CodeIntelligenceQueryService.outgoing_relationships  --->  CodeIntelligenceQueryService.get_outgoing_relationships
+CodeIntelligenceQueryService.relationships_by_type  --->  CodeIntelligenceQueryService.get_relationships_by_type
+CodeIntelligenceQueryService.search_component  --->  CodeIntelligenceQueryService.lower
+CodeIntelligenceQueryService.search_component  --->  CodeIntelligenceQueryService.get_nodes
+CodeIntelligenceQueryService.search_component  --->  CodeIntelligenceQueryService.lower
+CodeIntelligenceQueryService.search_component  --->  CodeIntelligenceQueryService.append
+CodeIntelligenceQueryService.search_component  --->  sorted
+CodeIntelligenceQueryService.summary  --->  CodeIntelligenceQueryService.project_summary
+CodeIntelligenceQueryService.summary  --->  CodeIntelligenceQueryService.architecture_summary
+CodeIntelligenceQueryService.summary  --->  CodeIntelligenceQueryService.graph_statistics
+CodeIntelligenceQueryService.summary  --->  CodeIntelligenceQueryService.health_summary
+CodeIntelligenceQueryService.summary  --->  len
+CodeIntelligenceQueryService.summary  --->  CodeIntelligenceQueryService.architecture_hotspots
+CodeIntelligenceQueryService.summary  --->  len
+CodeIntelligenceQueryService.summary  --->  CodeIntelligenceQueryService.circular_dependencies
+CodeIntelligenceQueryService.summary  --->  len
+CodeIntelligenceQueryService.summary  --->  CodeIntelligenceQueryService.highly_coupled_components
+CodeIntelligenceQueryService.summary  --->  len
+CodeIntelligenceQueryService.summary  --->  CodeIntelligenceQueryService.orphan_components
+DependencyVisualizationService.__init__  --->  Path
+DependencyVisualizationService.__init__  --->  DependencyVisualizationService.mkdir
+DependencyVisualizationService._write_dot_file  --->  open
+DependencyVisualizationService._write_dot_file  --->  DependencyVisualizationService.write
+DependencyVisualizationService._write_dot_file  --->  DependencyVisualizationService.write
+DependencyVisualizationService._write_dot_file  --->  DependencyVisualizationService.write
+DependencyVisualizationService._write_dot_file  --->  sorted
+DependencyVisualizationService._write_dot_file  --->  DependencyVisualizationService.write
+DependencyVisualizationService._write_dot_file  --->  DependencyVisualizationService.write
+DependencyVisualizationService.export_module_graph  --->  set
+DependencyVisualizationService.export_module_graph  --->  DependencyVisualizationService.get_all
+DependencyVisualizationService.export_module_graph  --->  DependencyVisualizationService.add
+DependencyVisualizationService.export_module_graph  --->  DependencyVisualizationService._write_dot_file
+DependencyVisualizationService.export_module_graph  --->  print
+DependencyVisualizationService.export_method_call_graph  --->  set
+DependencyVisualizationService.export_method_call_graph  --->  DependencyVisualizationService.get_all
+DependencyVisualizationService.export_method_call_graph  --->  DependencyVisualizationService.add
+DependencyVisualizationService.export_method_call_graph  --->  DependencyVisualizationService._write_dot_file
+DependencyVisualizationService.export_method_call_graph  --->  print
+DependencyVisualizationService.export_inheritance_graph  --->  set
+DependencyVisualizationService.export_inheritance_graph  --->  DependencyVisualizationService.get_all
+DependencyVisualizationService.export_inheritance_graph  --->  DependencyVisualizationService.add
+DependencyVisualizationService.export_inheritance_graph  --->  DependencyVisualizationService._write_dot_file
+DependencyVisualizationService.export_inheritance_graph  --->  print
+DependencyVisualizationService.export_relationship_graph  --->  set
+DependencyVisualizationService.export_relationship_graph  --->  DependencyVisualizationService.get_all
+DependencyVisualizationService.export_relationship_graph  --->  DependencyVisualizationService.add
+DependencyVisualizationService.export_relationship_graph  --->  DependencyVisualizationService._write_dot_file
+DependencyVisualizationService.export_relationship_graph  --->  print
+DependencyVisualizationService.generate_summary  --->  DependencyVisualizationService.get_all
+DependencyVisualizationService.generate_summary  --->  sum
+DependencyVisualizationService.generate_summary  --->  sum
+DependencyVisualizationService.generate_summary  --->  sum
+DependencyVisualizationService.generate_summary  --->  print
+DependencyVisualizationService.generate_summary  --->  print
+DependencyVisualizationService.generate_summary  --->  print
+DependencyVisualizationService.generate_summary  --->  print
+DependencyVisualizationService.generate_summary  --->  print
+DependencyVisualizationService.generate_summary  --->  print
+DependencyVisualizationService.generate_summary  --->  print
+DependencyVisualizationService.generate_summary  --->  len
+DependencyVisualizationService.generate_summary  --->  print
+DependencyVisualizationService.export_all  --->  print
+DependencyVisualizationService.export_all  --->  DependencyVisualizationService.export_module_graph
+DependencyVisualizationService.export_all  --->  DependencyVisualizationService.export_method_call_graph
+DependencyVisualizationService.export_all  --->  DependencyVisualizationService.export_inheritance_graph
+DependencyVisualizationService.export_all  --->  DependencyVisualizationService.export_relationship_graph
+DependencyVisualizationService.export_all  --->  DependencyVisualizationService.generate_summary
+DependencyVisualizationService.export_all  --->  print
+ClassDependencyAnalysisService.__init__  --->  DependencyRepository
+ClassDependencyAnalysisService.__init__  --->  ClassDependencyBuilder
+ClassDependencyAnalysisService.analyze_file  --->  ClassDependencyAnalysisService.build
+ClassDependencyAnalysisService.analyze_project  --->  ClassDependencyAnalysisService.rglob
+ClassDependencyAnalysisService.analyze_project  --->  ClassDependencyAnalysisService.build
+ClassDependencyAnalysisService.get_dependencies  --->  ClassDependencyAnalysisService.get_all_dependencies
+ClassDependencyAnalysisService.get_total_dependencies  --->  len
+ClassDependencyAnalysisService.get_total_dependencies  --->  ClassDependencyAnalysisService.get_all_dependencies
+ClassDependencyReport.print_report  --->  print
+ClassDependencyReport.print_report  --->  print
+ClassDependencyReport.print_report  --->  print
+ClassDependencyReport.print_report  --->  ClassDependencyReport.get_dependencies
+ClassDependencyReport.print_report  --->  print
+ClassDependencyReport.print_report  --->  len
+ClassDependencyReport.print_report  --->  Counter
+ClassDependencyReport.print_report  --->  print
+ClassDependencyReport.print_report  --->  print
+ClassDependencyReport.print_report  --->  ClassDependencyReport.most_common
+ClassDependencyReport.print_report  --->  print
+ClassDependencyReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  AdvancedArchitectureReport.detailed_summary
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  AdvancedArchitectureReport.highly_coupled_components
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  AdvancedArchitectureReport.hub_components
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  AdvancedArchitectureReport.detect_cycles
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  AdvancedArchitectureReport.join
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  AdvancedArchitectureReport.longest_dependency_chain
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  AdvancedArchitectureReport.join
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  AdvancedArchitectureReport.orphan_components
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  AdvancedArchitectureReport.architecture_smells
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+AdvancedArchitectureReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  ImpactAnalysisReport.impact_summary
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  ImpactAnalysisReport.high_impact_nodes
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  ImpactAnalysisReport.get_nodes
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  ImpactAnalysisReport.affected_nodes
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  ImpactAnalysisReport.impact_score
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  ImpactAnalysisReport.dependency_depth
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  len
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  len
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  len
+ImpactAnalysisReport.print_report  --->  print
+ImpactAnalysisReport.print_report  --->  print
+RelationshipQueryReport.print_report  --->  print
+RelationshipQueryReport.print_report  --->  print
+RelationshipQueryReport.print_report  --->  print
+RelationshipQueryReport.print_report  --->  RelationshipQueryReport.print_repository_statistics
+RelationshipQueryReport.print_report  --->  RelationshipQueryReport.print_relationship_types
+RelationshipQueryReport.print_report  --->  RelationshipQueryReport.print_method_calls
+RelationshipQueryReport.print_report  --->  RelationshipQueryReport.print_imports
+RelationshipQueryReport.print_report  --->  RelationshipQueryReport.print_inheritance
+RelationshipQueryReport.print_report  --->  RelationshipQueryReport.print_summary
+RelationshipQueryReport.print_repository_statistics  --->  print
+RelationshipQueryReport.print_repository_statistics  --->  print
+RelationshipQueryReport.print_repository_statistics  --->  print
+RelationshipQueryReport.print_repository_statistics  --->  RelationshipQueryReport.count_relationships
+RelationshipQueryReport.print_relationship_types  --->  print
+RelationshipQueryReport.print_relationship_types  --->  print
+RelationshipQueryReport.print_relationship_types  --->  RelationshipQueryReport.relationship_summary
+RelationshipQueryReport.print_relationship_types  --->  print
+RelationshipQueryReport.print_relationship_types  --->  sorted
+RelationshipQueryReport.print_relationship_types  --->  print
+RelationshipQueryReport.print_method_calls  --->  print
+RelationshipQueryReport.print_method_calls  --->  print
+RelationshipQueryReport.print_method_calls  --->  RelationshipQueryReport.get_method_calls
+RelationshipQueryReport.print_method_calls  --->  print
+RelationshipQueryReport.print_method_calls  --->  print
+RelationshipQueryReport.print_imports  --->  print
+RelationshipQueryReport.print_imports  --->  print
+RelationshipQueryReport.print_imports  --->  RelationshipQueryReport.get_imports
+RelationshipQueryReport.print_imports  --->  print
+RelationshipQueryReport.print_imports  --->  print
+RelationshipQueryReport.print_inheritance  --->  print
+RelationshipQueryReport.print_inheritance  --->  print
+RelationshipQueryReport.print_inheritance  --->  RelationshipQueryReport.get_inheritance_relationships
+RelationshipQueryReport.print_inheritance  --->  print
+RelationshipQueryReport.print_inheritance  --->  print
+RelationshipQueryReport.print_summary  --->  print
+RelationshipQueryReport.print_summary  --->  print
+RelationshipQueryReport.print_summary  --->  RelationshipQueryReport.relationship_summary
+RelationshipQueryReport.print_summary  --->  print
+RelationshipQueryReport.print_summary  --->  len
+RelationshipQueryReport.print_summary  --->  print
+RelationshipQueryReport.print_summary  --->  RelationshipQueryReport.count_relationships
+RelationshipQueryReport.print_summary  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  ArchitectureMetricsReport.summary
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  ArchitectureMetricsReport.top_fan_out
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  ArchitectureMetricsReport.top_fan_in
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  ArchitectureMetricsReport.hotspots
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+ArchitectureMetricsReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  CodeIntelligenceQueryReport.summary
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  CodeIntelligenceQueryReport.architecture_hotspots
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  CodeIntelligenceQueryReport.highly_coupled_components
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  CodeIntelligenceQueryReport.longest_dependency_chain
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  CodeIntelligenceQueryReport.join
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  CodeIntelligenceQueryReport.circular_dependencies
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  print
+CodeIntelligenceQueryReport.print_report  --->  CodeIntelligenceQueryReport.join
+CodeIntelligenceQueryReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  AICodeAssistantReport.platform_summary
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  AICodeAssistantReport.answer
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  AICodeAssistantReport.explain_component
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  AICodeAssistantReport.explain_impact
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  AICodeAssistantReport.search
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+AICodeAssistantReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  GraphTraversalReport.graph_statistics
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  GraphTraversalReport.get_nodes
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  GraphTraversalReport.breadth_first_search
+GraphTraversalReport.print_report  --->  GraphTraversalReport.depth_first_search
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  len
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  len
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  len
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  len
+GraphTraversalReport.print_report  --->  print
+GraphTraversalReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  DependencyReport.get_total_dependencies
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  len
+DependencyReport.print_report  --->  DependencyReport.get_classes
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  DependencyReport.get_top_imports
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  DependencyReport.get_inheritance_hierarchy
+DependencyReport.print_report  --->  sorted
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  sorted
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  DependencyReport.get_call_graph
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  len
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  len
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  DependencyReport.get_total_dependencies
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  len
+DependencyReport.print_report  --->  DependencyReport.get_classes
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  DependencyReport.get_total_method_calls
+DependencyReport.print_report  --->  print
+DependencyReport.print_report  --->  len
+DependencyReport.print_report  --->  print
+CoverageAnalyzer.analyze  --->  len
+CoverageAnalyzer.analyze  --->  len
+CoverageAnalyzer.analyze  --->  len
+CoverageAnalyzer.analyze  --->  CoverageAnalyzer.lower
+ReportFormatter.print_heading  --->  print
+ReportFormatter.print_heading  --->  print
+ReportFormatter.print_heading  --->  print
+ReportFormatter.print_scenarios  --->  ReportFormatter.print_heading
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  enumerate
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  ReportFormatter.items
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_scenarios  --->  print
+ReportFormatter.print_boundary_cases  --->  ReportFormatter.print_heading
+ReportFormatter.print_boundary_cases  --->  print
+ReportFormatter.print_decision_tables  --->  ReportFormatter.print_heading
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+ReportFormatter.print_decision_tables  --->  print
+DecisionTableRepository.add  --->  DecisionTableRepository.append
+DecisionTableRepository.clear  --->  DecisionTableRepository.clear
+BoundaryRepository.add  --->  BoundaryRepository.append
+BoundaryRepository.clear  --->  BoundaryRepository.clear
+TestCaseRepository.save  --->  open
+TestCaseRepository.save  --->  TestCaseRepository.dump
+TestCaseRepository.save  --->  asdict
+TestCaseRepository.save  --->  print
+TestCaseRepository.save  --->  len
+TestDataGenerator.generate  --->  TestDataGenerator.lower
+TestDataGenerator.generate  --->  TestData
+DecisionTableGenerator.__init__  --->  DecisionTableRepository
+DecisionTableGenerator.generate  --->  DecisionTableGenerator.clear
+DecisionTableGenerator.generate  --->  DecisionTableGenerator.get_all
+DecisionTableGenerator.generate  --->  DecisionTableModel
+DecisionTableGenerator.generate  --->  DecisionTableGenerator.add
+DecisionTableGenerator.generate  --->  DecisionTableGenerator.get_all
+ScenarioGenerator.generate  --->  ScenarioGenerator.lower
+ScenarioGenerator.generate  --->  ScenarioGenerator.items
+ScenarioGenerator.generate  --->  ScenarioGenerator.append
+ScenarioGenerator.generate  --->  Scenario
+TestCaseGenerator.generate  --->  TestCaseGenerator.get
+TestCaseGenerator.generate  --->  TestCase
+TestCaseGenerator.generate  --->  TestCaseGenerator.append
+BoundaryValueGenerator.__init__  --->  BoundaryRepository
+BoundaryValueGenerator.generate  --->  BoundaryValueGenerator.clear
+BoundaryValueGenerator.generate  --->  BoundaryValueGenerator._process_requirement
+BoundaryValueGenerator.generate  --->  BoundaryValueGenerator.get_all
+BoundaryValueGenerator._process_requirement  --->  BoundaryValueGenerator.search
+BoundaryValueGenerator._process_requirement  --->  int
+BoundaryValueGenerator._process_requirement  --->  BoundaryValueGenerator.group
+BoundaryValueGenerator._process_requirement  --->  int
+BoundaryValueGenerator._process_requirement  --->  BoundaryValueGenerator.group
+BoundaryValueGenerator._process_requirement  --->  BoundaryValueGenerator._generate_numeric_boundaries
+BoundaryValueGenerator._generate_numeric_boundaries  --->  BoundaryModel
+BoundaryValueGenerator._generate_numeric_boundaries  --->  str
+BoundaryValueGenerator._generate_numeric_boundaries  --->  BoundaryValueGenerator.add
+ConditionGenerator.generate  --->  ConditionGenerator.get
+ConditionGenerator.generate  --->  ConditionGenerator.append
+ConditionGenerator.generate  --->  TestCondition
+TestCaseEngine.generate  --->  enumerate
+TestCaseEngine.generate  --->  TestCase
+TestCaseEngine.generate  --->  TestCaseEngine.append
+TestDesignEngine.__init__  --->  ScenarioGenerator
+TestDesignEngine.__init__  --->  ConditionGenerator
+TestDesignEngine.__init__  --->  TestCaseGenerator
+TestDesignEngine.__init__  --->  CoverageAnalyzer
+TestDesignEngine.__init__  --->  TestDataGenerator
+TestDesignEngine.generate  --->  TestDesignEngine.generate
+TestDesignEngine.generate  --->  TestDesignEngine.generate
+TestDesignEngine.generate  --->  TestDesignEngine.generate
+TestDesignEngine.generate  --->  TestDesignEngine.append
+TestDesignEngine.generate  --->  TestDesignEngine.generate
+TestDesignEngine.generate  --->  TestDesignEngine.append
+TestDesignEngine.generate  --->  TestDesignEngine.append
+TestDesignEngine.generate  --->  TestDesignEngine.analyze
+TestDesignEngine.generate  --->  print
+TestDesignEngine.generate  --->  TestDesignEngine.items
+TestDesignEngine.generate  --->  print
+TestDesignEngine.generate  --->  print
+TestCaseService.__init__  --->  TestCaseEngine
+TestCaseService.__init__  --->  TestCaseRepository
+TestCaseService.generate_test_cases  --->  TestCaseService.generate
+TestCaseService.generate_test_cases  --->  TestCaseService.save
+get_vector_db  --->  HuggingFaceEmbeddings
+get_vector_db  --->  Chroma
+retrieve_context  --->  get_vector_db
+retrieve_context  --->  similarity_search
+build_prompt  --->  join
+ask_llm  --->  chat
+ask_requirement_assistant  --->  retrieve_context
+ask_requirement_assistant  --->  print
+ask_requirement_assistant  --->  print
+ask_requirement_assistant  --->  enumerate
+ask_requirement_assistant  --->  print
+ask_requirement_assistant  --->  print
+ask_requirement_assistant  --->  build_prompt
+ask_requirement_assistant  --->  ask_llm
+
+Imports
+----------------------------------------
+src/ic03/temp_main.py  --->  pathlib
+src/ic03/temp_main.py  --->  src.ic03.services.project_analysis_service
+src/ic03/temp_main.py  --->  src.ic03.services.dependency_analysis_service
+src/ic03/temp_main.py  --->  src.ic03.reports.dependency_report
+src/ic03/temp_main.py  --->  src.ic03.services.relationship_query_service
+src/ic03/temp_main.py  --->  src.ic03.reports.relationship_query_report
+src/ic03/temp_main.py  --->  src.ic03.services.graph_traversal_service
+src/ic03/temp_main.py  --->  src.ic03.reports.graph_traversal_report
+src/ic03/temp_main.py  --->  src.ic03.services.impact_analysis_service
+src/ic03/temp_main.py  --->  src.ic03.reports.impact_analysis_report
+src/ic03/temp_main.py  --->  src.ic03.services.dependency_visualization_service
+src/ic03/temp_main.py  --->  src.ic03.services.architecture_metrics_service
+src/ic03/temp_main.py  --->  src.ic03.reports.architecture_metrics_report
+src/ic03/temp_main.py  --->  src.ic03.services.advanced_architecture_analysis_service
+src/ic03/temp_main.py  --->  src.ic03.reports.advanced_architecture_report
+src/ic03/temp_main.py  --->  src.ic03.services.code_intelligence_query_service
+src/ic03/temp_main.py  --->  src.ic03.reports.code_intelligence_query_report
+src/ic03/temp_main.py  --->  src.ic03.services.class_dependency_analysis_service
+src/ic03/temp_main.py  --->  src.ic03.reports.class_dependency_report
+src/ic03/file_scanner.py  --->  pathlib
+src/ic03/file_scanner.py  --->  datetime
+src/ic03/file_scanner.py  --->  config
+src/ic03/file_scanner.py  --->  models.source_file
+src/ic03/demo_visitors.py  --->  pathlib
+src/ic03/demo_visitors.py  --->  visitors.class_visitor
+src/ic03/demo_visitors.py  --->  parsers.python_ast_parser
+src/ic03/demo_visitors.py  --->  visitors.import_visitor
+src/ic03/demo_visitors.py  --->  visitors.function_visitor
+src/ic03/demo_visitors.py  --->  visitors.method_visitor
+src/ic03/config.py  --->  pathlib
+src/ic03/utils.py  --->  datetime
+src/ic03/main.py  --->  pathlib
+src/ic03/main.py  --->  src.ic03.services.project_analysis_service
+src/ic03/main.py  --->  src.ic03.services.dependency_analysis_service
+src/ic03/main.py  --->  src.ic03.reports.dependency_report
+src/ic03/main.py  --->  src.ic03.services.relationship_query_service
+src/ic03/main.py  --->  src.ic03.reports.relationship_query_report
+src/ic03/main.py  --->  src.ic03.services.graph_traversal_service
+src/ic03/main.py  --->  src.ic03.reports.graph_traversal_report
+src/ic03/main.py  --->  src.ic03.services.impact_analysis_service
+src/ic03/main.py  --->  src.ic03.reports.impact_analysis_report
+src/ic03/main.py  --->  src.ic03.services.dependency_visualization_service
+src/ic03/main.py  --->  src.ic03.services.architecture_metrics_service
+src/ic03/main.py  --->  src.ic03.reports.architecture_metrics_report
+src/ic03/main.py  --->  src.ic03.services.advanced_architecture_analysis_service
+src/ic03/main.py  --->  src.ic03.reports.advanced_architecture_report
+src/ic03/main.py  --->  src.ic03.services.code_intelligence_query_service
+src/ic03/main.py  --->  src.ic03.reports.code_intelligence_query_report
+src/ic03/main.py  --->  src.ic03.services.ai_code_assistant_service
+src/ic03/main.py  --->  src.ic03.reports.ai_code_assistant_report
+src/ic03/main.py  --->  src.ic03.services.class_dependency_analysis_service
+src/ic03/main.py  --->  src.ic03.reports.class_dependency_report
+src/ic03/project_loader.py  --->  pathlib
+src/ic02/boundary_rules.py  --->  typing
+src/ic02/boundary_rules.py  --->  boundary_models
+src/ic02/main2.py  --->  src.ic02.models.requirement
+src/ic02/main2.py  --->  src.ic02.engine.test_design_engine
+src/ic02/main2.py  --->  src.ic02.generators.boundary_value_generator
+src/ic02/boundary_models.py  --->  dataclasses
+src/ic02/boundary_models.py  --->  typing
+src/ic02/test_boundary_generator.py  --->  boundary_value_generator
+src/ic02/boundary_exporter.py  --->  json
+src/ic02/boundary_exporter.py  --->  dataclasses
+src/ic02/boundary_exporter.py  --->  pathlib
+src/ic02/boundary_exporter.py  --->  boundary_models
+src/ic02/main.py  --->  src.ic02.models.requirement
+src/ic02/main.py  --->  src.ic02.engine.test_design_engine
+src/ic02/main.py  --->  src.ic02.generators.boundary_value_generator
+src/ic02/main.py  --->  src.ic02.generators.decision_table_generator
+src/ic02/main.py  --->  src.ic02.formatters.report_formatter
+src/ic02/boundary_value_generator.py  --->  boundary_exporter
+src/ic02/boundary_value_generator.py  --->  boundary_detector
+src/ic02/boundary_value_generator.py  --->  boundary_rules
+src/ic02/boundary_value_generator.py  --->  boundary_models
+src/ic02/boundary_detector.py  --->  re
+src/ic02/boundary_detector.py  --->  typing
+src/ic02/boundary_detector.py  --->  boundary_models
+src/ic01/classifier.py  --->  models
+src/ic01/metadata.py  --->  models
+src/ic01/models.py  --->  dataclasses
+src/ic01/models.py  --->  typing
+src/ic01/rag_assistant.py  --->  chromadb
+src/ic01/rag_assistant.py  --->  sentence_transformers
+src/ic01/rag_assistant.py  --->  ollama
+src/ic01/vector_store.py  --->  chromadb
+src/ic01/vector_store.py  --->  sentence_transformers
+src/ic01/vector_store.py  --->  vector_store
+src/ic01/impact_analysis.py  --->  vector_store
+src/ic01/loader.py  --->  pathlib
+src/ic01/loader.py  --->  yaml
+src/ic01/loader.py  --->  models
+src/ic01/search.py  --->  models
+src/ic01/summarizer.py  --->  models
+src/ic01/ac_generator.py  --->  models
+src/ic01/main.py  --->  loader
+src/ic01/main.py  --->  search
+src/ic01/test_vector_store.py  --->  loader
+src/ic01/test_vector_store.py  --->  vector_store
+src/ic01/relationships.py  --->  collections
+src/ic01/search_vector.py  --->  vector_store
+src/ic03/visitors/base_visitor.py  --->  ast
+src/ic03/visitors/class_dependency_visitor.py  --->  ast
+src/ic03/visitors/class_dependency_visitor.py  --->  base_visitor
+src/ic03/visitors/class_dependency_visitor.py  --->  models.dependency
+src/ic03/visitors/class_dependency_visitor.py  --->  models.dependency_type
+src/ic03/visitors/function_visitor.py  --->  base_visitor
+src/ic03/visitors/exception_visitor.py  --->  visitors.base_visitor
+src/ic03/visitors/complexity_visitor.py  --->  base_visitor
+src/ic03/visitors/docstring_visitor.py  --->  base_visitor
+src/ic03/visitors/inheritance_visitor.py  --->  ast
+src/ic03/visitors/inheritance_visitor.py  --->  base_visitor
+src/ic03/visitors/inheritance_visitor.py  --->  models.dependency
+src/ic03/visitors/inheritance_visitor.py  --->  models.dependency_type
+src/ic03/visitors/dependency_visitor.py  --->  base_visitor
+src/ic03/visitors/class_visitor.py  --->  ast
+src/ic03/visitors/class_visitor.py  --->  base_visitor
+src/ic03/visitors/class_visitor.py  --->  src.ic03.models.class_model
+src/ic03/visitors/assignment_visitor.py  --->  base_visitor
+src/ic03/visitors/import_visitor.py  --->  ast
+src/ic03/visitors/import_visitor.py  --->  src.ic03.models.dependency
+src/ic03/visitors/import_visitor.py  --->  src.ic03.models.dependency_type
+src/ic03/visitors/import_visitor.py  --->  base_visitor
+src/ic03/visitors/variable_visitor.py  --->  base_visitor
+src/ic03/visitors/annotation_visitor.py  --->  base_visitor
+src/ic03/visitors/call_graph_visitor.py  --->  ast
+src/ic03/visitors/call_graph_visitor.py  --->  base_visitor
+src/ic03/visitors/call_graph_visitor.py  --->  models.dependency
+src/ic03/visitors/call_graph_visitor.py  --->  models.dependency_type
+src/ic03/visitors/method_visitor.py  --->  ast
+src/ic03/visitors/method_visitor.py  --->  base_visitor
+src/ic03/analyzers/inheritance_builder.py  --->  collections
+src/ic03/analyzers/inheritance_builder.py  --->  src.ic03.models.class_model
+src/ic03/repository/relationship_repository.py  --->  collections
+src/ic03/repository/relationship_repository.py  --->  src.ic03.models.relationship
+src/ic03/repository/method_repository.py  --->  models.method_model
+src/ic03/repository/function_repository.py  --->  models.function_model
+src/ic03/repository/code_repository.py  --->  models.code_model
+src/ic03/repository/module_repository.py  --->  models.module_model
+src/ic03/repository/dependency_repository.py  --->  typing
+src/ic03/repository/dependency_repository.py  --->  src.ic03.models.dependency
+src/ic03/repository/class_repository.py  --->  models.class_model
+src/ic03/parsers/python_ast_parser.py  --->  ast
+src/ic03/parsers/python_ast_parser.py  --->  pathlib
+src/ic03/parsers/python_ast_parser.py  --->  src.ic03.interfaces.parser_interface
+src/ic03/builders/class_dependency_builder.py  --->  pathlib
+src/ic03/builders/class_dependency_builder.py  --->  repository.dependency_repository
+src/ic03/builders/class_dependency_builder.py  --->  parsers.python_ast_parser
+src/ic03/builders/class_dependency_builder.py  --->  visitors.class_dependency_visitor
+src/ic03/builders/function_builder.py  --->  models.function_model
+src/ic03/builders/class_builder.py  --->  models.class_model
+src/ic03/builders/dependency_builder.py  --->  ast
+src/ic03/builders/dependency_builder.py  --->  pathlib
+src/ic03/builders/dependency_builder.py  --->  src.ic03.repository.dependency_repository
+src/ic03/builders/dependency_builder.py  --->  src.ic03.visitors.import_visitor
+src/ic03/builders/module_builder.py  --->  src.ic03.models.module_model
+src/ic03/builders/method_builder.py  --->  models.method_model
+src/ic03/builders/code_builder.py  --->  models.code_model
+src/ic03/tests/test_repository.py  --->  repository.code_repository
+src/ic03/tests/test_repository.py  --->  models.code_model
+src/ic03/tests/test_visitors.py  --->  pathlib
+src/ic03/tests/test_visitors.py  --->  src.ic03.visitors.import_visitor
+src/ic03/tests/test_visitors.py  --->  src.ic03.visitors.class_visitor
+src/ic03/tests/test_visitors.py  --->  src.ic03.visitors.function_visitor
+src/ic03/tests/test_visitors.py  --->  src.ic03.visitors.method_visitor
+src/ic03/tests/test_visitors.py  --->  src.ic03.parsers.python_ast_parser
+src/ic03/tests/test_visitors.py  --->  src.ic03.builders.method_builder
+src/ic03/tests/test_visitors.py  --->  builders.class_builder
+src/ic03/tests/test_visitors.py  --->  builders.function_builder
+src/ic03/tests/test_visitors.py  --->  src.ic03.builders.code_builder
+src/ic03/tests/test_visitors.py  --->  src.ic03.builders.module_builder
+src/ic03/tests/test_services.py  --->  services.code_service
+src/ic03/tests/test_services.py  --->  services.search_service
+src/ic03/tests/test_services.py  --->  services.dependency_service
+src/ic03/tests/test_services.py  --->  models.code_model
+src/ic03/tests/test_project_analysis_service.py  --->  services.project_analysis_service
+src/ic03/models/class_model.py  --->  dataclasses
+src/ic03/models/class_model.py  --->  method_model
+src/ic03/models/relationship_type.py  --->  enum
+src/ic03/models/relationship.py  --->  dataclasses
+src/ic03/models/__init__.py  --->  dependency
+src/ic03/models/__init__.py  --->  dependency_type
+src/ic03/models/source_file.py  --->  dataclasses
+src/ic03/models/source_file.py  --->  pathlib
+src/ic03/models/source_file.py  --->  datetime
+src/ic03/models/method_model.py  --->  dataclasses
+src/ic03/models/module_model.py  --->  dataclasses
+src/ic03/models/module_model.py  --->  class_model
+src/ic03/models/module_model.py  --->  function_model
+src/ic03/models/function_model.py  --->  dataclasses
+src/ic03/models/dependency.py  --->  dataclasses
+src/ic03/models/code_model.py  --->  dataclasses
+src/ic03/models/code_model.py  --->  module_model
+src/ic03/models/dependency_type.py  --->  enum
+src/ic03/services/dependency_analysis_service.py  --->  ast
+src/ic03/services/dependency_analysis_service.py  --->  pathlib
+src/ic03/services/dependency_analysis_service.py  --->  collections
+src/ic03/services/dependency_analysis_service.py  --->  src.ic03.builders.dependency_builder
+src/ic03/services/dependency_analysis_service.py  --->  src.ic03.repository.dependency_repository
+src/ic03/services/dependency_analysis_service.py  --->  src.ic03.repository.relationship_repository
+src/ic03/services/dependency_analysis_service.py  --->  src.ic03.models.relationship
+src/ic03/services/dependency_analysis_service.py  --->  src.ic03.models.relationship_type
+src/ic03/services/dependency_analysis_service.py  --->  src.ic03.visitors.class_visitor
+src/ic03/services/dependency_analysis_service.py  --->  src.ic03.visitors.call_graph_visitor
+src/ic03/services/dependency_analysis_service.py  --->  src.ic03.analyzers.inheritance_builder
+src/ic03/services/project_analysis_service.py  --->  project_loader
+src/ic03/services/project_analysis_service.py  --->  file_scanner
+src/ic03/services/project_analysis_service.py  --->  parsers.python_ast_parser
+src/ic03/services/project_analysis_service.py  --->  visitors.import_visitor
+src/ic03/services/project_analysis_service.py  --->  visitors.class_visitor
+src/ic03/services/project_analysis_service.py  --->  visitors.function_visitor
+src/ic03/services/project_analysis_service.py  --->  visitors.method_visitor
+src/ic03/services/project_analysis_service.py  --->  builders.method_builder
+src/ic03/services/project_analysis_service.py  --->  builders.function_builder
+src/ic03/services/project_analysis_service.py  --->  builders.class_builder
+src/ic03/services/project_analysis_service.py  --->  builders.module_builder
+src/ic03/services/project_analysis_service.py  --->  builders.code_builder
+src/ic03/services/project_analysis_service.py  --->  repository.code_repository
+src/ic03/services/project_analysis_service.py  --->  repository.module_repository
+src/ic03/services/project_analysis_service.py  --->  repository.class_repository
+src/ic03/services/project_analysis_service.py  --->  repository.function_repository
+src/ic03/services/project_analysis_service.py  --->  repository.method_repository
+src/ic03/services/code_service.py  --->  repository.code_repository
+src/ic03/services/code_service.py  --->  models.code_model
+src/ic03/services/temp_das.py  --->  ast
+src/ic03/services/temp_das.py  --->  pathlib
+src/ic03/services/temp_das.py  --->  collections
+src/ic03/services/temp_das.py  --->  src.ic03.repository.relationship_repository
+src/ic03/services/temp_das.py  --->  src.ic03.models.relationship
+src/ic03/services/temp_das.py  --->  src.ic03.models.relationship_type
+src/ic03/services/temp_das.py  --->  src.ic03.builders.dependency_builder
+src/ic03/services/temp_das.py  --->  src.ic03.repository.dependency_repository
+src/ic03/services/temp_das.py  --->  src.ic03.visitors.class_visitor
+src/ic03/services/temp_das.py  --->  src.ic03.visitors.call_graph_visitor
+src/ic03/services/temp_das.py  --->  src.ic03.analyzers.inheritance_builder
+src/ic03/services/search_service.py  --->  repository.class_repository
+src/ic03/services/search_service.py  --->  repository.function_repository
+src/ic03/services/search_service.py  --->  repository.method_repository
+src/ic03/services/relationship_query_service.py  --->  collections
+src/ic03/services/relationship_query_service.py  --->  src.ic03.repository.relationship_repository
+src/ic03/services/relationship_query_service.py  --->  src.ic03.models.relationship_type
+src/ic03/services/graph_traversal_service.py  --->  collections
+src/ic03/services/dependency_visualization_service.py  --->  pathlib
+src/ic03/services/dependency_visualization_service.py  --->  src.ic03.models.relationship_type
+src/ic03/services/class_dependency_analysis_service.py  --->  pathlib
+src/ic03/services/class_dependency_analysis_service.py  --->  builders.class_dependency_builder
+src/ic03/services/class_dependency_analysis_service.py  --->  repository.dependency_repository
+src/ic03/interfaces/repository_interface.py  --->  abc
+src/ic03/interfaces/service_interface.py  --->  abc
+src/ic03/interfaces/parser_interface.py  --->  abc
+src/ic03/interfaces/parser_interface.py  --->  pathlib
+src/ic03/interfaces/parser_interface.py  --->  ast
+src/ic03/reports/class_dependency_report.py  --->  collections
+src/ic03/reports/class_dependency_report.py  --->  services.class_dependency_analysis_service
+src/ic03/reports/relationship_query_report.py  --->  src.ic03.services.relationship_query_service
+src/ic02/repositories/decision_table_repository.py  --->  typing
+src/ic02/repositories/decision_table_repository.py  --->  src.ic02.models.decision_table_model
+src/ic02/repositories/boundary_repository.py  --->  typing
+src/ic02/repositories/boundary_repository.py  --->  src.ic02.models.boundary_model
+src/ic02/repositories/test_case_repository.py  --->  json
+src/ic02/repositories/test_case_repository.py  --->  dataclasses
+src/ic02/repositories/test_case_repository.py  --->  typing
+src/ic02/repositories/test_case_repository.py  --->  src.ic02.models
+src/ic02/models/requirement.py  --->  dataclasses
+src/ic02/models/requirement.py  --->  typing
+src/ic02/models/test_condition.py  --->  dataclasses
+src/ic02/models/test_case.py  --->  dataclasses
+src/ic02/models/test_case.py  --->  typing
+src/ic02/models/scenario.py  --->  dataclasses
+src/ic02/models/test_data.py  --->  dataclasses
+src/ic02/models/test_data.py  --->  typing
+src/ic02/models/decision_table_model.py  --->  dataclasses
+src/ic02/models/decision_table_model.py  --->  typing
+src/ic02/models/boundary_model.py  --->  dataclasses
+src/ic02/generators/test_data_generator.py  --->  src.ic02.models.test_data
+src/ic02/generators/decision_table_generator.py  --->  src.ic02.models.decision_table_model
+src/ic02/generators/decision_table_generator.py  --->  src.ic02.repositories.decision_table_repository
+src/ic02/generators/scenario_generator.py  --->  typing
+src/ic02/generators/scenario_generator.py  --->  src.ic02.models.scenario
+src/ic02/generators/scenario_generator.py  --->  src.ic02.models.requirement
+src/ic02/generators/scenario_generator.py  --->  src.ic02.data.scenario_repository
+src/ic02/generators/testcase_generator.py  --->  typing
+src/ic02/generators/testcase_generator.py  --->  src.ic02.models.test_case
+src/ic02/generators/testcase_generator.py  --->  src.ic02.models.test_condition
+src/ic02/generators/testcase_generator.py  --->  src.ic02.data.testcase_repository
+src/ic02/generators/boundary_value_generator.py  --->  re
+src/ic02/generators/boundary_value_generator.py  --->  src.ic02.models.boundary_model
+src/ic02/generators/boundary_value_generator.py  --->  src.ic02.repositories.boundary_repository
+src/ic02/generators/condition_generator.py  --->  typing
+src/ic02/generators/condition_generator.py  --->  src.ic02.models.test_condition
+src/ic02/generators/condition_generator.py  --->  src.ic02.models.scenario
+src/ic02/generators/condition_generator.py  --->  src.ic02.data.condition_repository
+src/ic02/generators/condition_generator.py  --->  typing
+src/ic02/generators/condition_generator.py  --->  src.ic02.models.scenario
+src/ic02/generators/condition_generator.py  --->  src.ic02.models.test_condition
+src/ic02/generators/test_case_engine.py  --->  typing
+src/ic02/generators/test_case_engine.py  --->  src.ic02.models
+src/ic02/engine/test_design_engine.py  --->  src.ic02.generators.scenario_generator
+src/ic02/engine/test_design_engine.py  --->  src.ic02.generators.condition_generator
+src/ic02/engine/test_design_engine.py  --->  src.ic02.generators.testcase_generator
+src/ic02/engine/test_design_engine.py  --->  src.ic02.analyzers.coverage_analyzer
+src/ic02/engine/test_design_engine.py  --->  src.ic02.models.requirement
+src/ic02/engine/test_design_engine.py  --->  src.ic02.generators.test_data_generator
+src/ic02/services/test_case_service.py  --->  typing
+src/ic02/services/test_case_service.py  --->  src.ic02.models
+src/ic02/services/test_case_service.py  --->  src.ic02.generators.test_case_engine
+src/ic02/services/test_case_service.py  --->  src.ic02.repositories.test_case_repository
+src/ic01/archive/temp_rag_assistant.py  --->  langchain_chroma
+src/ic01/archive/temp_rag_assistant.py  --->  langchain_huggingface
+src/ic01/archive/temp_rag_assistant.py  --->  ollama
+src/ic01/archive/tempmain.py  --->  loader
+
+Inheritance
+----------------------------------------
+NodeVisitor  --->  BaseVisitor
+BaseVisitor  --->  ClassDependencyVisitor
+BaseVisitor  --->  FunctionVisitor
+BaseVisitor  --->  ExceptionVisitor
+BaseVisitor  --->  ComplexityVisitor
+BaseVisitor  --->  DocstringVisitor
+BaseVisitor  --->  InheritanceVisitor
+BaseVisitor  --->  DependencyVisitor
+BaseVisitor  --->  ClassVisitor
+BaseVisitor  --->  AssignmentVisitor
+BaseVisitor  --->  ImportVisitor
+BaseVisitor  --->  VariableVisitor
+BaseVisitor  --->  AnnotationVisitor
+BaseVisitor  --->  CallGraphVisitor
+BaseVisitor  --->  MethodVisitor
+ParserInterface  --->  PythonASTParser
+Enum  --->  RelationshipType
+Enum  --->  DependencyType
+ABC  --->  RepositoryInterface
+ABC  --->  ServiceInterface
+ABC  --->  ParserInterface
+
+Summary
+----------------------------------------
+Total Relationship Types : 3
+Total Relationships      : 1916
+======================================================================
+
+Running Graph Traversal Engine...
+
+
+======================================================================
+                 GRAPH TRAVERSAL REPORT
+======================================================================
+
+Graph Statistics
+----------------------------------------------------------------------
+Total Nodes      : 926
+Total Edges      : 1916
+Root Nodes       : 273
+Leaf Nodes       : 527
+Isolated Nodes   : 0
+
+Sample Traversal
+----------------------------------------------------------------------
+Start Node       : ABC
+
+Breadth First Search
+  ABC
+  ParserInterface
+  RepositoryInterface
+  ServiceInterface
+  PythonASTParser
+
+Depth First Search
+  ABC
+  ParserInterface
+  PythonASTParser
+  RepositoryInterface
+  ServiceInterface
+
+======================================================================
+
+Running Impact Analysis Engine...
+
+
+======================================================================
+                 IMPACT ANALYSIS REPORT
+======================================================================
+
+Summary
+----------------------------------------------------------------------
+Total Nodes            : 926
+Average Impact Score   : 1.57
+Highest Impact Score   : 76
+Critical Nodes         : 30
+
+Top High Impact Nodes
+----------------------------------------------------------------------
+main                                                      76
+AdvancedArchitectureAnalysisService.detailed_summary      34
+DependencyAnalysisService.analyze_project                 21
+ProjectAnalysisService.analyze                            21
+src/ic03/main.py                                          21
+ArchitectureMetricsService.summary                        19
+src/ic03/temp_main.py                                     19
+AdvancedArchitectureAnalysisService.architecture_smells   18
+CodeIntelligenceQueryService.summary                      18
+ask_requirement_assistant                                 17
+
+Sample Impact Analysis
+----------------------------------------------------------------------
+Node                : ABC
+Impact Score        : 4
+Dependency Depth    : 2
+Affected Nodes      : 4
+
+First 15 Affected Nodes
+  ParserInterface
+  RepositoryInterface
+  ServiceInterface
+  PythonASTParser
+
+======================================================================
+
+Running Dependency Visualization Engine...
+
+
+Generating dependency visualization...
+[Visualization] Module graph exported -> reports/dependency_graph.dot
+[Visualization] Method call graph exported -> reports/method_call_graph.dot
+[Visualization] Inheritance graph exported -> reports/inheritance_graph.dot
+[Visualization] Relationship graph exported -> reports/relationship_graph.dot
+
+========================================
+DEPENDENCY VISUALIZATION SUMMARY
+========================================
+Import Relationships      : 310
+Method Calls              : 1585
+Inheritance Relationships : 21
+Total Relationships       : 1916
+========================================
+
+Dependency visualization completed.
+
+
+Running Architecture Metrics Engine...
+
+======================================================================
+               ARCHITECTURE METRICS REPORT
+======================================================================
+Total Nodes          : 926
+Total Relationships  : 1916
+Average Fan-In       : 1.29
+Average Fan-Out      : 1.29
+Architecture Health  : 3%
+Architecture Hotspots: 97
+
+Top Fan-Out
+----------------------------------------------------------------------
+main                                             72
+ProjectAnalysisService.analyze                   21
+src/ic03/main.py                                 21
+src/ic03/temp_main.py                            19
+src/ic03/services/project_analysis_service.py    17
+BaseVisitor                                      14
+load_requirements                                12
+ProjectAnalysisService.__init__                  11
+src/ic03/services/dependency_analysis_service.py    11
+src/ic03/services/temp_das.py                    11
+
+Top Fan-In
+----------------------------------------------------------------------
+len                                              47
+print                                            38
+sorted                                           20
+dataclasses                                      19
+pathlib                                          18
+set                                              17
+typing                                           17
+super                                            15
+base_visitor                                     13
+ast                                              12
+
+Architecture Hotspots
+----------------------------------------------------------------------
+main                                          Fan-In=0   Fan-Out=72 
+len                                           Fan-In=47  Fan-Out=0  
+print                                         Fan-In=38  Fan-Out=0  
+ProjectAnalysisService.analyze                Fan-In=0   Fan-Out=21 
+src/ic03/main.py                              Fan-In=0   Fan-Out=21 
+sorted                                        Fan-In=20  Fan-Out=0  
+dataclasses                                   Fan-In=19  Fan-Out=0  
+src/ic03/temp_main.py                         Fan-In=0   Fan-Out=19 
+pathlib                                       Fan-In=18  Fan-Out=0  
+set                                           Fan-In=17  Fan-Out=0  
+typing                                        Fan-In=17  Fan-Out=0  
+src/ic03/services/project_analysis_service.py Fan-In=0   Fan-Out=17 
+super                                         Fan-In=15  Fan-Out=0  
+BaseVisitor                                   Fan-In=1   Fan-Out=14 
+base_visitor                                  Fan-In=13  Fan-Out=0  
+ast                                           Fan-In=12  Fan-Out=0  
+load_requirements                             Fan-In=0   Fan-Out=12 
+ProjectAnalysisService.__init__               Fan-In=0   Fan-Out=11 
+src/ic03/services/dependency_analysis_service.py Fan-In=0   Fan-Out=11 
+src/ic03/services/temp_das.py                 Fan-In=0   Fan-Out=11 
+src/ic03/tests/test_visitors.py               Fan-In=0   Fan-Out=11 
+BoundaryValueGenerator.generate               Fan-In=1   Fan-Out=9  
+AdvancedArchitectureAnalysisService.detailed_summary Fan-In=0   Fan-Out=10 
+AdvancedArchitectureAnalysisService.highly_coupled_components Fan-In=4   Fan-Out=5  
+AdvancedArchitectureAnalysisService._dfs_cycle_detection Fan-In=2   Fan-Out=7  
+AdvancedArchitectureAnalysisService.detect_cycles Fan-In=2   Fan-Out=7  
+AdvancedArchitectureReport.print_report       Fan-In=0   Fan-Out=9  
+CodeIntelligenceQueryService.summary          Fan-In=0   Fan-Out=9  
+DependencyReport.print_report                 Fan-In=0   Fan-Out=9  
+FileScanner.scan                              Fan-In=0   Fan-Out=9  
+AdvancedArchitectureAnalysisService.append    Fan-In=8   Fan-Out=0  
+GraphTraversalService.get                     Fan-In=8   Fan-Out=0  
+collections                                   Fan-In=8   Fan-Out=0  
+GraphTraversalService._dfs                    Fan-In=2   Fan-Out=6  
+DependencyAnalysisService.analyze_call_graph  Fan-In=1   Fan-Out=7  
+DependencyAnalysisService.analyze_classes     Fan-In=1   Fan-Out=7  
+GraphTraversalService.breadth_first_search    Fan-In=1   Fan-Out=7  
+ImpactAnalysisService.impact_summary          Fan-In=1   Fan-Out=7  
+DependencyBuilder.build                       Fan-In=0   Fan-Out=8  
+ImpactAnalysisReport.print_report             Fan-In=0   Fan-Out=8  
+ask_requirement_assistant                     Fan-In=0   Fan-Out=8  
+open                                          Fan-In=7   Fan-Out=0  
+AdvancedArchitectureAnalysisService.hub_components Fan-In=2   Fan-Out=5  
+AdvancedArchitectureAnalysisService.orphan_components Fan-In=2   Fan-Out=5  
+ArchitectureMetricsService.hotspots           Fan-In=2   Fan-Out=5  
+DependencyAnalysisService.build_relationships Fan-In=1   Fan-Out=6  
+ArchitectureMetricsService.summary            Fan-In=0   Fan-Out=7  
+CodeIntelligenceQueryReport.print_report      Fan-In=0   Fan-Out=7  
+DependencyAnalysisService.analyze_project     Fan-In=0   Fan-Out=7  
+GraphTraversalService.shortest_path           Fan-In=0   Fan-Out=7  
+RelationshipQueryReport.print_report          Fan-In=0   Fan-Out=7  
+append                                        Fan-In=6   Fan-Out=0  
+enumerate                                     Fan-In=6   Fan-Out=0  
+isinstance                                    Fan-In=6   Fan-Out=0  
+models                                        Fan-In=6   Fan-Out=0  
+RelationshipQueryService.get_relationships_by_type Fan-In=5   Fan-Out=1  
+AdvancedArchitectureAnalysisService.architecture_smells Fan-In=1   Fan-Out=5  
+AdvancedArchitectureAnalysisService.find_deep_dependency_chains Fan-In=1   Fan-Out=5  
+AdvancedArchitectureAnalysisService.stability_index Fan-In=1   Fan-Out=5  
+ArchitectureMetricsService.average_fan_in     Fan-In=1   Fan-Out=5  
+ArchitectureMetricsService.average_fan_out    Fan-In=1   Fan-Out=5  
+DependencyVisualizationService.export_inheritance_graph Fan-In=1   Fan-Out=5  
+DependencyVisualizationService.export_method_call_graph Fan-In=1   Fan-Out=5  
+DependencyVisualizationService.export_module_graph Fan-In=1   Fan-Out=5  
+DependencyVisualizationService.export_relationship_graph Fan-In=1   Fan-Out=5  
+TestDesignEngine.generate                     Fan-In=1   Fan-Out=5  
+analyze_impact                                Fan-In=1   Fan-Out=5  
+retrieve_context                              Fan-In=1   Fan-Out=5  
+AICodeAssistantReport.print_report            Fan-In=0   Fan-Out=6  
+AICodeAssistantService.answer                 Fan-In=0   Fan-Out=6  
+AdvancedArchitectureAnalysisService.dfs       Fan-In=0   Fan-Out=6  
+BoundaryExporter.export_to_json               Fan-In=0   Fan-Out=6  
+DependencyVisualizationService.export_all     Fan-In=0   Fan-Out=6  
+GraphTraversalReport.print_report             Fan-In=0   Fan-Out=6  
+GraphTraversalService.graph_statistics        Fan-In=0   Fan-Out=6  
+GraphTraversalService.has_path                Fan-In=0   Fan-Out=6  
+MethodVisitor.visit_ClassDef                  Fan-In=0   Fan-Out=6  
+src/ic02/engine/test_design_engine.py         Fan-In=0   Fan-Out=6  
+src/ic03/demo_visitors.py                     Fan-In=0   Fan-Out=6  
+AdvancedArchitectureAnalysisService.get_nodes Fan-In=5   Fan-Out=0  
+ArchitectureMetricsService.get_nodes          Fan-In=5   Fan-Out=0  
+Dependency                                    Fan-In=5   Fan-Out=0  
+DependencyVisualizationService.get_all        Fan-In=5   Fan-Out=0  
+GraphTraversalService.add                     Fan-In=5   Fan-Out=0  
+Path                                          Fan-In=5   Fan-Out=0  
+lower                                         Fan-In=5   Fan-Out=0  
+models.code_model                             Fan-In=5   Fan-Out=0  
+AICodeAssistantService.explain_component      Fan-In=0   Fan-Out=5  
+AdvancedArchitectureAnalysisService.summary   Fan-In=0   Fan-Out=5  
+ArchitectureMetricsReport.print_report        Fan-In=0   Fan-Out=5  
+BoundaryDetector.detect                       Fan-In=0   Fan-Out=5  
+ClassDependencyBuilder.build                  Fan-In=0   Fan-Out=5  
+ClassDependencyReport.print_report            Fan-In=0   Fan-Out=5  
+ClassVisitor.visit_ClassDef                   Fan-In=0   Fan-Out=5  
+TestCaseRepository.save                       Fan-In=0   Fan-Out=5  
+TestDesignEngine.__init__                     Fan-In=0   Fan-Out=5  
+src/ic02/main.py                              Fan-In=0   Fan-Out=5  
+======================================================================
+
+Running Advanced Architecture Analysis Engine...
+
+======================================================================
+        ADVANCED ARCHITECTURE ANALYSIS REPORT
+======================================================================
+Components             : 926
+Relationships          : 1916
+Orphan Components      : 0
+Highly Coupled         : 23
+Circular Dependencies  : 41
+Maximum Chain Depth    : 5
+Hub Components         : 0
+Architecture Smells    : 64
+Stability Index        : 97.52%
+
+Highly Coupled Components
+----------------------------------------------------------------------
+main                                         In=0   Out=72  Total=72
+len                                          In=47  Out=0   Total=47
+print                                        In=38  Out=0   Total=38
+ProjectAnalysisService.analyze               In=0   Out=21  Total=21
+src/ic03/main.py                             In=0   Out=21  Total=21
+sorted                                       In=20  Out=0   Total=20
+dataclasses                                  In=19  Out=0   Total=19
+src/ic03/temp_main.py                        In=0   Out=19  Total=19
+pathlib                                      In=18  Out=0   Total=18
+set                                          In=17  Out=0   Total=17
+src/ic03/services/project_analysis_service.pyIn=0   Out=17  Total=17
+typing                                       In=17  Out=0   Total=17
+BaseVisitor                                  In=1   Out=14  Total=15
+super                                        In=15  Out=0   Total=15
+base_visitor                                 In=13  Out=0   Total=13
+ast                                          In=12  Out=0   Total=12
+load_requirements                            In=0   Out=12  Total=12
+ProjectAnalysisService.__init__              In=0   Out=11  Total=11
+src/ic03/services/dependency_analysis_service.pyIn=0   Out=11  Total=11
+src/ic03/services/temp_das.py                In=0   Out=11  Total=11
+src/ic03/tests/test_visitors.py              In=0   Out=11  Total=11
+AdvancedArchitectureAnalysisService.detailed_summaryIn=0   Out=10  Total=10
+BoundaryValueGenerator.generate              In=1   Out=9   Total=10
+
+Hub Components
+----------------------------------------------------------------------
+None
+
+Circular Dependencies
+----------------------------------------------------------------------
+AICodeAssistantService.architecture_summary -> AICodeAssistantService.architecture_summary
+AICodeAssistantService.highly_coupled_components -> AICodeAssistantService.highly_coupled_components
+AICodeAssistantService.circular_dependencies -> AICodeAssistantService.circular_dependencies
+AICodeAssistantService.health_summary -> AICodeAssistantService.health_summary
+AICodeAssistantService.architecture_hotspots -> AICodeAssistantService.architecture_hotspots
+AICodeAssistantService.project_summary -> AICodeAssistantService.project_summary
+AdvancedArchitectureAnalysisService._dfs_cycle_detection -> AdvancedArchitectureAnalysisService._dfs_cycle_detection
+AnnotationVisitor.__init__ -> AnnotationVisitor.__init__
+AssignmentVisitor.__init__ -> AssignmentVisitor.__init__
+BaseVisitor.__init__ -> BaseVisitor.__init__
+BoundaryRepository.clear -> BoundaryRepository.clear
+BoundaryValueGenerator.generate -> BoundaryValueGenerator.generate
+CallGraphVisitor.__init__ -> CallGraphVisitor.__init__
+ClassDependencyVisitor.__init__ -> ClassDependencyVisitor.__init__
+ClassVisitor.__init__ -> ClassVisitor.__init__
+CodeIntelligenceQueryService.architecture_smells -> CodeIntelligenceQueryService.architecture_smells
+CodeIntelligenceQueryService.highly_coupled_components -> CodeIntelligenceQueryService.highly_coupled_components
+CodeIntelligenceQueryService.hub_components -> CodeIntelligenceQueryService.hub_components
+CodeIntelligenceQueryService.impact_summary -> CodeIntelligenceQueryService.impact_summary
+CodeIntelligenceQueryService.longest_dependency_chain -> CodeIntelligenceQueryService.longest_dependency_chain
+CodeIntelligenceQueryService.orphan_components -> CodeIntelligenceQueryService.orphan_components
+ComplexityVisitor.__init__ -> ComplexityVisitor.__init__
+DecisionTableRepository.clear -> DecisionTableRepository.clear
+DependencyAnalysisService.clear -> DependencyAnalysisService.clear
+DependencyAnalysisService.get_children -> DependencyAnalysisService.get_children
+DependencyRepository.clear -> DependencyRepository.clear
+DependencyVisitor.__init__ -> DependencyVisitor.__init__
+DocstringVisitor.__init__ -> DocstringVisitor.__init__
+ExceptionVisitor.__init__ -> ExceptionVisitor.__init__
+FunctionVisitor.__init__ -> FunctionVisitor.__init__
+GraphTraversalService.clear -> GraphTraversalService.clear
+GraphTraversalService._dfs -> GraphTraversalService._dfs
+ImpactAnalysisService.refresh -> ImpactAnalysisService.refresh
+ImportVisitor.__init__ -> ImportVisitor.__init__
+InheritanceVisitor.__init__ -> InheritanceVisitor.__init__
+MethodVisitor.__init__ -> MethodVisitor.__init__
+ProjectLoader.exists -> ProjectLoader.exists
+PythonASTParser.parse -> PythonASTParser.parse
+RelationshipRepository.clear -> RelationshipRepository.clear
+TestDesignEngine.generate -> TestDesignEngine.generate
+VariableVisitor.__init__ -> VariableVisitor.__init__
+
+Longest Dependency Chain
+----------------------------------------------------------------------
+AdvancedArchitectureAnalysisService.detailed_summary -> AdvancedArchitectureAnalysisService.maximum_dependency_depth -> AdvancedArchitectureAnalysisService.longest_dependency_chain -> AdvancedArchitectureAnalysisService.find_deep_dependency_chains -> AdvancedArchitectureAnalysisService._longest_chain -> dfs
+
+Orphan Components
+----------------------------------------------------------------------
+None
+
+Architecture Smells
+----------------------------------------------------------------------
+Highly Coupled            main
+Highly Coupled            len
+Highly Coupled            print
+Highly Coupled            ProjectAnalysisService.analyze
+Highly Coupled            src/ic03/main.py
+Highly Coupled            sorted
+Highly Coupled            dataclasses
+Highly Coupled            src/ic03/temp_main.py
+Highly Coupled            pathlib
+Highly Coupled            set
+Highly Coupled            src/ic03/services/project_analysis_service.py
+Highly Coupled            typing
+Highly Coupled            BaseVisitor
+Highly Coupled            super
+Highly Coupled            base_visitor
+Highly Coupled            ast
+Highly Coupled            load_requirements
+Highly Coupled            ProjectAnalysisService.__init__
+Highly Coupled            src/ic03/services/dependency_analysis_service.py
+Highly Coupled            src/ic03/services/temp_das.py
+Highly Coupled            src/ic03/tests/test_visitors.py
+Highly Coupled            AdvancedArchitectureAnalysisService.detailed_summary
+Highly Coupled            BoundaryValueGenerator.generate
+Circular Dependency       AICodeAssistantService.architecture_summary -> AICodeAssistantService.architecture_summary
+Circular Dependency       AICodeAssistantService.highly_coupled_components -> AICodeAssistantService.highly_coupled_components
+Circular Dependency       AICodeAssistantService.circular_dependencies -> AICodeAssistantService.circular_dependencies
+Circular Dependency       AICodeAssistantService.health_summary -> AICodeAssistantService.health_summary
+Circular Dependency       AICodeAssistantService.architecture_hotspots -> AICodeAssistantService.architecture_hotspots
+Circular Dependency       AICodeAssistantService.project_summary -> AICodeAssistantService.project_summary
+Circular Dependency       AdvancedArchitectureAnalysisService._dfs_cycle_detection -> AdvancedArchitectureAnalysisService._dfs_cycle_detection
+Circular Dependency       AnnotationVisitor.__init__ -> AnnotationVisitor.__init__
+Circular Dependency       AssignmentVisitor.__init__ -> AssignmentVisitor.__init__
+Circular Dependency       BaseVisitor.__init__ -> BaseVisitor.__init__
+Circular Dependency       BoundaryRepository.clear -> BoundaryRepository.clear
+Circular Dependency       BoundaryValueGenerator.generate -> BoundaryValueGenerator.generate
+Circular Dependency       CallGraphVisitor.__init__ -> CallGraphVisitor.__init__
+Circular Dependency       ClassDependencyVisitor.__init__ -> ClassDependencyVisitor.__init__
+Circular Dependency       ClassVisitor.__init__ -> ClassVisitor.__init__
+Circular Dependency       CodeIntelligenceQueryService.architecture_smells -> CodeIntelligenceQueryService.architecture_smells
+Circular Dependency       CodeIntelligenceQueryService.highly_coupled_components -> CodeIntelligenceQueryService.highly_coupled_components
+Circular Dependency       CodeIntelligenceQueryService.hub_components -> CodeIntelligenceQueryService.hub_components
+Circular Dependency       CodeIntelligenceQueryService.impact_summary -> CodeIntelligenceQueryService.impact_summary
+Circular Dependency       CodeIntelligenceQueryService.longest_dependency_chain -> CodeIntelligenceQueryService.longest_dependency_chain
+Circular Dependency       CodeIntelligenceQueryService.orphan_components -> CodeIntelligenceQueryService.orphan_components
+Circular Dependency       ComplexityVisitor.__init__ -> ComplexityVisitor.__init__
+Circular Dependency       DecisionTableRepository.clear -> DecisionTableRepository.clear
+Circular Dependency       DependencyAnalysisService.clear -> DependencyAnalysisService.clear
+Circular Dependency       DependencyAnalysisService.get_children -> DependencyAnalysisService.get_children
+Circular Dependency       DependencyRepository.clear -> DependencyRepository.clear
+Circular Dependency       DependencyVisitor.__init__ -> DependencyVisitor.__init__
+Circular Dependency       DocstringVisitor.__init__ -> DocstringVisitor.__init__
+Circular Dependency       ExceptionVisitor.__init__ -> ExceptionVisitor.__init__
+Circular Dependency       FunctionVisitor.__init__ -> FunctionVisitor.__init__
+Circular Dependency       GraphTraversalService.clear -> GraphTraversalService.clear
+Circular Dependency       GraphTraversalService._dfs -> GraphTraversalService._dfs
+Circular Dependency       ImpactAnalysisService.refresh -> ImpactAnalysisService.refresh
+Circular Dependency       ImportVisitor.__init__ -> ImportVisitor.__init__
+Circular Dependency       InheritanceVisitor.__init__ -> InheritanceVisitor.__init__
+Circular Dependency       MethodVisitor.__init__ -> MethodVisitor.__init__
+Circular Dependency       ProjectLoader.exists -> ProjectLoader.exists
+Circular Dependency       PythonASTParser.parse -> PythonASTParser.parse
+Circular Dependency       RelationshipRepository.clear -> RelationshipRepository.clear
+Circular Dependency       TestDesignEngine.generate -> TestDesignEngine.generate
+Circular Dependency       VariableVisitor.__init__ -> VariableVisitor.__init__
+======================================================================
+
+Running Code Intelligence Query Engine...
+
+======================================================================
+           CODE INTELLIGENCE QUERY REPORT
+======================================================================
+
+Platform Summary
+----------------------------------------------------------------------
+Nodes                  : 926
+Relationships          : 1916
+Architecture Health    : 3%
+Stability Index        : 97.52%
+Architecture Hotspots  : 97
+Circular Dependencies  : 41
+Highly Coupled         : 23
+Orphan Components      : 0
+
+Top Architecture Hotspots
+----------------------------------------------------------------------
+main                                         In=0   Out=72 
+len                                          In=47  Out=0  
+print                                        In=38  Out=0  
+ProjectAnalysisService.analyze               In=0   Out=21 
+src/ic03/main.py                             In=0   Out=21 
+sorted                                       In=20  Out=0  
+dataclasses                                  In=19  Out=0  
+src/ic03/temp_main.py                        In=0   Out=19 
+pathlib                                      In=18  Out=0  
+set                                          In=17  Out=0  
+
+Highly Coupled Components
+----------------------------------------------------------------------
+main                                         Total=72
+len                                          Total=47
+print                                        Total=38
+ProjectAnalysisService.analyze               Total=21
+src/ic03/main.py                             Total=21
+sorted                                       Total=20
+dataclasses                                  Total=19
+src/ic03/temp_main.py                        Total=19
+pathlib                                      Total=18
+set                                          Total=17
+
+Longest Dependency Chain
+----------------------------------------------------------------------
+AdvancedArchitectureAnalysisService.detailed_summary -> AdvancedArchitectureAnalysisService.maximum_dependency_depth -> AdvancedArchitectureAnalysisService.longest_dependency_chain -> AdvancedArchitectureAnalysisService.find_deep_dependency_chains -> AdvancedArchitectureAnalysisService._longest_chain -> dfs
+
+Circular Dependencies
+----------------------------------------------------------------------
+AICodeAssistantService.architecture_summary -> AICodeAssistantService.architecture_summary
+AICodeAssistantService.highly_coupled_components -> AICodeAssistantService.highly_coupled_components
+AICodeAssistantService.circular_dependencies -> AICodeAssistantService.circular_dependencies
+AICodeAssistantService.health_summary -> AICodeAssistantService.health_summary
+AICodeAssistantService.architecture_hotspots -> AICodeAssistantService.architecture_hotspots
+AICodeAssistantService.project_summary -> AICodeAssistantService.project_summary
+AdvancedArchitectureAnalysisService._dfs_cycle_detection -> AdvancedArchitectureAnalysisService._dfs_cycle_detection
+AnnotationVisitor.__init__ -> AnnotationVisitor.__init__
+AssignmentVisitor.__init__ -> AssignmentVisitor.__init__
+BaseVisitor.__init__ -> BaseVisitor.__init__
+======================================================================
+
+Running AI Code Assistant...
+
+======================================================================
+              AI CODE ASSISTANT REPORT
+======================================================================
+
+Platform Summary
+----------------------------------------------------------------------
+Nodes                  : 926
+Relationships          : 1916
+Architecture Health    : 3%
+Stability Index        : 97.52%
+
+Sample AI Questions
+----------------------------------------------------------------------
+
+Question : Architecture summary
+Answer   : The architecture contains 926 components, 1916 relationships, 41 circular dependencies and a stability index of 97.52%.
+
+Question : Show health
+Answer   : Architecture Health Score: 3%. Stability Index: 97.52%.
+
+Question : Show hotspots
+Answer   : The project currently contains 97 architecture hotspot(s).
+
+Question : Show cycles
+Answer   : The dependency graph contains 41 circular dependency cycle(s).
+
+Question : Show coupling
+Answer   : The project contains 23 highly coupled component(s).
+
+Component Explanation
+----------------------------------------------------------------------
+Component : ProjectAnalysisService
+Component 'ProjectAnalysisService' participates in the project dependency graph. It has 3 incoming relationship(s) and 0 outgoing relationship(s). The component is primarily depended upon by other components.
+
+Impact Analysis
+----------------------------------------------------------------------
+Changing 'ProjectAnalysisService' may impact 4 related component(s).
+
+Search Example
+----------------------------------------------------------------------
+AdvancedArchitectureAnalysisService.find_deep_dependency_chains
+AdvancedArchitectureAnalysisService.longest_dependency_chain
+AdvancedArchitectureAnalysisService.maximum_dependency_depth
+AdvancedArchitectureReport.longest_dependency_chain
+ClassDependencyAnalysisService
+ClassDependencyAnalysisService.__init__
+ClassDependencyAnalysisService.analyze_file
+ClassDependencyAnalysisService.analyze_project
+ClassDependencyAnalysisService.build
+ClassDependencyAnalysisService.get_all_dependencies
+======================================================================
+
+Running Class Dependency Analysis...
+
+======================================================================
+          Class Dependency Report
+======================================================================
+
+Total Class Dependencies : 120
+
+Most Used Classes
+----------------------------------------------------------------------
+BoundaryValue                       13
+Dependency                          7
+BoundaryConstraint                  4
+defaultdict                         4
+Counter                             4
+round                               4
+Path                                3
+DependencyRepository                3
+ClassVisitor                        3
+Relationship                        3
+======================================================================
+
+✓ IC-03 analysis completed successfully.

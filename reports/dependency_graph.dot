@@ -135,6 +135,7 @@ digraph "Module Dependency Graph" {
     "src/ic03/interfaces/service_interface.py" -> "abc";
     "src/ic03/main.py" -> "pathlib";
     "src/ic03/main.py" -> "src.ic03.reports.advanced_architecture_report";
+    "src/ic03/main.py" -> "src.ic03.reports.ai_code_assistant_report";
     "src/ic03/main.py" -> "src.ic03.reports.architecture_metrics_report";
     "src/ic03/main.py" -> "src.ic03.reports.class_dependency_report";
     "src/ic03/main.py" -> "src.ic03.reports.code_intelligence_query_report";
@@ -143,6 +144,7 @@ digraph "Module Dependency Graph" {
     "src/ic03/main.py" -> "src.ic03.reports.impact_analysis_report";
     "src/ic03/main.py" -> "src.ic03.reports.relationship_query_report";
     "src/ic03/main.py" -> "src.ic03.services.advanced_architecture_analysis_service";
+    "src/ic03/main.py" -> "src.ic03.services.ai_code_assistant_service";
     "src/ic03/main.py" -> "src.ic03.services.architecture_metrics_service";
     "src/ic03/main.py" -> "src.ic03.services.class_dependency_analysis_service";
     "src/ic03/main.py" -> "src.ic03.services.code_intelligence_query_service";
@@ -243,6 +245,7 @@ digraph "Module Dependency Graph" {
     "src/ic03/temp_main.py" -> "src.ic03.reports.advanced_architecture_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.architecture_metrics_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.class_dependency_report";
+    "src/ic03/temp_main.py" -> "src.ic03.reports.code_intelligence_query_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.dependency_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.graph_traversal_report";
     "src/ic03/temp_main.py" -> "src.ic03.reports.impact_analysis_report";
@@ -250,6 +253,7 @@ digraph "Module Dependency Graph" {
     "src/ic03/temp_main.py" -> "src.ic03.services.advanced_architecture_analysis_service";
     "src/ic03/temp_main.py" -> "src.ic03.services.architecture_metrics_service";
     "src/ic03/temp_main.py" -> "src.ic03.services.class_dependency_analysis_service";
+    "src/ic03/temp_main.py" -> "src.ic03.services.code_intelligence_query_service";
     "src/ic03/temp_main.py" -> "src.ic03.services.dependency_analysis_service";
     "src/ic03/temp_main.py" -> "src.ic03.services.dependency_visualization_service";
     "src/ic03/temp_main.py" -> "src.ic03.services.graph_traversal_service";

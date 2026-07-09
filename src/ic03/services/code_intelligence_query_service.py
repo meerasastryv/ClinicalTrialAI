@@ -74,8 +74,6 @@ class CodeIntelligenceQueryService:
             "stability_index": self.architecture.stability_index(),
         }
 
-
-
     # ---------------------------------------------------------
     # Architecture Hotspots
     # ---------------------------------------------------------
@@ -153,18 +151,20 @@ class CodeIntelligenceQueryService:
 
         return self.architecture.orphan_components()
 
-
-
     # ---------------------------------------------------------
     # Impact Analysis
     # ---------------------------------------------------------
 
-    def impact_summary(self, component):
+    def impact_summary(self, component=None):
         """
-        Returns impact analysis for a component.
+        Returns impact analysis.
+
+        Current implementation returns the overall project impact
+        summary. Component-specific impact analysis can be added
+        in a future milestone.
         """
 
-        return self.impact.impact_summary(component)
+        return self.impact.impact_summary()
 
     # ---------------------------------------------------------
     # Dependency Path

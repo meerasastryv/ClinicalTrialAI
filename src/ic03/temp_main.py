@@ -50,6 +50,13 @@ from src.ic03.reports.advanced_architecture_report import (
     AdvancedArchitectureReport,
 )
 
+from src.ic03.services.code_intelligence_query_service import (
+    CodeIntelligenceQueryService,
+)
+from src.ic03.reports.code_intelligence_query_report import (
+    CodeIntelligenceQueryReport,
+)
+
 from src.ic03.services.class_dependency_analysis_service import (
     ClassDependencyAnalysisService,
 )
@@ -105,17 +112,17 @@ def main():
     #
     print("\nRunning Relationship Query Engine...")
 
-    query_service = RelationshipQueryService(
+    relationship_query_service = RelationshipQueryService(
         dependency_service.relationship_repository
     )
 
-    query_report = RelationshipQueryReport(
-        query_service
+    relationship_query_report = RelationshipQueryReport(
+        relationship_query_service
     )
 
     print()
 
-    query_report.print_report()
+    relationship_query_report.print_report()
 
     #
     # Graph Traversal Engine
@@ -197,6 +204,27 @@ def main():
     print()
 
     advanced_report.print_report()
+
+    #
+    # Code Intelligence Query Engine
+    #
+    print("\nRunning Code Intelligence Query Engine...")
+
+    code_query_service = CodeIntelligenceQueryService(
+        relationship_query_service,
+        traversal_service,
+        impact_service,
+        metrics_service,
+        advanced_service,
+    )
+
+    code_query_report = CodeIntelligenceQueryReport(
+        code_query_service
+    )
+
+    print()
+
+    code_query_report.print_report()
 
     #
     # Class Dependency Analysis

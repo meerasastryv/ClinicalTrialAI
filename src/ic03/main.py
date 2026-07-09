@@ -57,6 +57,13 @@ from src.ic03.reports.code_intelligence_query_report import (
     CodeIntelligenceQueryReport,
 )
 
+from src.ic03.services.ai_code_assistant_service import (
+    AICodeAssistantService,
+)
+from src.ic03.reports.ai_code_assistant_report import (
+    AICodeAssistantReport,
+)
+
 from src.ic03.services.class_dependency_analysis_service import (
     ClassDependencyAnalysisService,
 )
@@ -225,6 +232,23 @@ def main():
     print()
 
     code_query_report.print_report()
+
+    #
+    # AI Code Assistant
+    #
+    print("\nRunning AI Code Assistant...")
+
+    ai_assistant = AICodeAssistantService(
+        code_query_service
+    )
+
+    ai_report = AICodeAssistantReport(
+        ai_assistant
+    )
+
+    print()
+
+    ai_report.print_report()
 
     #
     # Class Dependency Analysis
