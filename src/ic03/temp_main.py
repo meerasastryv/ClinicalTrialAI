@@ -25,6 +25,13 @@ from src.ic03.reports.graph_traversal_report import (
     GraphTraversalReport,
 )
 
+from src.ic03.services.impact_analysis_service import (
+    ImpactAnalysisService,
+)
+from src.ic03.reports.impact_analysis_report import (
+    ImpactAnalysisReport,
+)
+
 from src.ic03.services.class_dependency_analysis_service import (
     ClassDependencyAnalysisService,
 )
@@ -66,7 +73,9 @@ def main():
 
     dependency_service.analyze_project(project_path)
 
-    dependency_report = DependencyReport(dependency_service)
+    dependency_report = DependencyReport(
+        dependency_service
+    )
 
     print()
 
@@ -107,6 +116,23 @@ def main():
     traversal_report.print_report()
 
     #
+    # Impact Analysis Engine
+    #
+    print("\nRunning Impact Analysis Engine...")
+
+    impact_service = ImpactAnalysisService(
+        traversal_service
+    )
+
+    impact_report = ImpactAnalysisReport(
+        impact_service
+    )
+
+    print()
+
+    impact_report.print_report()
+
+    #
     # Class Dependency Analysis
     #
     print("\nRunning Class Dependency Analysis...")
@@ -114,7 +140,6 @@ def main():
     class_service = ClassDependencyAnalysisService()
 
     class_service.analyze_project(project_path)
-
 
     class_report = ClassDependencyReport(
         class_service

@@ -1,0 +1,26 @@
+digraph "Inheritance Graph" {
+    rankdir=LR;
+    node [shape=box];
+
+    "ABC" -> "ParserInterface";
+    "ABC" -> "RepositoryInterface";
+    "ABC" -> "ServiceInterface";
+    "BaseVisitor" -> "AnnotationVisitor";
+    "BaseVisitor" -> "AssignmentVisitor";
+    "BaseVisitor" -> "CallGraphVisitor";
+    "BaseVisitor" -> "ClassDependencyVisitor";
+    "BaseVisitor" -> "ClassVisitor";
+    "BaseVisitor" -> "ComplexityVisitor";
+    "BaseVisitor" -> "DependencyVisitor";
+    "BaseVisitor" -> "DocstringVisitor";
+    "BaseVisitor" -> "ExceptionVisitor";
+    "BaseVisitor" -> "FunctionVisitor";
+    "BaseVisitor" -> "ImportVisitor";
+    "BaseVisitor" -> "InheritanceVisitor";
+    "BaseVisitor" -> "MethodVisitor";
+    "BaseVisitor" -> "VariableVisitor";
+    "Enum" -> "DependencyType";
+    "Enum" -> "RelationshipType";
+    "NodeVisitor" -> "BaseVisitor";
+    "ParserInterface" -> "PythonASTParser";
+}
