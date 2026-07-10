@@ -8,18 +8,23 @@ class DemoApplication:
 
     @trace_execution
     def calculate(self):
+        return self.compute_total()
+
+    @trace_execution
+    def compute_total(self):
+
+        self.validate()
 
         total = 0
 
-        for i in range(100000):
+        for i in range(50000):
             total += i
 
         return total
 
     @trace_execution
-    def login(self):
-
-        return "Login Successful"
+    def validate(self):
+        return True
 
 
 def main():
@@ -27,8 +32,6 @@ def main():
     app = DemoApplication()
 
     app.calculate()
-
-    app.login()
 
     print("=" * 70)
     print("IC-04 Runtime Exploration Agent")

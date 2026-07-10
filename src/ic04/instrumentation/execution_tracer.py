@@ -2,22 +2,23 @@ import functools
 import time
 
 from src.ic04.collectors.runtime_profiler import RuntimeProfiler
+from src.ic04.instrumentation.execution_context import ExecutionContext
 from src.ic04.services.runtime_analysis_service import RuntimeAnalysisService
 
 
-# Shared runtime service instance
 runtime_service = RuntimeAnalysisService()
 
 
 def trace_execution(func):
     """
-    Decorator that automatically captures runtime events.
+    Decorator that automatically captures runtime execution events.
     """
 
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
 
         module_name = func.__module__
+
         class_name = ""
 
         if args:
@@ -25,13 +26,15 @@ def trace_execution(func):
 
         method_name = func.__name__
 
-        # METHOD_START
+        ExecutionContext.push(method_name)
+
         runtime_service.record_event(
             RuntimeProfiler.create_event(
                 event_type="METHOD_START",
                 module_name=module_name,
                 class_name=class_name,
                 method_name=method_name,
+                caller=ExecutionContext.caller(),
             )
         )
 
@@ -49,10 +52,13 @@ def trace_execution(func):
                     module_name=module_name,
                     class_name=class_name,
                     method_name=method_name,
+                    caller=ExecutionContext.caller(),
                     status="FAILED",
                     exception=str(ex),
                 )
             )
+
+            ExecutionContext.pop()
 
             raise
 
@@ -64,9 +70,12 @@ def trace_execution(func):
                 module_name=module_name,
                 class_name=class_name,
                 method_name=method_name,
+                caller=ExecutionContext.caller(),
                 duration_ms=duration,
             )
         )
+
+        ExecutionContext.pop()
 
         return result
 
