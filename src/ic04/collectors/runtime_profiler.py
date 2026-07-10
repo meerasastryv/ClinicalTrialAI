@@ -1,0 +1,33 @@
+from datetime import datetime
+import threading
+
+from src.ic04.models.runtime_event import RuntimeEvent
+
+
+class RuntimeProfiler:
+    """
+    Creates runtime events for execution tracking.
+    """
+
+    @staticmethod
+    def create_event(
+        event_type: str,
+        module_name: str,
+        class_name: str,
+        method_name: str,
+        status: str = "SUCCESS",
+        duration_ms=None,
+        exception=None,
+    ) -> RuntimeEvent:
+
+        return RuntimeEvent(
+            timestamp=datetime.now(),
+            thread_name=threading.current_thread().name,
+            event_type=event_type,
+            module_name=module_name,
+            class_name=class_name,
+            method_name=method_name,
+            duration_ms=duration_ms,
+            status=status,
+            exception=exception,
+        )
