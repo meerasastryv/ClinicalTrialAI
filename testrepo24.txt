@@ -1,0 +1,82 @@
+======================================================================
+IC-04 Runtime Exploration Agent
+======================================================================
+
+Runtime Events : 6
+Relationships : 2
+
+Runtime Events
+----------------------------------------------------------------------
+TRACE-b3d7de1f METHOD_START      calculate           caller=None
+TRACE-b3d7de1f METHOD_START      compute_total       caller=calculate
+TRACE-b3d7de1f METHOD_START      validate            caller=compute_total
+TRACE-b3d7de1f METHOD_END        validate            caller=compute_total
+TRACE-b3d7de1f METHOD_END        compute_total       caller=calculate
+TRACE-b3d7de1f METHOD_END        calculate           caller=None
+
+Runtime Graph
+----------------------------------------------------------------------
+compute_total --> validate | calls=1 | duration=0.000 ms
+calculate --> compute_total | calls=1 | duration=1.295 ms
+
+======================================================================
+PERFORMANCE ANALYSIS
+======================================================================
+
+================================================================================
+PERFORMANCE ANALYSIS REPORT
+================================================================================
+Generated : 2026-07-10 22:38:54.087513
+
+Total Methods : 3
+Total Calls   : 3
+
+--------------------------------------------------------------------------------
+METHOD PERFORMANCE
+--------------------------------------------------------------------------------
+Method        : calculate
+Calls         : 1
+Average Time  : 1.305083 ms
+Minimum Time  : 1.305083 ms
+Maximum Time  : 1.305083 ms
+Total Time    : 1.305083 ms
+--------------------------------------------------------------------------------
+Method        : compute_total
+Calls         : 1
+Average Time  : 1.294792 ms
+Minimum Time  : 1.294792 ms
+Maximum Time  : 1.294792 ms
+Total Time    : 1.294792 ms
+--------------------------------------------------------------------------------
+Method        : validate
+Calls         : 1
+Average Time  : 0.000250 ms
+Minimum Time  : 0.000250 ms
+Maximum Time  : 0.000250 ms
+Total Time    : 0.000250 ms
+--------------------------------------------------------------------------------
+
+================================================================================
+TOP 10 SLOWEST METHODS
+================================================================================
+ 1. calculate
+    Avg=1.305083 ms | Max=1.305083 ms | Calls=1
+ 2. compute_total
+    Avg=1.294792 ms | Max=1.294792 ms | Calls=1
+ 3. validate
+    Avg=0.000250 ms | Max=0.000250 ms | Calls=1
+
+======================================================================
+HOTSPOT ANALYSIS
+======================================================================
+
+================================================================================
+HOTSPOT ANALYSIS REPORT
+================================================================================
+Generated : 2026-07-10 22:38:54.087542
+
+Method                             Calls        Avg(ms)      Total(ms)     Level
+--------------------------------------------------------------------------------
+calculate                              1       1.305083       1.305083      HIGH
+compute_total                          1       1.294792       1.294792      HIGH
+validate                               1       0.000250       0.000250       LOW
