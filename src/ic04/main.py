@@ -1,3 +1,4 @@
+from src.ic04.builders.runtime_graph_builder import RuntimeGraphBuilder
 from src.ic04.instrumentation.execution_tracer import (
     trace_execution,
     runtime_service,
@@ -39,12 +40,29 @@ def main():
 
     print()
 
-    print(f"Total Runtime Events: {runtime_service.get_event_count()}")
+    print(f"Runtime Events: {runtime_service.get_event_count()}")
+
+    graph_builder = RuntimeGraphBuilder()
+
+    graph = graph_builder.build(
+        runtime_service.get_runtime_events()
+    )
 
     print()
 
-    for event in runtime_service.get_runtime_events():
-        print(event)
+    print(f"Runtime Relationships: {graph.size()}")
+
+    print()
+
+    for relationship in graph.get_relationships():
+
+        print(
+            f"{relationship.caller}"
+            f" --> "
+            f"{relationship.callee}"
+            f" | calls={relationship.call_count}"
+            f" | duration={relationship.total_duration_ms:.3f} ms"
+        )
 
 
 if __name__ == "__main__":
