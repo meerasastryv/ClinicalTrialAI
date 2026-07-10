@@ -1,40 +1,46 @@
-from src.ic04.collectors.runtime_profiler import RuntimeProfiler
-from src.ic04.services.runtime_analysis_service import RuntimeAnalysisService
+from src.ic04.instrumentation.execution_tracer import (
+    trace_execution,
+    runtime_service,
+)
+
+
+class DemoApplication:
+
+    @trace_execution
+    def calculate(self):
+
+        total = 0
+
+        for i in range(100000):
+            total += i
+
+        return total
+
+    @trace_execution
+    def login(self):
+
+        return "Login Successful"
 
 
 def main():
 
-    service = RuntimeAnalysisService()
+    app = DemoApplication()
 
-    event1 = RuntimeProfiler.create_event(
-        event_type="METHOD_START",
-        module_name="sample",
-        class_name="Demo",
-        method_name="run",
-    )
+    app.calculate()
 
-    event2 = RuntimeProfiler.create_event(
-        event_type="METHOD_END",
-        module_name="sample",
-        class_name="Demo",
-        method_name="run",
-        duration_ms=12.8,
-    )
+    app.login()
 
-    service.record_event(event1)
-    service.record_event(event2)
-
-    print("=" * 60)
+    print("=" * 70)
     print("IC-04 Runtime Exploration Agent")
-    print("=" * 60)
+    print("=" * 70)
 
     print()
 
-    print(f"Total Runtime Events: {service.get_event_count()}")
+    print(f"Total Runtime Events: {runtime_service.get_event_count()}")
 
     print()
 
-    for event in service.get_runtime_events():
+    for event in runtime_service.get_runtime_events():
         print(event)
 
 
