@@ -4,6 +4,7 @@ import time
 from src.ic04.collectors.runtime_profiler import RuntimeProfiler
 from src.ic04.instrumentation.execution_context import ExecutionContext
 from src.ic04.services.runtime_analysis_service import RuntimeAnalysisService
+from src.ic04.tracing.trace_context import TraceContext
 
 
 runtime_service = RuntimeAnalysisService()
@@ -16,6 +17,11 @@ def trace_execution(func):
 
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
+
+        is_root_call = ExecutionContext.current() is None
+
+        if is_root_call:
+            TraceContext.begin_trace()
 
         module_name = func.__module__
 
@@ -60,6 +66,9 @@ def trace_execution(func):
 
             ExecutionContext.pop()
 
+            if is_root_call:
+                TraceContext.end_trace()
+
             raise
 
         duration = (time.perf_counter() - start) * 1000
@@ -76,6 +85,9 @@ def trace_execution(func):
         )
 
         ExecutionContext.pop()
+
+        if is_root_call:
+            TraceContext.end_trace()
 
         return result
 

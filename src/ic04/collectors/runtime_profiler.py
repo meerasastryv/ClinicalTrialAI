@@ -2,6 +2,7 @@ from datetime import datetime
 import threading
 
 from src.ic04.models.runtime_event import RuntimeEvent
+from src.ic04.tracing.trace_context import TraceContext
 
 
 class RuntimeProfiler:
@@ -16,13 +17,14 @@ class RuntimeProfiler:
         class_name: str,
         method_name: str,
         caller=None,
-        status: str = "SUCCESS",
+        status="SUCCESS",
         duration_ms=None,
         exception=None,
     ) -> RuntimeEvent:
 
         return RuntimeEvent(
             timestamp=datetime.now(),
+            trace_id=TraceContext.current_trace(),
             thread_name=threading.current_thread().name,
             event_type=event_type,
             module_name=module_name,
