@@ -1,10 +1,12 @@
 from src.ic04.analyzers.hotspot_analyzer import HotspotAnalyzer
 from src.ic04.analyzers.performance_analyzer import PerformanceAnalyzer
 from src.ic04.builders.runtime_graph_builder import RuntimeGraphBuilder
+from src.ic04.collectors.api_call_collector import ApiCallCollector
 from src.ic04.instrumentation.execution_tracer import (
     runtime_service,
     trace_execution,
 )
+from src.ic04.reports.api_call_report import ApiCallReport
 from src.ic04.reports.hotspot_report import HotspotReport
 from src.ic04.reports.performance_report import PerformanceReport
 
@@ -37,6 +39,33 @@ def main():
     app = DemoApplication()
 
     app.calculate()
+
+    # ---------------------------------------------------------
+    # Simulated API Calls (Milestone 9)
+    # ---------------------------------------------------------
+
+    api_collector = ApiCallCollector()
+
+    api_collector.collect(
+        endpoint="/patients",
+        http_method="GET",
+        caller_method="calculate",
+        duration_ms=12.8,
+    )
+
+    api_collector.collect(
+        endpoint="/studies",
+        http_method="GET",
+        caller_method="compute_total",
+        duration_ms=18.3,
+    )
+
+    api_collector.collect(
+        endpoint="/login",
+        http_method="POST",
+        caller_method="validate",
+        duration_ms=7.5,
+    )
 
     print("=" * 70)
     print("IC-04 Runtime Exploration Agent")
@@ -134,6 +163,23 @@ def main():
     print()
 
     hotspot_report.print_report()
+
+    # ---------------------------------------------------------
+    # API Call Analysis (Milestone 9)
+    # ---------------------------------------------------------
+
+    print()
+    print("=" * 70)
+    print("API CALL ANALYSIS")
+    print("=" * 70)
+
+    api_report = ApiCallReport(
+        api_collector.get_repository()
+    )
+
+    print()
+
+    api_report.print_report()
 
 
 if __name__ == "__main__":
