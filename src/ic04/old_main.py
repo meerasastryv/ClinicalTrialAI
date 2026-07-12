@@ -7,16 +7,10 @@ from src.ic04.instrumentation.execution_tracer import (
     runtime_service,
     trace_execution,
 )
-from src.ic04.repositories.runtime_knowledge_repository import (
-    RuntimeKnowledgeRepository,
-)
 from src.ic04.reports.api_call_report import ApiCallReport
 from src.ic04.reports.database_query_report import DatabaseQueryReport
 from src.ic04.reports.hotspot_report import HotspotReport
 from src.ic04.reports.performance_report import PerformanceReport
-from src.ic04.reports.runtime_knowledge_report import (
-    RuntimeKnowledgeReport,
-)
 
 
 class DemoApplication:
@@ -27,9 +21,11 @@ class DemoApplication:
 
     @trace_execution
     def compute_total(self):
+
         self.validate()
 
         total = 0
+
         for i in range(50000):
             total += i
 
@@ -43,7 +39,12 @@ class DemoApplication:
 def main():
 
     app = DemoApplication()
+
     app.calculate()
+
+    # ---------------------------------------------------------
+    # Simulated API Calls (Milestone 9)
+    # ---------------------------------------------------------
 
     api_collector = ApiCallCollector()
 
@@ -67,6 +68,10 @@ def main():
         caller_method="validate",
         duration_ms=7.5,
     )
+
+    # ---------------------------------------------------------
+    # Simulated Database Queries (Milestone 10)
+    # ---------------------------------------------------------
 
     database_collector = DatabaseQueryCollector()
 
@@ -97,18 +102,30 @@ def main():
     print("=" * 70)
     print("IC-04 Runtime Exploration Agent")
     print("=" * 70)
+
     print()
+
     print(f"Runtime Events : {runtime_service.get_event_count()}")
 
+    # ---------------------------------------------------------
+    # Runtime Graph
+    # ---------------------------------------------------------
+
     graph_builder = RuntimeGraphBuilder()
-    graph = graph_builder.build(runtime_service.get_runtime_events())
+
+    graph = graph_builder.build(
+        runtime_service.get_runtime_events()
+    )
 
     print(f"Relationships : {graph.size()}")
+
     print()
+
     print("Runtime Events")
     print("-" * 70)
 
     for event in runtime_service.get_runtime_events():
+
         print(
             f"{event.trace_id:15}"
             f"{event.event_type:18}"
@@ -117,10 +134,12 @@ def main():
         )
 
     print()
+
     print("Runtime Graph")
     print("-" * 70)
 
     for relationship in graph.get_relationships():
+
         print(
             f"{relationship.caller}"
             f" --> "
@@ -129,58 +148,85 @@ def main():
             f" | duration={relationship.total_duration_ms:.3f} ms"
         )
 
+    # ---------------------------------------------------------
+    # Performance Analysis (Milestone 7)
+    # ---------------------------------------------------------
+
     print()
     print("=" * 70)
     print("PERFORMANCE ANALYSIS")
     print("=" * 70)
 
-    performance_repository = PerformanceAnalyzer().analyze(
+    performance_analyzer = PerformanceAnalyzer()
+
+    performance_repository = performance_analyzer.analyze(
         runtime_service.get_repository()
     )
-    PerformanceReport(performance_repository).print_report()
+
+    performance_report = PerformanceReport(
+        performance_repository
+    )
+
+    print()
+
+    performance_report.print_report()
+
+    # ---------------------------------------------------------
+    # Hotspot Analysis (Milestone 8)
+    # ---------------------------------------------------------
 
     print()
     print("=" * 70)
     print("HOTSPOT ANALYSIS")
     print("=" * 70)
 
-    hotspot_repository = HotspotAnalyzer().analyze(
+    hotspot_analyzer = HotspotAnalyzer()
+
+    hotspot_repository = hotspot_analyzer.analyze(
         performance_repository
     )
-    HotspotReport(hotspot_repository).print_report()
+
+    hotspot_report = HotspotReport(
+        hotspot_repository
+    )
+
+    print()
+
+    hotspot_report.print_report()
+
+    # ---------------------------------------------------------
+    # API Call Analysis (Milestone 9)
+    # ---------------------------------------------------------
 
     print()
     print("=" * 70)
     print("API CALL ANALYSIS")
     print("=" * 70)
 
-    ApiCallReport(
+    api_report = ApiCallReport(
         api_collector.get_repository()
-    ).print_report()
+    )
+
+    print()
+
+    api_report.print_report()
+
+    # ---------------------------------------------------------
+    # Database Query Analysis (Milestone 10)
+    # ---------------------------------------------------------
 
     print()
     print("=" * 70)
     print("DATABASE QUERY ANALYSIS")
     print("=" * 70)
 
-    DatabaseQueryReport(
+    database_report = DatabaseQueryReport(
         database_collector.get_repository()
-    ).print_report()
-
-    #print()
-    #print("=" * 70)
-    #print("RUNTIME KNOWLEDGE REPOSITORY")
-    #print("=" * 70)
-
-    knowledge = RuntimeKnowledgeRepository().build(
-        runtime_repository=runtime_service.get_repository(),
-        performance_repository=performance_repository,
-        hotspot_repository=hotspot_repository,
-        api_call_repository=api_collector.get_repository(),
-        database_query_repository=database_collector.get_repository(),
     )
 
-    RuntimeKnowledgeReport.print_report(knowledge)
+    print()
+
+    database_report.print_report()
 
 
 if __name__ == "__main__":
