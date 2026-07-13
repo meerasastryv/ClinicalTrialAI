@@ -17,7 +17,6 @@ from src.ic04.reports.performance_report import PerformanceReport
 from src.ic04.reports.runtime_knowledge_report import (
     RuntimeKnowledgeReport,
 )
-from src.ic04.cli.runtime_cli import RuntimeCLI
 
 
 class DemoApplication:
@@ -182,22 +181,6 @@ def main():
     )
 
     RuntimeKnowledgeReport.print_report(knowledge)
-
-    print()
-    print("=" * 70)
-    print("RUNTIME EXPLORER")
-    print("=" * 70)
-
-    runtime_cli = RuntimeCLI(
-        runtime_repository=runtime_service.get_repository(),
-        performance_repository=performance_repository,
-        hotspot_repository=hotspot_repository,
-        api_call_repository=api_collector.get_repository(),
-        database_query_repository=database_collector.get_repository(),
-        runtime_knowledge=knowledge,
-    )
-
-    runtime_cli.run()
 
 
 if __name__ == "__main__":
