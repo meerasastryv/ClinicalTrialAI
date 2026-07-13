@@ -20,6 +20,7 @@ from src.ic04.reports.runtime_knowledge_report import (
 from src.ic04.cli.runtime_cli import RuntimeCLI
 
 from src.ic05.services.graph_service import GraphService
+from src.ic05.reports.graph_report import GraphReport
 
 
 class DemoApplication:
@@ -196,22 +197,12 @@ def main():
 
     runtime_cli.run()
 
-    #
-    # ===============================================================
-    # IC-05 Knowledge Graph Engine
-    # ===============================================================
-    #
-
     print()
     print("=" * 70)
     print("IC-05 Knowledge Graph Engine")
     print("=" * 70)
 
     graph_service = GraphService()
-
-    #
-    # Create Knowledge Graph Nodes
-    #
 
     graph_service.add_node(
         node_id="REQ-001",
@@ -220,21 +211,9 @@ def main():
     )
 
     graph_service.add_node(
-        node_id="CLASS-001",
-        node_type="Class",
-        name="AuthenticationService",
-    )
-
-    graph_service.add_node(
         node_id="METHOD-001",
         node_type="Method",
         name="authenticate_user",
-        properties={
-            "requirement": "REQ-001",
-            "class": "CLASS-001",
-            "api": "API-001",
-            "database": "DB-001",
-        },
     )
 
     graph_service.add_node(
@@ -243,53 +222,19 @@ def main():
         name="/login",
     )
 
-    graph_service.add_node(
-        node_id="DB-001",
-        node_type="Database",
-        name="USER_TABLE",
+    graph_service.add_edge(
+        source="METHOD-001",
+        target="REQ-001",
+        relationship="IMPLEMENTS",
     )
 
-    graph_service.add_node(
-        node_id="RT-001",
-        node_type="Runtime",
-        name="Authentication Runtime",
-        properties={
-            "runtime": "METHOD-001",
-        },
+    graph_service.add_edge(
+        source="METHOD-001",
+        target="API-001",
+        relationship="CALLS",
     )
 
-    #
-    # Automatic Relationship Detection
-    #
-
-    summary = graph_service.detect_relationships()
-
-    print()
-    print("-" * 70)
-    print("Relationship Detection")
-    print("-" * 70)
-    print(f"Relationships Detected : {summary['detected']}")
-    print(f"Relationships Created  : {summary['created']}")
-
-    #
-    # Graph Report
-    #
-
-    graph_service.generate_report()
-
-    #
-    # Validation
-    #
-
-    validation = graph_service.validate_graph()
-
-    print()
-    print("=" * 70)
-    print("GRAPH VALIDATION")
-    print("=" * 70)
-
-    for key, value in validation.items():
-        print(f"{key:25}: {value}")
+    GraphReport(graph_service).print_report()
 
 
 if __name__ == "__main__":

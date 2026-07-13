@@ -1,5 +1,9 @@
 from src.ic05.repository.graph_repository import GraphRepository
-
+from src.ic05.services.relationship_detector import RelationshipDetector
+from src.ic05.services.graph_relationship_builder import (
+    GraphRelationshipBuilder,
+)
+from src.ic05.reports.graph_report import GraphReport
 
 class GraphService:
     """
@@ -170,3 +174,86 @@ class GraphService:
     def get_graph(self):
 
         return self.repository.get_graph()
+
+
+    # ---------------------------------------------------------
+
+    def add_relationship(
+        self,
+        source,
+        target,
+        relationship,
+        properties=None,
+    ):
+        """
+        Add a relationship (graph edge).
+
+        This is a semantic wrapper around add_edge()
+        so callers don't need to know that relationships
+        are stored as graph edges.
+        """
+
+        return self.add_edge(
+            source=source,
+            target=target,
+            relationship=relationship,
+            properties=properties,
+        )
+
+    # ---------------------------------------------------------
+
+    def detect_relationships(self):
+        """
+        Detect inferred relationships and add them
+        to the Knowledge Graph.
+        """
+
+        detector = RelationshipDetector(
+            self.repository
+        )
+
+        builder = GraphRelationshipBuilder(
+            self.repository
+        )
+
+
+
+        detected = detector.detect_all_relationships()
+        created_edges = builder.build_relationships(detected)
+        return {
+                "detected": len(detected),
+                "created": len(created_edges),
+               }
+        #detected = detector.detect_all_relationships()
+        #builder.build_relationships(detected)
+        #return len(detected)
+
+    # ---------------------------------------------------------
+
+    def generate_report(self):
+        """
+        Generate Knowledge Graph report.
+        """
+
+        report = GraphReport(self)
+
+        report.print_report()
+
+        return report
+
+    # ---------------------------------------------------------
+
+    def validate_graph(self):
+        """
+        Basic graph validation.
+
+        Returns a validation summary.
+        """
+
+        return {
+            "nodes": self.node_count(),
+            "edges": self.edge_count(),
+            "valid": (
+                self.node_count() > 0
+            ),
+        }
