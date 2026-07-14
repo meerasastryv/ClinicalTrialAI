@@ -20,7 +20,12 @@ from src.ic04.reports.runtime_knowledge_report import (
 from src.ic04.cli.runtime_cli import RuntimeCLI
 
 from src.ic05.services.graph_service import GraphService
-from src.ic05.reports.graph_report import GraphReport
+
+from src.ic05.query.graph_query_service import GraphQueryService
+from src.ic05.query.graph_query_report import GraphQueryReport as QueryReport
+
+from src.ic05.services.graph_query_engine import GraphQueryEngine
+from src.ic05.reports.graph_query_report import GraphQueryReport
 
 
 class DemoApplication:
@@ -197,12 +202,22 @@ def main():
 
     runtime_cli.run()
 
+    #
+    # ===============================================================
+    # IC-05 Knowledge Graph Engine
+    # ===============================================================
+    #
+
     print()
     print("=" * 70)
     print("IC-05 Knowledge Graph Engine")
     print("=" * 70)
 
     graph_service = GraphService()
+
+    #
+    # Create Knowledge Graph Nodes
+    #
 
     graph_service.add_node(
         node_id="REQ-001",
@@ -211,9 +226,21 @@ def main():
     )
 
     graph_service.add_node(
+        node_id="CLASS-001",
+        node_type="Class",
+        name="AuthenticationService",
+    )
+
+    graph_service.add_node(
         node_id="METHOD-001",
         node_type="Method",
         name="authenticate_user",
+        properties={
+            "requirement": "REQ-001",
+            "class": "CLASS-001",
+            "api": "API-001",
+            "database": "DB-001",
+        },
     )
 
     graph_service.add_node(
@@ -222,20 +249,124 @@ def main():
         name="/login",
     )
 
-    graph_service.add_edge(
-        source="METHOD-001",
-        target="REQ-001",
-        relationship="IMPLEMENTS",
+    graph_service.add_node(
+        node_id="DB-001",
+        node_type="Database",
+        name="USER_TABLE",
     )
 
-    graph_service.add_edge(
-        source="METHOD-001",
-        target="API-001",
-        relationship="CALLS",
+    graph_service.add_node(
+        node_id="RT-001",
+        node_type="Runtime",
+        name="Authentication Runtime",
+        properties={
+            "runtime": "METHOD-001",
+        },
     )
 
-    GraphReport(graph_service).print_report()
+    #
+    # Automatic Relationship Detection
+    #
 
+    summary = graph_service.detect_relationships()
 
+    print()
+    print("-" * 70)
+    print("Relationship Detection")
+    print("-" * 70)
+    print(f"Relationships Detected : {summary['detected']}")
+    print(f"Relationships Created  : {summary['created']}")
+
+    #
+    # Graph Report
+    #
+
+    graph_service.generate_report()
+
+    #
+    # Validation
+    #
+
+    validation = graph_service.validate_graph()
+
+    print()
+    print("=" * 70)
+    print("GRAPH VALIDATION")
+    print("=" * 70)
+
+    for key, value in validation.items():
+        print(f"{key:25}: {value}")
+
+    #
+    # ===============================================================
+    # IC-05 Milestone 9 - Graph Query Engine
+    # ===============================================================
+    #
+
+    query_service = GraphQueryService(graph_service.repository)
+
+    print()
+    print("=" * 70)
+    print("GRAPH QUERY ENGINE")
+    print("=" * 70)
+
+    #
+    # Neighbors
+    #
+
+    neighbors = query_service.neighbors("REQ-001")
+    QueryReport.print_neighbors("REQ-001", neighbors)
+
+    #
+    # Shortest Path
+    #
+
+    path = query_service.path("REQ-001", "DB-001")
+    QueryReport.print_path(path)
+
+    #
+    # Search by Type
+    #
+
+    requirement_nodes = query_service.search_type("Requirement")
+    QueryReport.print_search(
+        "REQUIREMENT NODES",
+        requirement_nodes,
+    )
+
+    #
+    # Search by Name
+    #
+
+    login_nodes = query_service.search_name("login")
+    QueryReport.print_search(
+        "SEARCH RESULTS : login",
+        login_nodes,
+    )
+
+    #
+    # Connected Nodes
+    #
+
+    connected = query_service.connected("REQ-001")
+    QueryReport.print_connected(connected)
+    print()
+    print("=" * 70)
+    print("IC-05 Milestone 10 - Graph Analytics")
+    print("=" * 70)
+    query_engine = GraphQueryEngine(graph_service.repository)
+    stats = query_engine.graph_statistics()
+    print(stats)
+    report = GraphQueryReport(graph_service.repository)
+    report_file = report.generate()
+    print()
+    print(f"Graph Query Report generated : {report_file}")
+    #print()
+    #print("CONNECTED COMPONENT")
+    #print("=" * 70)
+    #for node in sorted(connected ,key=lambda x: x.node_id):
+    #    print(node)
+    #for node in sorted(connected):
+    #   QueryReport.print_connected(connected)
 if __name__ == "__main__":
     main()

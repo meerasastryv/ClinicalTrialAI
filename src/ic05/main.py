@@ -20,8 +20,19 @@ from src.ic04.reports.runtime_knowledge_report import (
 from src.ic04.cli.runtime_cli import RuntimeCLI
 
 from src.ic05.services.graph_service import GraphService
+
 from src.ic05.query.graph_query_service import GraphQueryService
-from src.ic05.query.graph_query_report import GraphQueryReport
+
+from src.ic05.services.graph_query_engine import GraphQueryEngine
+
+
+from src.ic05.query.graph_query_report import (
+    GraphQueryReport as ConsoleQueryReport
+)
+
+from src.ic05.reports.graph_query_report import (
+    GraphQueryReport as FileQueryReport
+)
 
 class DemoApplication:
 
@@ -310,21 +321,21 @@ def main():
     #
 
     neighbors = query_service.neighbors("REQ-001")
-    GraphQueryReport.print_neighbors("REQ-001", neighbors)
+    ConsoleQueryReport.print_neighbors("REQ-001", neighbors)
 
     #
     # Shortest Path
     #
 
     path = query_service.path("REQ-001", "DB-001")
-    GraphQueryReport.print_path(path)
+    ConsoleQueryReport.print_path(path)
 
     #
     # Search by Type
     #
 
     requirement_nodes = query_service.search_type("Requirement")
-    GraphQueryReport.print_search(
+    ConsoleQueryReport.print_search(
         "REQUIREMENT NODES",
         requirement_nodes,
     )
@@ -334,7 +345,7 @@ def main():
     #
 
     login_nodes = query_service.search_name("login")
-    GraphQueryReport.print_search(
+    ConsoleQueryReport.print_search(
         "SEARCH RESULTS : login",
         login_nodes,
     )
@@ -344,15 +355,26 @@ def main():
     #
 
     connected = query_service.connected("REQ-001")
-    GraphQueryReport.print_connected(connected)
+    ConsoleQueryReport.print_connected(connected)
+    print()
+    print("=" * 70)
+    print("IC-05 Milestone 10 - Graph Analytics")
+    print("=" * 70)
+    query_engine = GraphQueryEngine(graph_service.repository)
+    stats = query_engine.graph_statistics()
+    print(stats)
+    
+    report = FileQueryReport(graph_service.repository)
+    report_file = report.generate()
 
-
+    print()
+    print(f"Graph Query Report generated : {report_file}")
     #print()
     #print("CONNECTED COMPONENT")
     #print("=" * 70)
     #for node in sorted(connected ,key=lambda x: x.node_id):
     #    print(node)
     #for node in sorted(connected):
-    #   GraphQueryReport.print_connected(connected)
+    #   QueryReport.print_connected(connected)
 if __name__ == "__main__":
     main()
