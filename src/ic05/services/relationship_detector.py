@@ -21,9 +21,18 @@ class RelationshipDetector:
     Detects inferred relationships from graph nodes.
     """
 
+    """
     DETECTION_RULES = [
         ("Requirement", "Method", "IMPLEMENTS"),
         ("Class", "Method", "CONTAINS"),
+        ("Method", "API", "INVOKES_API"),
+        ("Method", "Database", "INVOKES_DB"),
+        ("Runtime", "Method", "EXECUTES"),
+    ]
+    """
+    DETECTION_RULES = [
+        ("Method", "Requirement", "IMPLEMENTS"),
+        ("Method", "Class", "CONTAINS"),
         ("Method", "API", "INVOKES_API"),
         ("Method", "Database", "INVOKES_DB"),
         ("Runtime", "Method", "EXECUTES"),
