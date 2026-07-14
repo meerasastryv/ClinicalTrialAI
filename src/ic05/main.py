@@ -20,7 +20,8 @@ from src.ic04.reports.runtime_knowledge_report import (
 from src.ic04.cli.runtime_cli import RuntimeCLI
 
 from src.ic05.services.graph_service import GraphService
-
+from src.ic05.query.graph_query_service import GraphQueryService
+from src.ic05.query.graph_query_report import GraphQueryReport
 
 class DemoApplication:
 
@@ -291,6 +292,67 @@ def main():
     for key, value in validation.items():
         print(f"{key:25}: {value}")
 
+    #
+    # ===============================================================
+    # IC-05 Milestone 9 - Graph Query Engine
+    # ===============================================================
+    #
 
+    query_service = GraphQueryService(graph_service.repository)
+
+    print()
+    print("=" * 70)
+    print("GRAPH QUERY ENGINE")
+    print("=" * 70)
+
+    #
+    # Neighbors
+    #
+
+    neighbors = query_service.neighbors("REQ-001")
+    GraphQueryReport.print_neighbors("REQ-001", neighbors)
+
+    #
+    # Shortest Path
+    #
+
+    path = query_service.path("REQ-001", "DB-001")
+    GraphQueryReport.print_path(path)
+
+    #
+    # Search by Type
+    #
+
+    requirement_nodes = query_service.search_type("Requirement")
+    GraphQueryReport.print_search(
+        "REQUIREMENT NODES",
+        requirement_nodes,
+    )
+
+    #
+    # Search by Name
+    #
+
+    login_nodes = query_service.search_name("login")
+    GraphQueryReport.print_search(
+        "SEARCH RESULTS : login",
+        login_nodes,
+    )
+
+    #
+    # Connected Nodes
+    #
+
+    connected = query_service.connected("REQ-001")
+    GraphQueryReport.print_connected(connected)
+
+
+    #print()
+    #print("CONNECTED COMPONENT")
+    #print("=" * 70)
+    #for node in sorted(connected ,key=lambda x: x.node_id):
+    #    print(node)
+    #for node in sorted(connected):
+    #   GraphQueryReport.print_connected(connected)
 if __name__ == "__main__":
     main()
