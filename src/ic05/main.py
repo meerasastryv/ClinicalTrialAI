@@ -33,6 +33,14 @@ from src.ic05.query.graph_query_report import (
 from src.ic05.reports.graph_query_report import (
     GraphQueryReport as FileQueryReport
 )
+from src.ic05.services.impact_analysis_engine import (
+    ImpactAnalysisEngine
+)
+
+from src.ic05.reports.impact_analysis_report import (
+    ImpactAnalysisReport
+)
+
 
 class DemoApplication:
 
@@ -276,6 +284,8 @@ def main():
 
     summary = graph_service.detect_relationships()
 
+
+
     print()
     print("-" * 70)
     print("Relationship Detection")
@@ -283,6 +293,11 @@ def main():
     print(f"Relationships Detected : {summary['detected']}")
     print(f"Relationships Created  : {summary['created']}")
 
+    graph = graph_service.repository.get_graph()
+    print("\nOutgoing edges")
+    print("----------------")
+    for node in graph.get_all_nodes():
+        print(node.node_id,len(graph.get_outgoing_edges(node.node_id)))
     #
     # Graph Report
     #
@@ -363,12 +378,24 @@ def main():
     query_engine = GraphQueryEngine(graph_service.repository)
     stats = query_engine.graph_statistics()
     print(stats)
-    
     report = FileQueryReport(graph_service.repository)
     report_file = report.generate()
-
     print()
     print(f"Graph Query Report generated : {report_file}")
+
+    # IC-05 Milestone 11 - Impact Analysis Engine
+    print()
+    print("=" * 70)
+    print("IC-05 Milestone 11 - Impact Analysis")
+    print("=" * 70)
+    impact_engine = ImpactAnalysisEngine(graph_service.repository)
+    impact_result = impact_engine.analyze("REQ-001")
+    print(impact_result)
+    impact_report = ImpactAnalysisReport(graph_service.repository)
+    impact_report.print_summary("REQ-001")
+    report_file = impact_report.generate("REQ-001")
+    print()
+    print(f"Impact Analysis Report generated : {report_file}")
     #print()
     #print("CONNECTED COMPONENT")
     #print("=" * 70)
