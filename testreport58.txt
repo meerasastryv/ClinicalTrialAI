@@ -1,0 +1,557 @@
+======================================================================
+IC-04 Runtime Exploration Agent
+======================================================================
+
+Runtime Events : 6
+Relationships : 2
+
+Runtime Events
+----------------------------------------------------------------------
+TRACE-e1a8fdbb METHOD_START      calculate           caller=None
+TRACE-e1a8fdbb METHOD_START      compute_total       caller=calculate
+TRACE-e1a8fdbb METHOD_START      validate            caller=compute_total
+TRACE-e1a8fdbb METHOD_END        validate            caller=compute_total
+TRACE-e1a8fdbb METHOD_END        compute_total       caller=calculate
+TRACE-e1a8fdbb METHOD_END        calculate           caller=None
+
+Runtime Graph
+----------------------------------------------------------------------
+compute_total --> validate | calls=1 | duration=0.000 ms
+calculate --> compute_total | calls=1 | duration=1.158 ms
+
+======================================================================
+PERFORMANCE ANALYSIS
+======================================================================
+================================================================================
+PERFORMANCE ANALYSIS REPORT
+================================================================================
+Generated : 2026-07-15 20:19:39.035178
+
+Total Methods : 3
+Total Calls   : 3
+
+--------------------------------------------------------------------------------
+METHOD PERFORMANCE
+--------------------------------------------------------------------------------
+Method        : calculate
+Calls         : 1
+Average Time  : 1.167750 ms
+Minimum Time  : 1.167750 ms
+Maximum Time  : 1.167750 ms
+Total Time    : 1.167750 ms
+--------------------------------------------------------------------------------
+Method        : compute_total
+Calls         : 1
+Average Time  : 1.158292 ms
+Minimum Time  : 1.158292 ms
+Maximum Time  : 1.158292 ms
+Total Time    : 1.158292 ms
+--------------------------------------------------------------------------------
+Method        : validate
+Calls         : 1
+Average Time  : 0.000209 ms
+Minimum Time  : 0.000209 ms
+Maximum Time  : 0.000209 ms
+Total Time    : 0.000209 ms
+--------------------------------------------------------------------------------
+
+================================================================================
+TOP 10 SLOWEST METHODS
+================================================================================
+ 1. calculate
+    Avg=1.167750 ms | Max=1.167750 ms | Calls=1
+ 2. compute_total
+    Avg=1.158292 ms | Max=1.158292 ms | Calls=1
+ 3. validate
+    Avg=0.000209 ms | Max=0.000209 ms | Calls=1
+
+======================================================================
+HOTSPOT ANALYSIS
+======================================================================
+================================================================================
+HOTSPOT ANALYSIS REPORT
+================================================================================
+Generated : 2026-07-15 20:19:39.035205
+
+Method                             Calls        Avg(ms)      Total(ms)     Level
+--------------------------------------------------------------------------------
+calculate                              1       1.167750       1.167750      HIGH
+compute_total                          1       1.158292       1.158292      HIGH
+validate                               1       0.000209       0.000209       LOW
+
+======================================================================
+API CALL ANALYSIS
+======================================================================
+================================================================================
+API CALL REPORT
+================================================================================
+Generated : 2026-07-15 20:19:39.035214
+
+Total API Calls : 3
+Average Response Time : 12.867 ms
+
+--------------------------------------------------------------------------------
+Method    Endpoint                      Caller              Duration(ms)   Status  
+--------------------------------------------------------------------------------
+GET       /patients                     calculate                    12.800     200
+GET       /studies                      compute_total                18.300     200
+POST      /login                        validate                      7.500     200
+
+======================================================================
+DATABASE QUERY ANALYSIS
+======================================================================
+================================================================================
+DATABASE QUERY REPORT
+================================================================================
+Generated : 2026-07-15 20:19:39.035224
+
+Total Queries        : 3
+Average Query Time   : 14.733 ms
+Total Rows Affected  : 28
+
+------------------------------------------------------------------------------------------
+Operation   Table               Caller              Duration(ms)   Rows    
+------------------------------------------------------------------------------------------
+SELECT      PATIENT             calculate                    14.200      25
+UPDATE      STUDY               compute_total                21.600       2
+INSERT      AUDIT_LOG           validate                      8.400       1
+
+======================================================================
+RUNTIME KNOWLEDGE REPOSITORY
+======================================================================
+Runtime Events        : 6
+Performance Metrics   : 3
+Hotspots              : 3
+API Calls             : 3
+Database Queries      : 3
+----------------------------------------------------------------------
+Total Runtime Artifacts : 18
+======================================================================
+
+======================================================================
+RUNTIME EXPLORER
+======================================================================
+
+======================================================================
+ClinicalTrialAI Runtime Explorer
+======================================================================
+1. Runtime Dashboard
+2. Execution Graph
+3. Performance Hotspots
+4. API Calls
+5. Database Queries
+6. Runtime Knowledge
+7. Show Everything
+0. Exit
+======================================================================
+Select an option: 
+======================================================================
+RUNTIME PERFORMANCE DASHBOARD
+======================================================================
+Runtime Events        : 6
+Methods Profiled      : 3
+Performance Hotspots  : 3
+API Calls             : 3
+Database Queries      : 3
+
+Slowest Method        : calculate
+Maximum Time (ms)     : 1.168
+Average Method Time   : 0.775 ms
+======================================================================
+
+
+======================================================================
+ClinicalTrialAI Runtime Explorer
+======================================================================
+1. Runtime Dashboard
+2. Execution Graph
+3. Performance Hotspots
+4. API Calls
+5. Database Queries
+6. Runtime Knowledge
+7. Show Everything
+0. Exit
+======================================================================
+Select an option: 
+============================================================
+ Execution Call Graph
+============================================================
+No execution trace available.
+============================================================
+
+
+======================================================================
+ClinicalTrialAI Runtime Explorer
+======================================================================
+1. Runtime Dashboard
+2. Execution Graph
+3. Performance Hotspots
+4. API Calls
+5. Database Queries
+6. Runtime Knowledge
+7. Show Everything
+0. Exit
+======================================================================
+Select an option: 
+======================================================================
+PERFORMANCE HOTSPOTS
+======================================================================
+Method                                 Average(ms)          Level
+----------------------------------------------------------------------
+calculate                                    1.168           HIGH
+compute_total                                1.158           HIGH
+validate                                     0.000            LOW
+======================================================================
+
+
+======================================================================
+ClinicalTrialAI Runtime Explorer
+======================================================================
+1. Runtime Dashboard
+2. Execution Graph
+3. Performance Hotspots
+4. API Calls
+5. Database Queries
+6. Runtime Knowledge
+7. Show Everything
+0. Exit
+======================================================================
+Select an option: 
+======================================================================
+API CALLS
+======================================================================
+GET   /patients                     12.80 ms
+GET   /studies                      18.30 ms
+POST  /login                         7.50 ms
+======================================================================
+
+
+======================================================================
+ClinicalTrialAI Runtime Explorer
+======================================================================
+1. Runtime Dashboard
+2. Execution Graph
+3. Performance Hotspots
+4. API Calls
+5. Database Queries
+6. Runtime Knowledge
+7. Show Everything
+0. Exit
+======================================================================
+Select an option: 
+======================================================================
+DATABASE QUERIES
+======================================================================
+SELECT  PATIENT                  14.20 ms
+UPDATE  STUDY                    21.60 ms
+INSERT  AUDIT_LOG                 8.40 ms
+======================================================================
+
+
+======================================================================
+ClinicalTrialAI Runtime Explorer
+======================================================================
+1. Runtime Dashboard
+2. Execution Graph
+3. Performance Hotspots
+4. API Calls
+5. Database Queries
+6. Runtime Knowledge
+7. Show Everything
+0. Exit
+======================================================================
+Select an option: 
+======================================================================
+RUNTIME KNOWLEDGE
+======================================================================
+runtime_events                : 6
+performance_metrics           : 3
+hotspots                      : 3
+api_calls                     : 3
+database_queries              : 3
+total_runtime_artifacts       : 18
+======================================================================
+
+
+======================================================================
+ClinicalTrialAI Runtime Explorer
+======================================================================
+1. Runtime Dashboard
+2. Execution Graph
+3. Performance Hotspots
+4. API Calls
+5. Database Queries
+6. Runtime Knowledge
+7. Show Everything
+0. Exit
+======================================================================
+Select an option: 
+======================================================================
+RUNTIME PERFORMANCE DASHBOARD
+======================================================================
+Runtime Events        : 6
+Methods Profiled      : 3
+Performance Hotspots  : 3
+API Calls             : 3
+Database Queries      : 3
+
+Slowest Method        : calculate
+Maximum Time (ms)     : 1.168
+Average Method Time   : 0.775 ms
+======================================================================
+
+
+============================================================
+ Execution Call Graph
+============================================================
+No execution trace available.
+============================================================
+
+
+======================================================================
+PERFORMANCE HOTSPOTS
+======================================================================
+Method                                 Average(ms)          Level
+----------------------------------------------------------------------
+calculate                                    1.168           HIGH
+compute_total                                1.158           HIGH
+validate                                     0.000            LOW
+======================================================================
+
+
+======================================================================
+API CALLS
+======================================================================
+GET   /patients                     12.80 ms
+GET   /studies                      18.30 ms
+POST  /login                         7.50 ms
+======================================================================
+
+
+======================================================================
+DATABASE QUERIES
+======================================================================
+SELECT  PATIENT                  14.20 ms
+UPDATE  STUDY                    21.60 ms
+INSERT  AUDIT_LOG                 8.40 ms
+======================================================================
+
+
+======================================================================
+RUNTIME KNOWLEDGE
+======================================================================
+runtime_events                : 6
+performance_metrics           : 3
+hotspots                      : 3
+api_calls                     : 3
+database_queries              : 3
+total_runtime_artifacts       : 18
+======================================================================
+
+
+======================================================================
+ClinicalTrialAI Runtime Explorer
+======================================================================
+1. Runtime Dashboard
+2. Execution Graph
+3. Performance Hotspots
+4. API Calls
+5. Database Queries
+6. Runtime Knowledge
+7. Show Everything
+0. Exit
+======================================================================
+Select an option: 
+Exiting Runtime Explorer...
+
+
+======================================================================
+IC-05 Knowledge Graph Engine
+======================================================================
+
+----------------------------------------------------------------------
+Relationship Detection
+----------------------------------------------------------------------
+Relationships Detected : 5
+Relationships Created  : 5
+
+Outgoing edges
+----------------
+REQ-001 0
+CLASS-001 0
+METHOD-001 4
+API-001 0
+DB-001 0
+RT-001 1
+
+======================================================================
+Knowledge Graph Summary
+======================================================================
+
+Total Nodes : 6
+Total Edges : 5
+
+Node Types
+----------------------------------------------------------------------
+API                      1
+Class                    1
+Database                 1
+Method                   1
+Requirement              1
+Runtime                  1
+
+Relationship Types
+----------------------------------------------------------------------
+CONTAINS                 1
+EXECUTES                 1
+IMPLEMENTS               1
+INVOKES_API              1
+INVOKES_DB               1
+
+======================================================================
+GRAPH VALIDATION
+======================================================================
+nodes                    : 6
+edges                    : 5
+valid                    : True
+
+======================================================================
+GRAPH QUERY ENGINE
+======================================================================
+
+======================================================================
+GRAPH NEIGHBORS
+======================================================================
+Node : REQ-001
+
+No neighbors found.
+
+======================================================================
+GRAPH PATH
+======================================================================
+REQ-001 (Requirement) User Login
+   |
+   V
+METHOD-001 (Method) authenticate_user
+   |
+   V
+DB-001 (Database) USER_TABLE
+
+======================================================================
+REQUIREMENT NODES
+======================================================================
+REQ-001        Requirement       User Login
+
+======================================================================
+SEARCH RESULTS : login
+======================================================================
+REQ-001        Requirement       User Login
+API-001        API               /login
+
+======================================================================
+CONNECTED COMPONENT
+======================================================================
+REQ-001        Requirement       User Login
+METHOD-001     Method            authenticate_user
+CLASS-001      Class             AuthenticationService
+API-001        API               /login
+DB-001         Database          USER_TABLE
+RT-001         Runtime           Authentication Runtime
+
+======================================================================
+IC-05 Milestone 10 - Graph Analytics
+======================================================================
+Graph Statistics
+----------------
+Total Nodes        : 6
+Total Edges        : 5
+Average Degree     : 1.67
+Isolated Nodes     : 0
+
+Node Types
+----------
+API                       1
+Class                     1
+Database                  1
+Method                    1
+Requirement               1
+Runtime                   1
+
+Relationship Types
+------------------
+CONTAINS                  1
+EXECUTES                  1
+IMPLEMENTS                1
+INVOKES_API               1
+INVOKES_DB                1
+
+Graph Query Report generated : output/ic05/graph_query_report.txt
+
+======================================================================
+IC-05 Milestone 11 - Impact Analysis
+======================================================================
+Impact Analysis Result
+----------------------
+Source Node           : REQ-001
+Total Impacted Nodes  : 4
+Dependency Depth      : 2
+Impact Score          : 15.00
+Blast Radius          : MEDIUM
+
+Requirements          : 0
+Classes               : 1
+Methods               : 1
+APIs                  : 1
+Databases             : 1
+======================================================================
+IMPACT ANALYSIS
+======================================================================
+Source Node         : REQ-001
+Impact Score        : 15.00
+Blast Radius        : MEDIUM
+Dependency Depth    : 2
+Impacted Nodes      : 4
+======================================================================
+
+Impact Analysis Report generated : output/ic05/impact_analysis_report.txt
+
+================================================================================
+IC-05 Milestone 12 - Knowledge Visualization
+================================================================================
+
+Knowledge Graph
+======================================================================
+API-001 [API] /login
+
+CLASS-001 [Class] AuthenticationService
+
+DB-001 [Database] USER_TABLE
+
+METHOD-001 [Method] authenticate_user
+   └── IMPLEMENTS → REQ-001
+   └── CONTAINS → CLASS-001
+   └── INVOKES_API → API-001
+   └── INVOKES_DB → DB-001
+
+REQ-001 [Requirement] User Login
+
+RT-001 [Runtime] Authentication Runtime
+   └── EXECUTES → METHOD-001
+
+
+======================================================================
+GRAPH VISUALIZATION REPORT
+======================================================================
+
+Graph Statistics
+----------------------------------------------------------------------
+Total Nodes          : 6
+Total Relationships  : 5
+
+Exported Files
+----------------------------------------------------------------------
+output/ic05/knowledge_graph.dot (558 bytes)
+output/ic05/knowledge_graph.mmd (186 bytes)
+output/ic05/knowledge_graph.json (1407 bytes)
+
+======================================================================

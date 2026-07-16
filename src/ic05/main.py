@@ -40,7 +40,9 @@ from src.ic05.services.impact_analysis_engine import (
 from src.ic05.reports.impact_analysis_report import (
     ImpactAnalysisReport
 )
-
+from src.ic05.visualization.graph_visualizer import GraphVisualizer
+from src.ic05.visualization.graph_exporter import GraphExporter
+from src.ic05.reports.graph_visualization_report import GraphVisualizationReport
 
 class DemoApplication:
 
@@ -403,5 +405,28 @@ def main():
     #    print(node)
     #for node in sorted(connected):
     #   QueryReport.print_connected(connected)
+
+    print()
+    print("=" * 80)
+    print("IC-05 Milestone 12 - Knowledge Visualization")
+    print("=" * 80)
+    # # Visualization
+    #visualizer = GraphVisualizer(repository)
+    visualizer = GraphVisualizer(graph_service.repository)
+    print()
+    print(visualizer.visualize())
+    ## Export graph
+    exporter = GraphExporter(graph_service.repository)
+    output_dir = "output/ic05"
+    dot_file = f"{output_dir}/knowledge_graph.dot"
+    mermaid_file = f"{output_dir}/knowledge_graph.mmd"
+    json_file = f"{output_dir}/knowledge_graph.json"
+    exporter.export_dot(dot_file)
+    exporter.export_mermaid(mermaid_file)
+    exporter.export_json(json_file)
+    ## Visualization Report
+    report = GraphVisualizationReport(graph_service.repository)
+    print()
+    print(report.generate(dot_file,mermaid_file,json_file))
 if __name__ == "__main__":
     main()
