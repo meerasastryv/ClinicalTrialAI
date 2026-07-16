@@ -1,0 +1,131 @@
+
+================================================================================
+ClinicalTrialAI
+IC-06 - Adaptive Learning Engine
+================================================================================
+
+================================================================================
+Creating Sample Objects
+================================================================================
+Sample objects created successfully.
+
+================================================================================
+Populating Repositories
+================================================================================
+Repositories populated.
+
+================================================================================
+Learning Statistics
+================================================================================
+total_events                  : 3
+successful_events             : 2
+failed_events                 : 1
+success_rate                  : 0.667
+average_confidence            : 0.837
+
+================================================================================
+Confidence Growth
+================================================================================
+[0.93, 0.97, 0.61]
+
+================================================================================
+Learning Velocity
+================================================================================
+Velocity : 3.0
+
+================================================================================
+Pattern Discovery
+================================================================================
+Patterns discovered : 0
+
+================================================================================
+Knowledge Snapshot
+================================================================================
+Knowledge snapshot added to LearningModel.
+
+================================================================================
+Feedback Processing
+================================================================================
+Feedback stored in LearningModel.
+
+================================================================================
+Adaptive Recommendations
+================================================================================
+- Expand knowledge base.
+
+
+================================================================================
+Learning Report
+================================================================================
+statistics                    : {'total_events': 3, 'successful_events': 2, 'failed_events': 1, 'success_rate': 0.667, 'average_confidence': 0.837}
+event_summary                 : {'total_events': 3, 'successful_events': 2, 'failed_events': 1}
+success_trend                 : {'success': 2, 'failure': 1}
+confidence_trend              : {'confidence_growth': [0.93, 0.97, 0.61]}
+learning_velocity             : {'learning_velocity': 3.0}
+executive_summary             : {'status': 'Needs Improvement', 'success_rate': 0.667, 'average_confidence': 0.837, 'learning_velocity': 3.0}
+
+================================================================================
+Pattern Report
+================================================================================
+statistics                    : {'total_patterns': 0, 'average_confidence': 0.0, 'highest_confidence': 0.0}
+frequency                     : {}
+top_patterns                  : {'count': 0, 'patterns': []}
+successful_patterns           : {'count': 0, 'patterns': []}
+weak_patterns                 : {'count': 0, 'patterns': []}
+executive_summary             : {'status': 'No Patterns Available', 'total_patterns': 0, 'average_confidence': 0.0, 'highest_confidence': 0.0}
+
+================================================================================
+Knowledge Report
+================================================================================
+snapshot_summary              : {'total_snapshots': 0, 'latest_snapshot': None}
+evolution                     : {'history': []}
+growth                        : {'knowledge_growth': 0, 'confidence_growth': 0.0}
+maturity                      : {'maturity_score': 0.0}
+executive_summary             : {'status': 'Needs Improvement', 'maturity_score': 0.0, 'growth': {'knowledge_growth': 0, 'confidence_growth': 0.0}}
+
+================================================================================
+Feedback Report
+================================================================================
+Feedback Report skipped.
+
+================================================================================
+Adaptive Learning Dashboard
+================================================================================
+status                        : Adaptive Dashboard generated (feedback skipped)
+
+================================================================================
+Executive Summary
+================================================================================
+overall_status                : Needs Improvement
+success_rate                  : 0.667
+knowledge_maturity            : 0.0
+recommendations               : ['Expand knowledge base.']
+
+================================================================================
+Learning Repository
+================================================================================
+total_events                  : 0
+successful_events             : 0
+failed_events                 : 0
+average_confidence            : 0.0
+success_rate                  : 0.0
+event_type_counts             : {}
+
+================================================================================
+Learning Model Repository
+================================================================================
+total_models                  : 1
+latest_model                  : Adaptive Learning Model
+average_confidence            : 1.0
+version_counts                : {'1.0': 1}
+total_learning_events         : 3
+total_learning_patterns       : 1
+total_feedback_records        : 1
+total_snapshots               : 1
+
+================================================================================
+Execution Completed
+================================================================================
+Adaptive Learning Engine executed successfully.
+Learning Model : Adaptive Learning Model
+Dashboard Generated : True

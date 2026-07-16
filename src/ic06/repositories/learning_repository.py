@@ -78,7 +78,11 @@ class LearningRepository:
             self._events.pop(event_id, None)
             is not None
         )
-
+    def delete(self,event_id: str,) -> bool:
+        """
+        Alias for remove().
+        """
+        return self.remove(event_id)
     def get(
         self,
         event_id: str,

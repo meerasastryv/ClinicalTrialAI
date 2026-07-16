@@ -75,7 +75,11 @@ class LearningModelRepository:
             self._models.pop(model_id, None)
             is not None
         )
-
+    def delete(self,model_id: str,) -> bool:
+        """
+        Alias for remove().
+        """
+        return self.remove(model_id)
     def get(
         self,
         model_id: str,
