@@ -10,44 +10,55 @@ Author: Meera Sastry
 Project: ClinicalTrialAI
 """
 
-import logging
-logger = logging.getLogger(__name__)
 from __future__ import annotations
+
+from datetime import datetime, timezone
+
 from src.ic06.models.learning_event import (
     LearningEvent,
     LearningEventType,
     LearningSeverity,
     LearningSource,
 )
+
 from src.ic06.models.learning_pattern import (
     LearningPattern,
     PatternType,
 )
+
 from src.ic06.models.knowledge_snapshot import (
     KnowledgeSnapshot,
     SnapshotType,
 )
+
 from src.ic06.models.feedback_record import (
     FeedbackRecord,
     FeedbackOutcome,
     FeedbackType,
 )
+
 from src.ic06.models.learning_model import LearningModel
+
 from src.ic06.repositories.learning_repository import (
     LearningRepository,
 )
+
 from src.ic06.repositories.learning_model_repository import (
     LearningModelRepository,
 )
+
 from src.ic06.services.learning_service import (
     LearningService,
 )
+
 from src.ic06.services.learning_pattern_service import (
     LearningPatternService,
 )
+
 from src.ic06.services.knowledge_service import (
     KnowledgeService,
 )
+
 from src.ic06.services.feedback_service import (
     FeedbackService,
 )
@@ -169,7 +180,7 @@ def print_dictionary(data: dict) -> None:
 # Sample Data Creation
 # ==========================================================
 
-def create_learning_events() -> list[LearningEvent]:
+def create_learning_events():
 
     events = [
 
@@ -207,7 +218,7 @@ def create_learning_events() -> list[LearningEvent]:
     return events
 
 
-def create_learning_pattern() -> LearningPattern:
+def create_learning_pattern():
 
     return LearningPattern(
 
@@ -227,7 +238,7 @@ def create_learning_pattern() -> LearningPattern:
     )
 
 
-def create_snapshot() -> KnowledgeSnapshot:
+def create_snapshot():
 
     return KnowledgeSnapshot(
 
@@ -249,7 +260,7 @@ def create_snapshot() -> KnowledgeSnapshot:
     )
 
 
-def create_feedback() -> FeedbackRecord:
+def create_feedback():
 
     return FeedbackRecord(
 
@@ -270,12 +281,18 @@ def create_feedback() -> FeedbackRecord:
 # Learning Workflow
 # ==========================================================
 
-def execute_learning_workflow() -> LearningModel:
+def execute_learning_workflow():
+
     print_header("Creating Sample Objects")
+
     events = create_learning_events()
+
     pattern = create_learning_pattern()
+
     snapshot = create_snapshot()
+
     feedback = create_feedback()
+
     learning_model = LearningModel(
         name="Adaptive Learning Model",
         description="Clinical Trial AI Learning Model",
@@ -357,6 +374,13 @@ def execute_learning_workflow() -> LearningModel:
 
     print("Knowledge snapshot added to LearningModel.")
 
+
+    #knowledge_service.save_snapshot(snapshot)
+
+    #summary = knowledge_service.summary()
+
+    #print_dictionary(summary)
+
     # ------------------------------------------------------
     # Feedback Processing
     # ------------------------------------------------------
@@ -364,7 +388,13 @@ def execute_learning_workflow() -> LearningModel:
     print_header("Feedback Processing")
 
     print("Feedback stored in LearningModel.")
+    #feedback_service.record_feedback(feedback)
 
+    #feedback_stats = feedback_service.feedback_statistics()
+
+    #print_dictionary(feedback_stats)
+
+    # ------------------------------------------------------
     # Adaptive Recommendations
     # ------------------------------------------------------
 
@@ -384,27 +414,36 @@ def execute_learning_workflow() -> LearningModel:
 # Report Generation
 # ==========================================================
 
-def generate_reports() -> dict:
+def generate_reports():
 
     # ------------------------------------------------------
     # Learning Report
     # ------------------------------------------------------
+
     print_header("Learning Report")
+
     learning_results = learning_report.generate()
+
     print_dictionary(learning_results)
 
     # ------------------------------------------------------
     # Pattern Report
     # ------------------------------------------------------
+
     print_header("Pattern Report")
+
     pattern_results = pattern_report.generate()
+
     print_dictionary(pattern_results)
 
     # ------------------------------------------------------
     # Knowledge Report
     # ------------------------------------------------------
+
     print_header("Knowledge Report")
+
     knowledge_results = knowledge_report.generate()
+
     print_dictionary(knowledge_results)
 
     # ------------------------------------------------------
@@ -527,16 +566,16 @@ def main() -> None:
         print("Adaptive Learning Engine executed successfully.")
         print(f"Learning Model : {learning_model.name}")
         print(f"Dashboard Generated : {dashboard is not None}")
-    except Exception:
-        logger.exception("Adaptive Learning Engine execution failed")
-        raise
-    """ 
+
     except Exception as ex:
+
         print_header("Execution Failed")
+
         print(type(ex).__name__)
         print(ex)
+
         raise
-    """ 
+
 
 # ==========================================================
 # Program Entry
