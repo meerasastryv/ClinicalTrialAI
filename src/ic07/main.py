@@ -11,7 +11,13 @@ import logging
 from pathlib import Path
 
 import pandas as pd
+from src.ic07.services.quality_recommendation_engine import (
+    QualityRecommendationEngine,
+)
 
+from src.ic07.reports.quality_recommendation_report import (
+    QualityRecommendationReport,
+)
 from src.ic07.models.synthetic_data_request import SyntheticDataRequest
 
 from src.ic07.repositories.data_quality_repository import DataQualityRepository
@@ -222,12 +228,19 @@ def main():
     ValidationRule(name="Account Type", description="Allowed account types", rule_type="allowed", column="AccountType", allowed_values=["Standard", "Premium", "Gold"]),
     ValidationRule(name="Is Active", description="Boolean validation", rule_type="allowed", column="IsActive", allowed_values=[True, False]),
     ]
-
     engine = ValidationEngine()
     #result = engine.validate_dataset(dataframe=df,rules=rules,)
-
     result = engine.validate_dataset(dataframe=synthetic_result.generated_dataframe,rules=rules,)
-
     ValidationReport.print_report(result)
+    # ---------------------------------------------------------
+    # AI-Assisted Data Quality Recommendation Engine
+    recommendation_engine = (QualityRecommendationEngine())
+    recommendations = (recommendation_engine.generate(result))
+    recommendation_report = (QualityRecommendationReport())
+    recommendation_report.generate(recommendations)
+
+
+
+
 if __name__ == "__main__":
     main()

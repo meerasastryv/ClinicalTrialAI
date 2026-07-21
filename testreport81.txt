@@ -92,3 +92,130 @@ Evaluation Time
 ------------------------------------------------------------
 2026-07-21 13:35:00
 ============================================================
+
+================================================================================
+ClinicalTrialAI
+IC-07 : Test Data Intelligence Engine
+================================================================================
+PRINTING SOURCE_DF PRINTING SOURCE_DF PRINTING SOURCE_DF
+['CustomerID', 'FirstName', 'LastName', 'Gender', 'Age', 'Country', 'City', 'Email', 'Phone', 'AccountType', 'RegistrationDate', 'AnnualIncome', 'CreditScore', 'IsActive']
+
+======================================================================
+Synthetic Data Report
+======================================================================
+Rows Generated     : 105
+Columns            : 14
+Duplicate Rows     : 5
+Null Values        : 72
+Invalid Values     : 0
+Generation Time    : 0.007 sec
+======================================================================
+
+============================================================
+DATA QUALITY REPORT
+============================================================
+Dataset           : Synthetic Customer Dataset
+Status            : Excellent
+Overall Score     : 99.29%
+Total Records     : 105
+Failed Records    : 5
+
+Quality Dimensions
+------------------------------------------------------------
+Completeness      : 100.00%
+Validity          : 100.00%
+Consistency       : 100.00%
+Uniqueness        : 95.24%
+Accuracy          : 100.00%
+Timeliness        : 100.00%
+
+Issues
+------------------------------------------------------------
+[Medium] Row 101, Entire Record -> Duplicate Record
+[Medium] Row 102, Entire Record -> Duplicate Record
+[Medium] Row 103, Entire Record -> Duplicate Record
+[Medium] Row 104, Entire Record -> Duplicate Record
+[Medium] Row 105, Entire Record -> Duplicate Record
+
+Evaluation Time
+------------------------------------------------------------
+2026-07-21 17:36:31
+============================================================
+PRINTING SOURCE DF PRINTING SOURCE DF 
+
+['Premium' 'Standard' 'Gold']
+['Standard' nan 'Gold' 'Premium']
+
+============================================================
+INTELLIGENT DATA VALIDATION REPORT
+============================================================
+Rows              : 105
+Columns           : 14
+Rules Executed    : 8
+Total Issues      : 13
+
+Issue Summary
+------------------------------------------------------------
+Required            : 6
+Range               : 6
+Pattern             : 0
+Duplicates          : 0
+Allowed Values      : 1
+Length              : 0
+Custom              : 0
+
+Detailed Issues
+------------------------------------------------------------
+Row=4    Column=Age             Rule=Required        Value=nan
+Row=11   Column=Age             Rule=Required        Value=nan
+Row=50   Column=Age             Rule=Required        Value=nan
+Row=63   Column=Age             Rule=Required        Value=nan
+Row=79   Column=Age             Rule=Required        Value=nan
+Row=89   Column=Age             Rule=Required        Value=nan
+Row=0    Column=Age             Rule=Range           Value=-999999.0
+Row=52   Column=Age             Rule=Range           Value=-999999.0
+Row=0    Column=CreditScore     Rule=Range           Value=-999999.0
+Row=4    Column=CreditScore     Rule=Range           Value=-999999.0
+Row=0    Column=AnnualIncome    Rule=Range           Value=-999999.0
+Row=35   Column=AnnualIncome    Rule=Range           Value=-999999.0
+Row=88   Column=IsActive        Rule=Allowed Values  Value=-999999
+
+================================================================================
+AI-ASSISTED DATA QUALITY RECOMMENDATION REPORT
+================================================================================
+Generated : 2026-07-21 17:36:31
+Total Recommendations : 5
+
+RECOMMENDATIONS
+--------------------------------------------------------------------------------
+Priority       : HIGH
+Category       : Missing Values
+Column         : Age
+Issue          : Missing values detected
+Recommendation : Populate missing values using median, default values, or business rules.
+--------------------------------------------------------------------------------
+Priority       : HIGH
+Category       : Range Validation
+Column         : Age
+Issue          : Invalid numeric values
+Recommendation : Replace values outside the permitted range.
+--------------------------------------------------------------------------------
+Priority       : HIGH
+Category       : Range Validation
+Column         : CreditScore
+Issue          : Invalid numeric values
+Recommendation : Replace values outside the permitted range.
+--------------------------------------------------------------------------------
+Priority       : HIGH
+Category       : Range Validation
+Column         : AnnualIncome
+Issue          : Invalid numeric values
+Recommendation : Replace values outside the permitted range.
+--------------------------------------------------------------------------------
+Priority       : MEDIUM
+Category       : Allowed Values
+Column         : IsActive
+Issue          : Unexpected category
+Recommendation : Replace with one of the approved values.
+--------------------------------------------------------------------------------
+================================================================================
