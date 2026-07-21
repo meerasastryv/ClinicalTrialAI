@@ -4,15 +4,15 @@ IC-07 Metadata Analyzer
 Analyzes datasets and automatically discovers
 metadata describing the dataset structure.
 """
-
 from __future__ import annotations
 
+import pandas as pd
 import logging
 from collections import Counter
 from typing import Any, Dict, List
 
 from src.ic07.models.data_field import DataField
-from src.ic07.models.data_set import DataSet
+#from src.ic07.models.data_set import DataSet
 
 logger = logging.getLogger(__name__)
 
@@ -28,27 +28,27 @@ class MetadataAnalyzer:
     # -------------------------------------------------------------
     # Public API
     # -------------------------------------------------------------
-
-    def analyze(self, dataset: DataSet) -> List[DataField]:
+    def analyze(self,dataframe: pd.DataFrame,dataset_name: str = "Dataset") -> List[DataField]:
+    #def analyze(self, dataset: DataSet) -> List[DataField]:
         """
         Analyze an entire dataset.
         """
 
         self.logger.info(
             "Analyzing dataset '%s'...",
-            dataset.name
+            dataset_name
         )
 
         discovered_fields: List[DataField] = []
-
-        field_names = self._collect_field_names(dataset)
+        field_names = dataframe.columns.tolist()
+        #field_names = self._collect_field_names(dataset)
 
         for field_name in sorted(field_names):
-
-            field = self._analyze_field(
-                dataset,
-                field_name
-            )
+            field = self._analyze_field(dataframe,field_name)
+            #field = self._analyze_field(
+            #    dataset,
+            #    field_name
+            #)
 
             discovered_fields.append(field)
 
@@ -62,7 +62,7 @@ class MetadataAnalyzer:
     # -------------------------------------------------------------
     # Helpers
     # -------------------------------------------------------------
-
+    """
     def _collect_field_names(
         self,
         dataset: DataSet
@@ -74,49 +74,23 @@ class MetadataAnalyzer:
             fields.update(record.values.keys())
 
         return fields
-
-    def _analyze_field(
-        self,
-        dataset: DataSet,
-        field_name: str
-    ) -> DataField:
-
-        values = []
-
-        null_count = 0
-
-        for record in dataset.records:
-
-            value = record.values.get(field_name)
-
-            if value is None:
-                null_count += 1
-            else:
-                values.append(value)
-
-        data_type = self._infer_type(values)
-
-        max_length = self._max_length(values)
-
-        unique = len(values) == len(set(values))
-
+    """
+    def _analyze_field(self,dataframe: pd.DataFrame,field_name: str) -> DataField:
+        """
+        Analyze a single column in a Pandas DataFrame.
+        """
+        series = dataframe[field_name]
+        # Remove null values for type inference
+        values = series.dropna().tolist()
+        null_count = int(series.isna().sum())
         nullable = null_count > 0
-
+        data_type = self._infer_type(values)
+        max_length = self._max_length(values)
+        unique = series.nunique(dropna=True) == len(values)
         sensitive = self._is_sensitive(field_name)
-
         primary_key = unique and not nullable
-
-        return DataField(
-            field_name=field_name,
-            data_type=data_type,
-            length=max_length,
-            nullable=nullable,
-            unique=unique,
-            primary_key=primary_key,
-            sensitive=sensitive,
-            description=f"Auto-discovered field: {field_name}"
-        )
-
+        return DataField(field_name=field_name,data_type=data_type,length=max_length,nullable=nullable,unique=unique,
+            primary_key=primary_key,sensitive=sensitive,description=f"Auto-discovered field: {field_name}")
     # -------------------------------------------------------------
     # Type Detection
     # -------------------------------------------------------------

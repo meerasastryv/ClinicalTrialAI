@@ -10,8 +10,7 @@ import logging
 from typing import Dict, List
 
 from src.ic07.models.data_profile import DataProfile
-from src.ic07.models.data_set import DataSet
-
+import pandas as pd
 logger = logging.getLogger(__name__)
 
 
@@ -26,10 +25,10 @@ class DataProfilingService:
     # -------------------------------------------------------------
     # Public API
     # -------------------------------------------------------------
-
     def profile_dataset(
         self,
-        dataset: DataSet
+        dataframe: pd.DataFrame,
+        dataset_name: str = "Dataset"
     ) -> DataProfile:
         """
         Generate a profile for a dataset.
@@ -37,15 +36,15 @@ class DataProfilingService:
 
         self.logger.info(
             "Profiling dataset '%s'...",
-            dataset.name
+            dataset_name
         )
 
-        total_records = dataset.record_count
-        total_fields = dataset.field_count
 
-        null_values = self._count_null_values(dataset)
+        total_records = len(dataframe)
+        total_fields = len(dataframe.columns)
+        null_values = self._count_null_values(dataframe)
 
-        duplicate_records = self._count_duplicates(dataset)
+        duplicate_records = self._count_duplicates(dataframe)
 
         unique_records = max(
             total_records - duplicate_records,
@@ -64,8 +63,8 @@ class DataProfilingService:
         )
 
         profile = DataProfile(
-            profile_id=f"profile_{dataset.dataset_id}",
-            dataset_id=dataset.dataset_id,
+            profile_id="profile_customers",
+            dataset_id="customers",
             total_records=total_records,
             total_fields=total_fields,
             null_values=null_values,
@@ -114,45 +113,42 @@ class DataProfilingService:
     # -------------------------------------------------------------
     # Statistics
     # -------------------------------------------------------------
+    def _count_null_values(self,dataframe: pd.DataFrame) -> int:
+        return int(dataframe.isna().sum().sum())
 
+    """
     def _count_null_values(
         self,
         dataset: DataSet
     ) -> int:
-
         count = 0
-
         for record in dataset.records:
-
             for value in record.values.values():
-
                 if value is None or value == "":
                     count += 1
-
         return count
+    """
 
+    def _count_duplicates(self,dataframe: pd.DataFrame) -> int:
+        return int(dataframe.duplicated().sum())
+
+    """
     def _count_duplicates(
         self,
         dataset: DataSet
     ) -> int:
-
         seen = set()
-
         duplicates = 0
-
         for record in dataset.records:
-
             key = tuple(
                 sorted(record.values.items())
             )
-
             if key in seen:
                 duplicates += 1
             else:
                 seen.add(key)
-
         return duplicates
-
+    """
     # -------------------------------------------------------------
     # Quality Metrics
     # -------------------------------------------------------------

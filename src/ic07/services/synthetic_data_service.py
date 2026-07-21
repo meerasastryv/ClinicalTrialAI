@@ -245,18 +245,29 @@ class SyntheticDataService:
 
         return df
 
+    def _apply_nulls(self,df: pd.DataFrame,percentage: float = 0.05,) -> pd.DataFrame:
+        """
+        Randomly inject null values into columns that support NaN.
+        Boolean columns are skipped.
+        """
+        total = int(df.size * percentage)
+        valid_columns = [i for i, column in enumerate(df.columns) if not pd.api.types.is_bool_dtype(df[column])]
+        if not valid_columns:
+            return df
+        for _ in range(total):
+             row = random.randrange(len(df))
+             column = random.choice(valid_columns)
+             df.iat[row, column] = np.nan
+        return df 
     # ------------------------------------------------------------------
     # Duplicate Injection
     # ------------------------------------------------------------------
-
     def _apply_duplicates(
         self,
         df: pd.DataFrame,
         percentage: float = 0.05,
     ) -> pd.DataFrame:
-
         duplicates = int(len(df) * percentage)
-
         if duplicates == 0:
             return df
 

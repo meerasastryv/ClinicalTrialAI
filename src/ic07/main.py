@@ -1,29 +1,29 @@
 """
-IC-07 Test Data Intelligence Engine
+IC-07 – Test Data Intelligence Engine
 
 Author : Meera Sastry
 Project : ClinicalTrialAI
 """
 
+from __future__ import annotations
+
 import logging
-import sys
 from pathlib import Path
 
-from src.ic07.config import IC07Config
-from src.ic07.repositories.data_set_repository import DataSetRepository
-
-from src.ic07.services.metadata_analyzer import MetadataAnalyzer
-from src.ic07.services.data_profiling_service import DataProfilingService
-#from src.ic07.services.data_quality_service import DataQualityService
-from src.ic07.services.synthetic_data_service import SyntheticDataService
+import pandas as pd
 
 from src.ic07.models.synthetic_data_request import SyntheticDataRequest
 
-from src.ic07.reports.synthetic_data_report import SyntheticDataReport
+from src.ic07.repositories.data_quality_repository import DataQualityRepository
+from src.ic07.repositories.data_set_repository import DataSetRepository
 
-# ----------------------------------------------------------------------
-# Configure Logging
-# ----------------------------------------------------------------------
+from src.ic07.services.data_quality_service import DataQualityService
+from src.ic07.services.metadata_analyzer import MetadataAnalyzer
+from src.ic07.services.data_profiling_service import DataProfilingService
+from src.ic07.services.synthetic_data_service import SyntheticDataService
+
+from src.ic07.reports.data_quality_report import DataQualityReport
+from src.ic07.reports.synthetic_data_report import SyntheticDataReport
 
 logging.basicConfig(
     level=logging.INFO,
@@ -33,148 +33,175 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-# ----------------------------------------------------------------------
-# Banner
-# ----------------------------------------------------------------------
-
 def print_banner() -> None:
-    """Display the IC-07 startup banner."""
 
-    print("\n" + "=" * 70)
-    print(" ClinicalTrialAI")
-    print(" IC-07 : Test Data Intelligence Engine")
-    print(" Version : 1.0.0")
-    print("=" * 70 + "\n")
+    print("\n" + "=" * 80)
+    print("ClinicalTrialAI")
+    print("IC-07 : Test Data Intelligence Engine")
+    print("=" * 80)
 
 
-# ----------------------------------------------------------------------
-# Directory Validation
-# ----------------------------------------------------------------------
+def main():
 
-def validate_directories(config: IC07Config) -> bool:
+    print_banner()
+
+    # -------------------------------------------------------------
+    # Initialize Repositories
+    # -------------------------------------------------------------
+
+    dataset_repository = DataSetRepository()
+
+    quality_repository = DataQualityRepository()
+
+    # -------------------------------------------------------------
+    # Initialize Services
+    # -------------------------------------------------------------
+
+    metadata_analyzer = MetadataAnalyzer()
+
+    profiling_service = DataProfilingService()
+
+    synthetic_service = SyntheticDataService()
+
+    quality_service = DataQualityService(
+        repository=quality_repository
+    )
+
+    # -------------------------------------------------------------
+    # Initialize Reports
+    # -------------------------------------------------------------
+
+    synthetic_report = SyntheticDataReport()
+
+    quality_report = DataQualityReport(quality_repository)
+
+    # -------------------------------------------------------------
+    # Input / Output Locations
+    # -------------------------------------------------------------
+
+    project_root = Path(__file__).parent
+
+    input_folder = project_root / "data" / "input"
+
+    output_folder = project_root / "data" / "output"
+
+    output_folder.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    input_file = input_folder / "customers.csv"
+
+    output_file = output_folder / "synthetic_customers.csv"
+
+    logger.info("Loading dataset from %s", input_file)
+
+    source_df = pd.read_csv(input_file)
+
+    logger.info(
+        "Loaded %d rows and %d columns.",
+        len(source_df),
+        len(source_df.columns),
+    )
+
+    logger.info(
+        "Dataset Repository Count : %d",
+        dataset_repository.count(),
+    )
+
+    # -------------------------------------------------------------
+    # Metadata Analysis
+    # -------------------------------------------------------------
+
+    logger.info("Running Metadata Analysis...")
+
+    #metadata = metadata_analyzer.analyze(source_df)
+    metadata = metadata_analyzer.analyze(dataframe=source_df,dataset_name="Customer Dataset",) 
+    logger.info("Metadata Analysis Completed.")
+
+    # -------------------------------------------------------------
+    # Data Profiling
+    # -------------------------------------------------------------
+
+    logger.info("Running Data Profiling...")
+    profile = profiling_service.profile_dataset(dataframe=source_df,dataset_name="Customer Dataset",)
+    #profile = profiling_service.profile_dataset(source_df)
+    #profile = profiling_service.profile(source_df)
+
+    logger.info("Data Profiling Completed.")
+
+    # -------------------------------------------------------------
+    # Synthetic Data Generation
+    # -------------------------------------------------------------
     """
-    Verify that the required project directories exist.
+    request = SyntheticDataRequest(
+        number_of_rows=100,
+        include_nulls=True,
+        include_duplicates=True,
+        include_invalid_values=True,
+        include_boundary_values=True,
+        random_seed=42,
+    )
     """
+    request = SyntheticDataRequest(rows=100,
+        include_nulls=True,
+        include_duplicates=True,
+        include_invalid_values=True,
+        include_boundary_values=True,
+        preserve_distribution=True,
+        random_seed=42,
+        output_format="csv",)
 
-    base_path = Path(__file__).parent
+    synthetic_result = synthetic_service.generate(
+        source_df=source_df,
+        request=request,
+    )
 
-    missing = []
+    logger.info("Synthetic data generation completed.")
 
-    for directory in config.REQUIRED_DIRECTORIES:
-        path = base_path / directory
+    # -------------------------------------------------------------
+    # Synthetic Data Report
+    # -------------------------------------------------------------
 
-        if not path.exists():
-            missing.append(directory)
+    synthetic_report.print_report(
+        synthetic_result
+    )
 
-    if missing:
-        logger.error("Missing directories: %s", ", ".join(missing))
-        return False
+    # -------------------------------------------------------------
+    # Save Synthetic Dataset
+    # -------------------------------------------------------------
+    synthetic_service.save_output(df=synthetic_result.generated_dataframe,filename=str(output_file),output_format="csv",)
+    logger.info(
+        "Synthetic dataset saved to %s",
+        output_file,
+    )
 
-    logger.info("Directory validation successful.")
-    return True
+    # -------------------------------------------------------------
+    # Data Quality Evaluation
+    # -------------------------------------------------------------
 
+    logger.info("Running Data Quality Evaluation...")
 
-# ----------------------------------------------------------------------
-# Main
-# ----------------------------------------------------------------------
+    quality_metric = quality_service.evaluate(
+        dataset_name="Synthetic Customer Dataset",
+        dataframe=synthetic_result.generated_dataframe,
+    )
 
-def main() -> int:
-    """
-    Main entry point for the Test Data Intelligence Engine.
-    """
+    logger.info(
+        "Overall Data Quality Score : %.2f",
+        quality_metric.overall_score,
+    )
 
-    try:
+    # -------------------------------------------------------------
+    # Data Quality Report
+    # -------------------------------------------------------------
 
-        print_banner()
+    quality_report.generate(
+        "Synthetic Customer Dataset"
+    )
 
-        logger.info("Initializing IC-07...")
+    logger.info("IC-07 Pipeline completed successfully.")
 
-        config = IC07Config()
-
-        logger.info("Project      : %s", config.PROJECT_NAME)
-        logger.info("Component    : %s", config.COMPONENT_NAME)
-        logger.info("Version      : %s", config.VERSION)
-
-        if not validate_directories(config):
-            return 1
-
-        logger.info("Configuration loaded successfully.")
-        logger.info("IC-07 startup completed successfully.")
-
-
-        """
-        # ---------------------------------------------------------
-        # Execute IC-07 Pipeline
-        # ---------------------------------------------------------
-        logger.info("=" * 70)
-        logger.info("Starting Test Data Intelligence Pipeline")
-        logger.info("=" * 70)
-        # 1. Load dataset
-        #dataset_repository = DataSetRepository(config)
-        dataset_repository = DataSetRepository()
-        dataset = dataset_repository.load_dataset()
-        # 2. Metadata Analysis
-        metadata_service = MetadataAnalyzer()
-        metadata_result = metadata_service.analyze(dataset)
-        # 3. Data Profiling
-        profiling_service = DataProfilingService()
-        profile_result = profiling_service.profile(dataset)
-        # 4. Data Quality
-        #quality_service = DataQualityService()
-        #quality_result = quality_service.analyze(dataset)
-        # 5. Synthetic Data Generation
-        request = SyntheticDataRequest(
-                  rows=1000,include_nulls=True,include_duplicates=True,include_invalid_values=True,include_boundary_values=True,preserve_distribution=True,)
-        synthetic_service = SyntheticDataService()
-        synthetic_result = synthetic_service.generate(dataset,metadata_result,profile_result,request,)
-        # 6. Report
-        SyntheticDataReport().print_report(synthetic_result)
-        """
-
-        # Execute IC-07 Pipeline
-        # ------------------------------------------------------------------
-        logger.info("=" * 70)
-        logger.info("Starting Test Data Intelligence Pipeline")
-        logger.info("=" * 70)
-        # -------------------------------------------------------------
-        # Initialize Services
-        metadata_service = MetadataAnalyzer()
-        profiling_service = DataProfilingService()
-        synthetic_service = SyntheticDataService()
-        logger.info("All services initialized successfully.")
-        # -------------------------------------------------------------
-        # Repository Statistics
-        repository = DataSetRepository()
-        logger.info("Repository contains %d datasets.", repository.count())
-        # -------------------------------------------------------------
-        # Synthetic Data Request
-        request = SyntheticDataRequest(
-                  rows=1000,include_nulls=True,include_duplicates=True,include_invalid_values=True,include_boundary_values=True,preserve_distribution=True,)
-        logger.info("Synthetic data request created.")
-        # -------------------------------------------------------------
-        # NOTE
-        # Actual dataset loading will be integrated in Milestone 7
-        # once DataSetRepository is connected to external sources.
-        # At present the repository stores DataSet objects only.
-        # -------------------------------------------------------------
-        logger.info("IC-07 Pipeline initialized successfully.")
-        logger.info("Ready for dataset execution.")
-
-        logger.info("IC-07 Pipeline completed successfully.")
-        return 0
-
-
-
-
-
-    except Exception as ex:
-        logger.exception("Fatal error during startup: %s", ex)
-        return 1
-
-
-# ----------------------------------------------------------------------
-# Entry Point
-# ----------------------------------------------------------------------
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

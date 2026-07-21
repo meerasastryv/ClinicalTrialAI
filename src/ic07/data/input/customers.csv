@@ -1,0 +1,21 @@
+CustomerID,FirstName,LastName,Gender,Age,Country,City,Email,Phone,AccountType,RegistrationDate,AnnualIncome,CreditScore,IsActive
+1001,John,Smith,Male,34,USA,New York,john.smith@email.com,+1-555-1001,Premium,2023-01-15,85000,745,True
+1002,Emily,Johnson,Female,29,USA,Chicago,emily.johnson@email.com,+1-555-1002,Standard,2022-11-20,62000,701,True
+1003,Michael,Brown,Male,45,Canada,Toronto,michael.brown@email.ca,+1-416-1003,Premium,2021-07-10,112000,790,True
+1004,Sophia,Davis,Female,31,UK,London,sophia.davis@email.co.uk,+44-20-1004,Gold,2020-05-18,94000,760,True
+1005,David,Wilson,Male,52,Australia,Sydney,david.wilson@email.au,+61-2-1005,Standard,2019-03-12,78000,710,False
+1006,Olivia,Martinez,Female,27,Spain,Madrid,olivia.martinez@email.es,+34-91-1006,Premium,2024-02-08,68000,735,True
+1007,Daniel,Anderson,Male,38,Germany,Berlin,daniel.anderson@email.de,+49-30-1007,Gold,2021-09-14,99000,770,True
+1008,Ava,Thomas,Female,41,France,Paris,ava.thomas@email.fr,+33-1-1008,Standard,2020-08-25,72000,688,True
+1009,James,Taylor,Male,36,India,Bangalore,james.taylor@email.in,+91-80-1009,Premium,2023-04-11,125000,810,True
+1010,Isabella,Moore,Female,30,India,Hyderabad,isabella.moore@email.in,+91-40-1010,Gold,2022-06-09,91000,752,True
+1011,William,Jackson,Male,48,Singapore,Singapore,william.jackson@email.sg,+65-61011,Premium,2018-12-01,138000,825,True
+1012,Mia,White,Female,25,Japan,Tokyo,mia.white@email.jp,+81-3-1012,Standard,2024-01-19,59000,695,True
+1013,Benjamin,Harris,Male,39,India,Pune,benjamin.harris@email.in,+91-20-1013,Gold,2021-10-22,87000,741,False
+1014,Charlotte,Martin,Female,33,USA,Seattle,charlotte.martin@email.com,+1-555-1014,Premium,2023-03-30,98000,768,True
+1015,Lucas,Thompson,Male,44,Canada,Vancouver,lucas.thompson@email.ca,+1-604-1015,Standard,2022-01-05,81000,719,True
+1016,Amelia,Garcia,Female,37,Mexico,Mexico City,amelia.garcia@email.mx,+52-55-1016,Gold,2020-07-16,76000,708,True
+1017,Henry,Martinez,Male,28,India,Chennai,henry.martinez@email.in,+91-44-1017,Premium,2024-03-12,66000,726,True
+1018,Evelyn,Robinson,Female,42,UK,Manchester,evelyn.robinson@email.co.uk,+44-161-1018,Gold,2019-11-28,101000,781,True
+1019,Alexander,Clark,Male,35,Germany,Munich,alexander.clark@email.de,+49-89-1019,Premium,2023-05-14,95000,758,True
+1020,Harper,Lewis,Female,26,Australia,Melbourne,harper.lewis@email.au,+61-3-1020,Standard,2024-04-02,61000,699,True
