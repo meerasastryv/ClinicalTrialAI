@@ -11,6 +11,13 @@ import logging
 from pathlib import Path
 
 import pandas as pd
+from src.ic07.services.data_cleansing_service import (
+    DataCleansingService,
+)
+
+from src.ic07.reports.data_cleansing_report import (
+    DataCleansingReport,
+)
 from src.ic07.services.quality_recommendation_engine import (
     QualityRecommendationEngine,
 )
@@ -238,9 +245,12 @@ def main():
     recommendations = (recommendation_engine.generate(result))
     recommendation_report = (QualityRecommendationReport())
     recommendation_report.generate(recommendations)
-
-
-
+    # ---------------------------------------------------------
+    # Intelligent Data Cleansing Engine
+    cleansing_service = (DataCleansingService())
+    cleansing_result = (cleansing_service.clean(dataframe=synthetic_result.generated_dataframe,validation_result=result,))
+    cleansing_report = (DataCleansingReport())
+    cleansing_report.generate(cleansing_result["actions"])
 
 if __name__ == "__main__":
     main()
