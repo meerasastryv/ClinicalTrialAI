@@ -11,6 +11,24 @@ import logging
 from pathlib import Path
 
 import pandas as pd
+
+
+from src.ic07.repositories.privacy_repository import PrivacyRepository
+
+from src.ic07.services.privacy_detection_service import (
+    PrivacyDetectionService,
+)
+
+from src.ic07.services.data_masking_service import (
+    DataMaskingService,
+)
+
+from src.ic07.services.privacy_validation_service import (
+    PrivacyValidationService,
+)
+
+from src.ic07.reports.privacy_report import PrivacyReport
+
 from src.ic07.services.data_cleansing_service import (
     DataCleansingService,
 )
@@ -251,6 +269,29 @@ def main():
     cleansing_result = (cleansing_service.clean(dataframe=synthetic_result.generated_dataframe,validation_result=result,))
     cleansing_report = (DataCleansingReport())
     cleansing_report.generate(cleansing_result["actions"])
+    # ---------------------------------------------------------
+    # Intelligent Data Masking & Privacy Engine
+    logger.info("Running Intelligent Data Masking & Privacy Engine...")
+    privacy_repository = PrivacyRepository()
+    privacy_detection_service = PrivacyDetectionService(privacy_repository)
+    sensitive_fields = (privacy_detection_service.detect_sensitive_fields(cleansing_result["cleaned_dataframe"]))
+    logger.info("Sensitive fields detected : %d",len(sensitive_fields),)
+    masking_service = DataMaskingService(privacy_repository)
+    masked_dataframe = masking_service.mask_dataframe(cleansing_result["cleaned_dataframe"],sensitive_fields,)
+    logger.info("Data masking completed.")
+    validation_service = PrivacyValidationService()
+    privacy_validation_result = (validation_service.validate(cleansing_result["cleaned_dataframe"],masked_dataframe,sensitive_fields,))
+    logger.info("Privacy validation completed.")
+    privacy_report = PrivacyReport()
+    report = privacy_report.generate(sensitive_fields=sensitive_fields,masking_result=privacy_repository.get_last_result(),validation_result=privacy_validation_result,)
+    print(report)
+    # ---------------------------------------------------------
+    # Save Masked Dataset
+    masked_output_file = (output_folder / "masked_customers.csv")
+    masked_dataframe.to_csv(masked_output_file,index=False,)
+    logger.info("Masked dataset saved to %s",masked_output_file,)
+    logger.info("IC-07 Pipeline completed successfully.")
+
 
 if __name__ == "__main__":
     main()
