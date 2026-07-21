@@ -97,7 +97,8 @@ def main():
     logger.info("Loading dataset from %s", input_file)
 
     source_df = pd.read_csv(input_file)
-
+    print("PRINTING SOURCE_DF PRINTING SOURCE_DF PRINTING SOURCE_DF")
+    print(source_df.columns.tolist())
     logger.info(
         "Loaded %d rows and %d columns.",
         len(source_df),
@@ -202,6 +203,31 @@ def main():
 
     logger.info("IC-07 Pipeline completed successfully.")
 
+    print("PRINTING SOURCE DF PRINTING SOURCE DF \n")
+    print(source_df["AccountType"].unique())
+    print(synthetic_result.generated_dataframe["AccountType"].unique())
+    from src.ic07.models.validation_rule import ValidationRule
+    from src.ic07.services.validation_engine import ValidationEngine
+    from src.ic07.reports.validation_report import ValidationReport
 
+    rules = [
+    ValidationRule(name="Age Required", description="Age cannot be null", rule_type="required", column="Age", required=True),
+    ValidationRule(name="Age Range", description="Age must be between 0 and 120", rule_type="range", column="Age", minimum=0, maximum=120),
+    #ValidationRule(name="Customer ID Duplicate", description="CustomerID must be unique", rule_type="duplicate", column="CustomerID"),
+    ValidationRule(name="Gender", description="Allowed genders", rule_type="allowed", column="Gender", allowed_values=["Male", "Female", "Other"]),
+    ValidationRule(name="Email Format", description="Email validation", rule_type="pattern", column="Email", pattern=r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"),
+    ValidationRule(name="Credit Score", description="Credit score must be between 300 and 850", rule_type="range", column="CreditScore", minimum=300, maximum=850),
+    ValidationRule(name="Annual Income", description="Annual income cannot be negative", rule_type="range", column="AnnualIncome", minimum=0),
+
+    ValidationRule(name="Account Type", description="Allowed account types", rule_type="allowed", column="AccountType", allowed_values=["Standard", "Premium", "Gold"]),
+    ValidationRule(name="Is Active", description="Boolean validation", rule_type="allowed", column="IsActive", allowed_values=[True, False]),
+    ]
+
+    engine = ValidationEngine()
+    #result = engine.validate_dataset(dataframe=df,rules=rules,)
+
+    result = engine.validate_dataset(dataframe=synthetic_result.generated_dataframe,rules=rules,)
+
+    ValidationReport.print_report(result)
 if __name__ == "__main__":
     main()
