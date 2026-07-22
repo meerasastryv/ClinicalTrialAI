@@ -15,7 +15,7 @@ from src.ic08.repositories.feature_repository import FeatureRepository
 
 class FeatureTrackingService:
     """
-    Service for managing feature usage statistics.
+    Service for tracking and managing feature usage.
     """
 
     def __init__(
@@ -24,76 +24,105 @@ class FeatureTrackingService:
     ) -> None:
         self._repository = feature_repository
 
+    # ---------------------------------------------------------
+    # Record Feature Usage
+    # ---------------------------------------------------------
+
     def record_feature_usage(
         self,
         feature_name: str,
         duration_ms: int,
-        success: bool,
+        success: bool = True,
     ) -> None:
         """
-        Records usage for a feature.
+        Records a feature usage event.
         """
+
         feature = self._repository.get_feature(feature_name)
 
         if feature is None:
             feature = FeatureUsage(
                 feature_name=feature_name,
             )
-            self._repository.add_feature(feature)
 
+        #
+        # Update usage statistics
+        #
         feature.total_usage += 1
+
         feature.total_duration_ms += duration_ms
-        feature.average_duration_ms = (
-            feature.total_duration_ms / feature.total_usage
-        )
-        feature.last_used = datetime.utcnow()
-        feature.updated_at = datetime.utcnow()
 
         if success:
-            feature.record_success()
+            feature.successful_events += 1
         else:
-            feature.record_failure()
+            feature.failed_events += 1
 
-        self._repository.update_feature(feature)
+        feature.touch()
+
+        feature.refresh_statistics()
+
+        self._repository.add_feature(feature)
+
+    # ---------------------------------------------------------
+    # Retrieval
+    # ---------------------------------------------------------
 
     def get_feature(
         self,
         feature_name: str,
     ) -> Optional[FeatureUsage]:
-        """
-        Returns statistics for a feature.
-        """
+
         return self._repository.get_feature(feature_name)
 
-    def get_most_used_feature(
-        self,
-    ) -> Optional[FeatureUsage]:
-        """
-        Returns the most frequently used feature.
-        """
+    def get_all_features(self):
+
+        return self._repository.get_all_features()
+
+    def get_most_used_feature(self):
+
         return self._repository.get_most_used_feature()
 
-    def get_least_used_feature(
-        self,
-    ) -> Optional[FeatureUsage]:
-        """
-        Returns the least-used feature.
-        """
+    def get_least_used_feature(self):
+
         return self._repository.get_least_used_feature()
 
     def get_high_success_features(
         self,
         threshold: float = 95.0,
     ):
-        """
-        Returns features with a success rate above the threshold.
-        """
+
         return self._repository.get_high_success_features(
             threshold
         )
 
-    def total_features(self) -> int:
-        """
-        Returns the total number of tracked features.
-        """
+    def total_features(self):
+
         return self._repository.total_features()
+
+    # ---------------------------------------------------------
+    # Summary
+    # ---------------------------------------------------------
+
+    def generate_summary(self):
+
+        most_used = self.get_most_used_feature()
+
+        least_used = self.get_least_used_feature()
+
+        return {
+            "total_features": self.total_features(),
+            "most_used": (
+                most_used.feature_name
+                if most_used
+                else None
+            ),
+            "least_used": (
+                least_used.feature_name
+                if least_used
+                else None
+            ),
+        }
+
+    def clear(self):
+
+        self._repository.clear()
