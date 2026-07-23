@@ -310,7 +310,7 @@ class JourneyStatisticsService:
             "entry_exit_statistics":
                 navigation.entry_exit_statistics(),
             "transition_statistics":
-                navigation.transition_statistics(),
+                navigation.navigation_statistics(),
             "bounce_statistics":
                 navigation.bounce_statistics(),
         }
@@ -378,7 +378,7 @@ class JourneyStatisticsService:
             "page_statistics":
                 navigation.page_statistics(),
             "transition_statistics":
-                navigation.transition_statistics(),
+                navigation.navigation_statistics(),
         }
 
     def funnel_summary(
