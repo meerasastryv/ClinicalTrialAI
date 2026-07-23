@@ -559,21 +559,54 @@ class CustomerJourneyAnalyticsDemo:
     ####################################################################
     # Journey Analytics
     ####################################################################
-
     def print_journey_analytics(self) -> None:
-        """
-        Displays journey analytics.
-        """
+	    """
+	    Displays journey analytics.
+	    """
+	    print_section("Journey Analytics")
+	    analytics = self.analytics_service.journey_analytics()
+	    #
+	    # Journey Statistics
+	    #
+	    stats = analytics.get("journey_statistics", {})
+	    print("\nJourney Statistics")
+	    print("-" * 40)
+	    print(f"Total Journeys        : {stats.get('total_journeys', 0)}")
+	    print(f"Completed Journeys    : {stats.get('completed_journeys', 0)}")
+	    print(f"Abandoned Journeys    : {stats.get('abandoned_journeys', 0)}")
+	    print(f"Completion Rate       : {stats.get('completion_rate', 0):.2f}%")
+	    print(f"Abandonment Rate      : {stats.get('abandonment_rate', 0):.2f}%")
+	    #
+	    # Duration Statistics
+	    #
+	    duration = analytics.get("journey_duration_statistics", {})
+	    print("\nJourney Duration")
+	    print("-" * 40)
+	    print(
+		f"Average Duration      : "
+		f"{duration.get('average_duration_seconds', 0):.2f} sec"
+	    )
+	    longest = duration.get("longest_journey")
+	    if longest:
+                print(
+		   f"Longest Journey       : "
+		   f"{longest.get('session_id', '-')}")
+	    shortest = duration.get("shortest_journey")
+	    if shortest:
+                print(
+		   f"Shortest Journey      : "
+		   f"{shortest.get('session_id', '-')}"
+		)
+	    print()
+	    print(
+		f"Total Customers       : "
+		f"{analytics.get('total_customers', 0)}"
+	    )
+	    print(
+		f"Total Workflows       : "
+		f"{analytics.get('total_workflows', 0)}"
+	    )
 
-        print_section("Journey Analytics")
-
-        analytics = (
-            self.analytics_service
-            .journey_analytics()
-        )
-
-        for key, value in analytics.items():
-            print(f"{key:<35}: {value}")
 
     ####################################################################
     # Navigation Analytics
@@ -618,21 +651,67 @@ class CustomerJourneyAnalyticsDemo:
     ####################################################################
     # Drop-off Analytics
     ####################################################################
-
     def print_dropoff_analytics(self) -> None:
-        """
-        Displays drop-off analytics.
-        """
+	    """
+	    Displays drop-off analytics.
+	    """
+	    print_section("Drop-off Analytics")
 
-        print_section("Drop-off Analytics")
-
-        analytics = (
-            self.analytics_service
-            .dropoff_analytics()
-        )
-
-        for key, value in analytics.items():
-            print(f"{key:<35}: {value}")
+	    analytics = (
+		self.analytics_service
+		.dropoff_analytics()
+	    )
+	    #
+	    # Workflow Statistics
+	    #
+	    workflow = analytics.get(
+		"workflow_statistics",
+		{}
+	    )
+	    print("\nWorkflow Statistics")
+	    print("-" * 40)
+	    print(
+		f"Total Workflows : "
+		f"{workflow.get('total_workflows', 0)}"
+	    )
+	    highest = workflow.get(
+		"highest_dropoff_workflow"
+	    )
+	    if highest:
+                print(
+		    f"Highest Drop-off Workflow : "
+		    f"{highest}"
+		)
+	    #
+	    # Page Statistics
+	    #
+	    page = analytics.get(
+		"page_statistics",
+		{}
+	    )
+	    print("\nPage Statistics")
+	    print("-" * 40)
+	    print(
+		f"Total Exit Pages : "
+		f"{page.get('total_exit_pages', 0)}"
+	    )
+	    print(
+		f"Total Drop-offs : "
+		f"{page.get('total_dropoffs', 0)}"
+	    )
+	    #
+	    # Customer Statistics
+	    #
+	    customer = analytics.get(
+		"customer_statistics",
+		{}
+	    )
+	    print("\nCustomer Statistics")
+	    print("-" * 40)
+	    print(
+		f"Customers with Drop-offs : "
+		f"{len(customer.get('customer_dropoff_counts', {}))}"
+	    ) 
 
     ####################################################################
     # Dashboard

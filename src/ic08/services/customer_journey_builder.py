@@ -45,9 +45,9 @@ class CustomerJourneyBuilder:
         self._session_service = session_tracking_service
         self._workflow_service = workflow_tracking_service
 
-        logger.info(
-            "CustomerJourneyBuilder initialized."
-        )
+        #logger.info(
+        #    "CustomerJourneyBuilder initialized."
+        #)
 
     ####################################################################
     # Event Collection
@@ -337,10 +337,10 @@ class CustomerJourneyBuilder:
                 )
             )
 
-        logger.info(
-            "Built %d customer journeys.",
-            len(journeys),
-        )
+        #logger.info(
+        #    "Built %d customer journeys.",
+        #    len(journeys),
+        #)
 
         return journeys
 
