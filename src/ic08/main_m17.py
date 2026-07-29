@@ -2,10 +2,14 @@ from src.ic08.repositories.intelligence_repository import IntelligenceRepository
 from src.ic08.services.customer_intelligence_service import (
     CustomerIntelligenceService,
 )
+
+
 from src.ic08.services.executive_summary_service import (
     ExecutiveSummaryService,
 )
+from src.ic08.repositories.customer_repository import CustomerRepository
 
+from src.ic08.models.customer import Customer
 
 def print_separator():
     print("=" * 70)
@@ -26,23 +30,24 @@ def main():
     # Create repository and services
     # ---------------------------------------------------------
 
-    repository = IntelligenceRepository()
-
-    intelligence_service = CustomerIntelligenceService(repository)
+    customer_repository = CustomerRepository()
+    intelligence_repository = IntelligenceRepository()
+    intelligence_service = CustomerIntelligenceService(customer_repository,intelligence_repository)
 
     summary_service = ExecutiveSummaryService()
+
+
+    customer = Customer(customer_id="CUST-001",customer_name="ABC Pharma",organization="ABC Pharma",
+        industry="Pharmaceutical",subscription_plan="Enterprise",region="North America",)
+
+    customer_repository.add_customer(customer)
+
 
     # ---------------------------------------------------------
     # Build Dashboard
     # ---------------------------------------------------------
-
-    dashboard = intelligence_service.build_dashboard(
-        customer_id="CUST-001",
-        organization_name="ABC Pharma",
-        study_id="STUDY-101",
-        study_name="Phase III Oncology Study",
-    )
-
+    dashboard = intelligence_service.build_dashboard("CUST-001")
+    
     # ---------------------------------------------------------
     # Generate Executive Summary
     # ---------------------------------------------------------

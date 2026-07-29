@@ -1,41 +1,65 @@
-
 from typing import Optional
 
 from src.ic08.models.customer_intelligence import CustomerIntelligence
-
-from src.ic08.repositories.customer_repository import CustomerRepository
 from src.ic08.repositories.intelligence_repository import IntelligenceRepository
 
 
 class CustomerIntelligenceService:
+    """
+    Aggregates intelligence from multiple IC-08 services into a
+    consolidated dashboard.
 
-    def __init__(self,customer_repository: CustomerRepository,intelligence_repository: IntelligenceRepository):
-        self.customer_repository = customer_repository
-        self.intelligence_repository = intelligence_repository
-    def build_dashboard(self,customer_id: str) -> CustomerIntelligence:
+    NOTE:
+    This service will eventually become StudyIntelligenceService
+    during the IC-08 refactoring phase.
+    """
+
+    def __init__(
+        self,
+        repository: IntelligenceRepository
+    ):
+        self.repository = repository
+
+    def build_dashboard(
+        self,
+        customer_id: str,
+        organization_name: str,
+        study_id: str = "",
+        study_name: str = ""
+    ) -> CustomerIntelligence:
         """
-        Build and store a consolidated intelligence dashboard
+        Build and store a consolidated intelligence dashboard.
         """
 
-        customer = self.customer_repository.get_customer(customer_id)
-        if customer is None:
-            raise ValueError(f"Customer '{customer_id}' not found.")
-        dashboard = CustomerIntelligence(customer_id=customer.customer_id,organization_name=customer.organization,study_id="",study_name="")
+        dashboard = CustomerIntelligence(
+            customer_id=customer_id,
+            organization_name=organization_name,
+            study_id=study_id,
+            study_name=study_name
+        )
+
         self._populate_dashboard(dashboard)
+
         dashboard.overall_score = self._calculate_overall_score(dashboard)
-        dashboard.risk_level = self._determine_risk_level(dashboard.overall_score)
-        self.intelligence_repository.save(dashboard)
+
+        dashboard.risk_level = self._determine_risk_level(
+            dashboard.overall_score
+        )
+
+        self.repository.save(dashboard)
+
         return dashboard
-   
 
     def get_dashboard(
         self,
         customer_id: str
     ) -> Optional[CustomerIntelligence]:
-       return self.intelligence_repository.get_by_customer_id(customer_id)
+
+        return self.repository.get_by_customer_id(customer_id)
 
     def get_all_dashboards(self):
-        return self.intelligence_repository.get_all()
+
+        return self.repository.get_all()
 
     def _populate_dashboard(
         self,
@@ -84,15 +108,18 @@ class CustomerIntelligenceService:
             "weekly_growth": 8.2,
             "monthly_growth": 21.6
         }
+
         dashboard.recommendations = [
             "Increase Metadata Repository adoption.",
             "Reduce workflow drop-offs.",
             "Promote Risk Dashboard usage."
         ]
+
     def _calculate_overall_score(
         self,
         dashboard: CustomerIntelligence
     ) -> float:
+
         weights = {
             "health": 0.25,
             "engagement": 0.15,
@@ -101,6 +128,7 @@ class CustomerIntelligenceService:
             "journey": 0.10,
             "study_health": 0.20
         }
+
         score = (
             dashboard.health_score * weights["health"]
             + dashboard.engagement_score * weights["engagement"]
@@ -109,15 +137,20 @@ class CustomerIntelligenceService:
             + dashboard.journey_score * weights["journey"]
             + dashboard.study_health_score * weights["study_health"]
         )
+
         return round(score, 2)
+
     def _determine_risk_level(
         self,
         score: float
     ) -> str:
+
         if score >= 90:
             return "LOW"
+
         if score >= 70:
             return "MEDIUM"
+
         return "HIGH"
 
 
