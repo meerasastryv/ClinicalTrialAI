@@ -17,15 +17,21 @@ class ArchitectureReport(BaseReport):
     """
 
     #
+    # ---------------------------------------------------------
     # Project Information
+    # ---------------------------------------------------------
     #
+
     engine_id: str = ""
 
     total_python_files: int = 0
 
     #
+    # ---------------------------------------------------------
     # Dependency Metrics
+    # ---------------------------------------------------------
     #
+
     total_dependencies: int = 0
 
     internal_dependencies: int = 0
@@ -35,8 +41,11 @@ class ArchitectureReport(BaseReport):
     standard_library_dependencies: int = 0
 
     #
+    # ---------------------------------------------------------
     # Dependency Analysis
+    # ---------------------------------------------------------
     #
+
     circular_dependencies: List[List[str]] = field(
         default_factory=list
     )
@@ -56,11 +65,31 @@ class ArchitectureReport(BaseReport):
     dead_code: List[str] = field(
         default_factory=list
     )
+
+    #
+    # ---------------------------------------------------------
+    # Dependency Intelligence
+    # ---------------------------------------------------------
+    #
+
     dependency_intelligence: object = None
 
     #
-    # Architecture Health
+    # ---------------------------------------------------------
+    # Layer Rule Violations
+    # ---------------------------------------------------------
     #
+
+    layer_violations: List = field(
+        default_factory=list
+    )
+
+    #
+    # ---------------------------------------------------------
+    # Architecture Health
+    # ---------------------------------------------------------
+    #
+
     health_score: float = 0.0
 
     rating: str = ""
@@ -77,5 +106,11 @@ class ArchitectureReport(BaseReport):
         """
         Initialize BaseReport defaults.
         """
-        self.report_name = "Architecture Intelligence Report"
-        self.analyzer_name = "ArchitectureAnalyzer"
+
+        self.report_name = (
+            "Architecture Intelligence Report"
+        )
+
+        self.analyzer_name = (
+            "ArchitectureAnalyzer"
+        )

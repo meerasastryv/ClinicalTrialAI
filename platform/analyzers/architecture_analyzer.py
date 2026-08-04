@@ -4,7 +4,7 @@ architecture_analyzer.py
 Architecture Intelligence Analyzer
 Refactored to use the PF-01 BaseAnalyzer framework.
 """
-
+from platform.analyzers.layer_violation_detector import LayerViolationDetector
 from collections import Counter
 
 from platform.framework.base_analyzer import BaseAnalyzer
@@ -43,6 +43,7 @@ class ArchitectureAnalyzer(BaseAnalyzer):
         self.dependency_intelligence_analyzer = (
             DependencyIntelligenceAnalyzer()
         )
+        self.layer_violation_detector = LayerViolationDetector()
     def execute(self, graph: DependencyGraph):
         """
         Convenience entry point for existing callers.
@@ -123,6 +124,12 @@ class ArchitectureAnalyzer(BaseAnalyzer):
             dependency_graph.setdefault(dep.source,[]).append(dep.target)
         dependency_intelligence = (self.dependency_intelligence_analyzer.analyze(dependency_graph))
         report.dependency_intelligence = (    dependency_intelligence)
+
+        # ---------------------------------------------------------
+        # Layer Violation Detection
+        # ---------------------------------------------------------
+        layer_violations = (self.layer_violation_detector.detect(graph))
+        report.layer_violations = layer_violations
         # ---------------------------------------------------------
         # Architecture Health
 

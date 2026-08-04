@@ -1,0 +1,3979 @@
+
+============================================================
+ClinicalTrialAI Architecture Report
+============================================================
+
+Engine                     : IC08
+Dependencies               : 537
+Internal Dependencies      : 319
+External Dependencies      : 12
+Standard Library           : 206
+
+Circular Dependencies
+None
+
+Top Fan-Out
+  main_m03.py                                   22
+  main_m03_old.py                               22
+  engine.py                                     20
+  main_m01.py                                   19
+  main_m02.py                                   18
+  old3main.py                                   16
+  main_m05.py                                   13
+  main_m04.py                                   12
+  services/feature_usage_analytics_service.py   12
+  main_m20.py                                   11
+
+Top Fan-In
+  typing                                        60
+  __future__                                    46
+  datetime                                      32
+  logging                                       29
+  dataclasses                                   27
+  src.ic08.services.customer_journey_builder    19
+  src.ic08.repositories.usage_repository        17
+  src.ic08.repositories.session_repository      16
+  src.ic08.repositories.workflow_repository     15
+  src.ic08.services.session_tracking_service    14
+
+============================================================
+Dependency Intelligence
+============================================================
+
+Architectural Hotspots
+  typing
+     Score : 60
+     FanIn=60, FanOut=0, Cycle=False
+  __future__
+     Score : 46
+     FanIn=46, FanOut=0, Cycle=False
+  datetime
+     Score : 32
+     FanIn=32, FanOut=0, Cycle=False
+  logging
+     Score : 29
+     FanIn=29, FanOut=0, Cycle=False
+  dataclasses
+     Score : 27
+     FanIn=27, FanOut=0, Cycle=False
+  main_m03.py
+     Score : 22
+     FanIn=0, FanOut=22, Cycle=False
+  main_m03_old.py
+     Score : 22
+     FanIn=0, FanOut=22, Cycle=False
+  engine.py
+     Score : 20
+     FanIn=0, FanOut=20, Cycle=False
+  src.ic08.services.customer_journey_builder
+     Score : 19
+     FanIn=19, FanOut=0, Cycle=False
+  main_m01.py
+     Score : 19
+     FanIn=0, FanOut=19, Cycle=False
+  main_m02.py
+     Score : 18
+     FanIn=0, FanOut=18, Cycle=False
+  src.ic08.repositories.usage_repository
+     Score : 17
+     FanIn=17, FanOut=0, Cycle=False
+  src.ic08.repositories.session_repository
+     Score : 16
+     FanIn=16, FanOut=0, Cycle=False
+  old3main.py
+     Score : 16
+     FanIn=0, FanOut=16, Cycle=False
+  src.ic08.repositories.workflow_repository
+     Score : 15
+     FanIn=15, FanOut=0, Cycle=False
+  src.ic08.services.session_tracking_service
+     Score : 14
+     FanIn=14, FanOut=0, Cycle=False
+  src.ic08.services.usage_event_service
+     Score : 14
+     FanIn=14, FanOut=0, Cycle=False
+  src.ic08.services.workflow_tracking_service
+     Score : 14
+     FanIn=14, FanOut=0, Cycle=False
+  src.ic08.repositories.customer_repository
+     Score : 13
+     FanIn=13, FanOut=0, Cycle=False
+  src.ic08.models.usage_event
+     Score : 13
+     FanIn=13, FanOut=0, Cycle=False
+  main_m05.py
+     Score : 13
+     FanIn=0, FanOut=13, Cycle=False
+  main_m04.py
+     Score : 12
+     FanIn=0, FanOut=12, Cycle=False
+  services/feature_usage_analytics_service.py
+     Score : 12
+     FanIn=0, FanOut=12, Cycle=False
+  src.ic08.models.customer
+     Score : 11
+     FanIn=11, FanOut=0, Cycle=False
+  main_m20.py
+     Score : 11
+     FanIn=0, FanOut=11, Cycle=False
+  services/usage_pattern_discovery_service.py
+     Score : 11
+     FanIn=0, FanOut=11, Cycle=False
+
+Intelligence Recommendations
+  • Reduce coupling in 'engine.py'.
+  • Reduce coupling in 'main_m03.py'.
+  • Reduce coupling in 'main_m03_old.py'.
+  • Refactor architectural hotspots.
+  • Review impact before modifying '__future__'.
+  • Review impact before modifying 'datetime'.
+  • Review impact before modifying 'typing'.
+
+============================================================
+Layer Rule Violations
+============================================================
+
+main_m08.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m08.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m08.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m08.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m08.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m08.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m08.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m08.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m08.py
+    -> src.ic08.services.customer_journey_builder
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m08.py
+    -> src.ic08.services.customer_segmentation_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+test_engine.py
+    -> src.ic08.engine
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m18.py
+    -> src.ic08.models.customer
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m18.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m18.py
+    -> src.ic08.repositories.intelligence_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m18.py
+    -> src.ic08.repositories.report_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m18.py
+    -> src.ic08.services.customer_intelligence_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m18.py
+    -> src.ic08.services.executive_summary_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m18.py
+    -> src.ic08.services.intelligence_report_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m09.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m09.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m09.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m09.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m09.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m09.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m09.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m09.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m09.py
+    -> src.ic08.services.customer_journey_builder
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m09.py
+    -> src.ic08.services.customer_intelligence_dashboard_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m19.py
+    -> src.ic08.models.customer
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m19.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m19.py
+    -> src.ic08.repositories.intelligence_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m19.py
+    -> src.ic08.repositories.report_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m19.py
+    -> src.ic08.repositories.action_plan_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m19.py
+    -> src.ic08.services.customer_intelligence_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m19.py
+    -> src.ic08.services.executive_summary_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m19.py
+    -> src.ic08.services.intelligence_report_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m19.py
+    -> src.ic08.services.action_plan_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m06.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m06.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m06.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m06.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m06.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m06.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m06.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m06.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m06.py
+    -> src.ic08.services.customer_journey_builder
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m06.py
+    -> src.ic08.services.customer_segmentation_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m16.py
+    -> src.ic08.services.study_health_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m02.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m02.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m02.py
+    -> datetime
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m02.py
+    -> src.ic08.models.customer
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m02.py
+    -> src.ic08.models.customer_session
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m02.py
+    -> src.ic08.models.usage_event
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m02.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m02.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m02.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m02.py
+    -> src.ic08.repositories.feature_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m02.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m02.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m02.py
+    -> src.ic08.services.feature_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m02.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m02.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m02.py
+    -> src.ic08.services.feature_usage_analytics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m02.py
+    -> datetime
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m02.py
+    -> datetime
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m12.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m12.py
+    -> src.ic08.services.behaviour_prediction_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m03.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m03.py
+    -> datetime
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m03.py
+    -> src.ic08.models.customer
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m03.py
+    -> src.ic08.models.customer_session
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m03.py
+    -> src.ic08.models.usage_event
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m03.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03.py
+    -> src.ic08.repositories.feature_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.feature_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.customer_journey_builder
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.navigation_analytics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.funnel_analysis_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.dropoff_analysis_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.journey_statistics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.journey_reporting_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03.py
+    -> src.ic08.services.customer_journey_analytics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m13.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m13.py
+    -> src.ic08.services.churn_prediction_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m07.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m07.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m07.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m07.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m07.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m07.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m07.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m07.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m07.py
+    -> src.ic08.services.customer_journey_builder
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m07.py
+    -> src.ic08.services.trend_analytics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m17.py
+    -> src.ic08.repositories.intelligence_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m17.py
+    -> src.ic08.services.customer_intelligence_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m17.py
+    -> src.ic08.services.executive_summary_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m17.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m17.py
+    -> src.ic08.models.customer
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m10.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m10.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m10.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m10.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m10.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m10.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m10.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m10.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m10.py
+    -> src.ic08.services.customer_journey_builder
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m10.py
+    -> src.ic08.services.customer_ai_insights_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+engine.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+engine.py
+    -> typing
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+engine.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.feature_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.feedback_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.analytics_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.recommendation_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.usage_pattern_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.intelligence_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.feature_adoption_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.operational_decision_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.behaviour_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.churn_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.satisfaction_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.study_health_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.action_plan_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+engine.py
+    -> src.ic08.repositories.report_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m04.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m04.py
+    -> pprint
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m04.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m04.py
+    -> src.ic08.repositories.feature_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m04.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m04.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m04.py
+    -> src.ic08.services.customer_journey_builder
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m04.py
+    -> src.ic08.services.navigation_analytics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m04.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m04.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m04.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m04.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m14.py
+    -> src.ic08.services.satisfaction_prediction_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m20.py
+    -> src.ic08.models.customer
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m20.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m20.py
+    -> src.ic08.repositories.intelligence_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m20.py
+    -> src.ic08.repositories.report_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m20.py
+    -> src.ic08.repositories.action_plan_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m20.py
+    -> src.ic08.repositories.operational_decision_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m20.py
+    -> src.ic08.services.customer_intelligence_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m20.py
+    -> src.ic08.services.executive_summary_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m20.py
+    -> src.ic08.services.intelligence_report_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m20.py
+    -> src.ic08.services.action_plan_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m20.py
+    -> src.ic08.services.operational_decision_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+OLDmain.py
+    -> src.ic08.repositories.feature_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+OLDmain.py
+    -> src.ic08.repositories.feature_adoption_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+OLDmain.py
+    -> src.ic08.services.feature_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+OLDmain.py
+    -> src.ic08.services.feature_adoption_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+OLDmain.py
+    -> src.ic08.reports.feature_adoption_report
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m05.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m05.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m05.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m05.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m05.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m05.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m05.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m05.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m05.py
+    -> src.ic08.services.customer_journey_builder
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m05.py
+    -> src.ic08.services.navigation_analytics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m05.py
+    -> src.ic08.services.funnel_analysis_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m05.py
+    -> src.ic08.services.dropoff_analysis_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m05.py
+    -> src.ic08.services.journey_statistics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m15.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m15.py
+    -> src.ic08.services.churn_prediction_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m01.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m01.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m01.py
+    -> datetime
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m01.py
+    -> typing
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m01.py
+    -> src.ic08.models.customer
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m01.py
+    -> src.ic08.models.customer_session
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m01.py
+    -> src.ic08.models.usage_event
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m01.py
+    -> src.ic08.models.workflow
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m01.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m01.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m01.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m01.py
+    -> src.ic08.repositories.feature_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m01.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m01.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m01.py
+    -> src.ic08.services.feature_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m01.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m01.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m01.py
+    -> src.ic08.services.usage_validation_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m01.py
+    -> src.ic08.services.usage_ingestion_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m11.py
+    -> src.ic08.models.customer
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m11.py
+    -> src.ic08.repositories.usage_pattern_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m11.py
+    -> src.ic08.services.usage_pattern_feature_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m11.py
+    -> src.ic08.services.usage_pattern_discovery_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+old3main.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+old3main.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+old3main.py
+    -> datetime
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+old3main.py
+    -> src.ic08.models.usage_event
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+old3main.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+old3main.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+old3main.py
+    -> src.ic08.repositories.feature_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+old3main.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+old3main.py
+    -> src.ic08.repositories.feature_adoption_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+old3main.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+old3main.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+old3main.py
+    -> src.ic08.services.feature_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+old3main.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+old3main.py
+    -> src.ic08.services.usage_ingestion_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+old3main.py
+    -> src.ic08.services.usage_validation_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+old3main.py
+    -> src.ic08.services.feature_adoption_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m03_old.py
+    -> logging
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m03_old.py
+    -> datetime
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+main_m03_old.py
+    -> src.ic08.models.customer
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m03_old.py
+    -> src.ic08.models.customer_session
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m03_old.py
+    -> src.ic08.models.usage_event
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+main_m03_old.py
+    -> src.ic08.repositories.customer_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03_old.py
+    -> src.ic08.repositories.session_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03_old.py
+    -> src.ic08.repositories.usage_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03_old.py
+    -> src.ic08.repositories.feature_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03_old.py
+    -> src.ic08.repositories.workflow_repository
+    Source Layer : unknown
+    Target Layer : repository
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to repository is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.session_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.workflow_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.feature_tracking_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.usage_event_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.customer_journey_builder
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.navigation_analytics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.funnel_analysis_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.dropoff_analysis_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.journey_statistics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.journey_reporting_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+main_m03_old.py
+    -> src.ic08.services.customer_journey_analytics_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+repositories/session_repository.py
+    -> __future__
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/session_repository.py
+    -> datetime
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/session_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/session_repository.py
+    -> src.ic08.models.customer_session
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/churn_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/churn_repository.py
+    -> src.ic08.models.churn_prediction
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/feature_repository.py
+    -> __future__
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/feature_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/feature_repository.py
+    -> src.ic08.models.feature_usage
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/behaviour_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/behaviour_repository.py
+    -> src.ic08.models.behaviour_prediction
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/customer_repository.py
+    -> __future__
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/customer_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/customer_repository.py
+    -> src.ic08.models.customer
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/operational_decision_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/operational_decision_repository.py
+    -> src.ic08.models.operational_decision
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/usage_pattern_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/usage_pattern_repository.py
+    -> src.ic08.models.pattern_cluster
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/usage_pattern_repository.py
+    -> src.ic08.models.pattern_summary
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/usage_pattern_repository.py
+    -> src.ic08.models.usage_pattern
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/intelligence_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/intelligence_repository.py
+    -> src.ic08.models.customer_intelligence
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/feature_adoption_repository.py
+    -> __future__
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/feature_adoption_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/feature_adoption_repository.py
+    -> src.ic08.models.feature_adoption
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/feedback_repository.py
+    -> __future__
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/feedback_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/feedback_repository.py
+    -> src.ic08.models.feedback
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/workflow_repository.py
+    -> __future__
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/workflow_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/workflow_repository.py
+    -> src.ic08.models.workflow
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/recommendation_repository.py
+    -> __future__
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/recommendation_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/recommendation_repository.py
+    -> src.ic08.models.recommendation
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/analytics_repository.py
+    -> __future__
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/analytics_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/analytics_repository.py
+    -> src.ic08.models.feature_usage
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/action_plan_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/action_plan_repository.py
+    -> src.ic08.models.action_plan
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/satisfaction_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/satisfaction_repository.py
+    -> src.ic08.models.satisfaction_prediction
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/study_health_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/study_health_repository.py
+    -> src.ic08.models.study_health
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/usage_repository.py
+    -> __future__
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/usage_repository.py
+    -> datetime
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/usage_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/usage_repository.py
+    -> src.ic08.models.usage_event
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+repositories/report_repository.py
+    -> typing
+    Source Layer : repository
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to unknown is not permitted.
+
+repositories/report_repository.py
+    -> src.ic08.models.intelligence_report
+    Source Layer : repository
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from repository to model is not permitted.
+
+models/behaviour_prediction.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/user_journey.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/user_journey.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/intelligence_report.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/intelligence_report.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/intelligence_report.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/action_plan.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/action_plan.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/action_plan.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_definition.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/customer_segment.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/customer_segment.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/trend.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/trend.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feedback.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feedback.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/study_health.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/study_health.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/operational_decision.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/operational_decision.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/operational_decision.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/usage_summary.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/usage_summary.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/churn_prediction.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/recommendation.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/recommendation.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/satisfaction_prediction.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/satisfaction_prediction.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/adoption_metric.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/adoption_metric.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/usage_pattern.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/usage_pattern.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_matrix.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_matrix.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_matrix.py
+    -> src.ic08.models.feature_definition
+    Source Layer : model
+    Target Layer : model
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from model to model is not permitted.
+
+models/customer.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/customer.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_usage.py
+    -> __future__
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_usage.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_usage.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_usage.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/workflow.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/workflow.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_adoption.py
+    -> __future__
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_adoption.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_adoption.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/feature_adoption.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/customer_intelligence.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/customer_intelligence.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/customer_session.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/customer_session.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/customer_session.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/pattern_cluster.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/pattern_summary.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/discovery_result.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/discovery_result.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/discovery_result.py
+    -> src.ic08.models.pattern_cluster
+    Source Layer : model
+    Target Layer : model
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from model to model is not permitted.
+
+models/usage_event.py
+    -> dataclasses
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/usage_event.py
+    -> datetime
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+models/usage_event.py
+    -> typing
+    Source Layer : model
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from model to unknown is not permitted.
+
+services/customer_ai_insights_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_ai_insights_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_ai_insights_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_pattern_feature_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_pattern_feature_service.py
+    -> src.ic08.models.feature_definition
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/usage_pattern_feature_service.py
+    -> src.ic08.models.feature_matrix
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/usage_validation_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_validation_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_validation_service.py
+    -> src.ic08.models.usage_event
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/navigation_analytics_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/navigation_analytics_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/navigation_analytics_service.py
+    -> collections
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/navigation_analytics_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/funnel_analysis_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/funnel_analysis_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/funnel_analysis_service.py
+    -> collections
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/funnel_analysis_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/intelligence_report_service.py
+    -> uuid
+    Source Layer : service
+    Target Layer : presentation
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from service to presentation is not permitted.
+
+services/intelligence_report_service.py
+    -> src.ic08.models.customer_intelligence
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/intelligence_report_service.py
+    -> src.ic08.models.intelligence_report
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/journey_reporting_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/journey_reporting_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/journey_reporting_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/workflow_tracking_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/workflow_tracking_service.py
+    -> datetime
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/workflow_tracking_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/workflow_tracking_service.py
+    -> src.ic08.models.workflow
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/feature_tracking_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_tracking_service.py
+    -> datetime
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_tracking_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_tracking_service.py
+    -> src.ic08.models.feature_usage
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/customer_journey_analytics_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_journey_analytics_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_journey_analytics_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/study_health_service.py
+    -> src.ic08.models.study_health
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/journey_statistics_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/journey_statistics_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/journey_statistics_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_event_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_event_service.py
+    -> datetime
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_event_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_event_service.py
+    -> src.ic08.models.usage_event
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/usage_ingestion_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_ingestion_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_ingestion_service.py
+    -> src.ic08.models.usage_event
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> time
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> numpy
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> sklearn.base
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> sklearn.cluster
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> sklearn.preprocessing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> src.ic08.models.discovery_result
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> src.ic08.models.feature_matrix
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/usage_pattern_discovery_service.py
+    -> src.ic08.models.pattern_cluster
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/customer_usage_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_usage_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_usage_service.py
+    -> src.ic08.models.customer
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/customer_usage_service.py
+    -> src.ic08.models.customer_session
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/customer_usage_service.py
+    -> src.ic08.models.usage_event
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/operational_decision_service.py
+    -> uuid
+    Source Layer : service
+    Target Layer : presentation
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from service to presentation is not permitted.
+
+services/operational_decision_service.py
+    -> src.ic08.models.action_plan
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/operational_decision_service.py
+    -> src.ic08.models.intelligence_report
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/operational_decision_service.py
+    -> src.ic08.models.operational_decision
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/churn_prediction_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/churn_prediction_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/churn_prediction_service.py
+    -> numpy
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/churn_prediction_service.py
+    -> sklearn.ensemble
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/churn_prediction_service.py
+    -> sklearn.metrics
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/churn_prediction_service.py
+    -> src.ic08.models.churn_prediction
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/satisfaction_prediction_service.py
+    -> src.ic08.models.satisfaction_prediction
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/trend_analytics_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/trend_analytics_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/trend_analytics_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_usage_analytics_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_usage_analytics_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_usage_analytics_service.py
+    -> collections
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_usage_analytics_service.py
+    -> collections
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_usage_analytics_service.py
+    -> datetime
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_usage_analytics_service.py
+    -> statistics
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_usage_analytics_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_usage_analytics_service.py
+    -> src.ic08.models.usage_event
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/customer_intelligence_dashboard_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_intelligence_dashboard_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_intelligence_dashboard_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_intelligence_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_intelligence_service.py
+    -> src.ic08.models.customer_intelligence
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/executive_summary_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/executive_summary_service.py
+    -> src.ic08.models.customer_intelligence
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/customer_segmentation_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_segmentation_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_segmentation_service.py
+    -> collections
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_segmentation_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/action_plan_service.py
+    -> uuid
+    Source Layer : service
+    Target Layer : presentation
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from service to presentation is not permitted.
+
+services/action_plan_service.py
+    -> src.ic08.models.action_plan
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/action_plan_service.py
+    -> src.ic08.models.intelligence_report
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/feature_adoption_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_adoption_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_adoption_service.py
+    -> collections
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_adoption_service.py
+    -> datetime
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_adoption_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/feature_adoption_service.py
+    -> src.ic08.models.feature_adoption
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/feature_adoption_service.py
+    -> src.ic08.models.usage_event
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/dropoff_analysis_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/dropoff_analysis_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/dropoff_analysis_service.py
+    -> collections
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/dropoff_analysis_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/session_tracking_service.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/session_tracking_service.py
+    -> datetime
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/session_tracking_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/session_tracking_service.py
+    -> src.ic08.models.customer_session
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/behaviour_prediction_service.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/behaviour_prediction_service.py
+    -> numpy
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/behaviour_prediction_service.py
+    -> sklearn.ensemble
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/behaviour_prediction_service.py
+    -> src.ic08.models.behaviour_prediction
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/behaviour_prediction_service.py
+    -> sklearn.metrics
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/behaviour_prediction_service.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_journey_builder.py
+    -> __future__
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_journey_builder.py
+    -> logging
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_journey_builder.py
+    -> collections
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_journey_builder.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/customer_journey_builder.py
+    -> src.ic08.models.usage_event
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+services/old_cis.py
+    -> typing
+    Source Layer : service
+    Target Layer : unknown
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to unknown is not permitted.
+
+services/old_cis.py
+    -> src.ic08.models.customer_intelligence
+    Source Layer : service
+    Target Layer : model
+    Severity : HIGH
+    Rule : Layer Dependency Rule
+    Dependency from service to model is not permitted.
+
+reports/feature_adoption_report.py
+    -> __future__
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+reports/feature_adoption_report.py
+    -> typing
+    Source Layer : unknown
+    Target Layer : unknown
+    Severity : MEDIUM
+    Rule : Layer Dependency Rule
+    Dependency from unknown to unknown is not permitted.
+
+reports/feature_adoption_report.py
+    -> src.ic08.models.feature_adoption
+    Source Layer : unknown
+    Target Layer : model
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to model is not permitted.
+
+reports/feature_adoption_report.py
+    -> src.ic08.services.feature_adoption_service
+    Source Layer : unknown
+    Target Layer : service
+    Severity : CRITICAL
+    Rule : Layer Dependency Rule
+    Dependency from unknown to service is not permitted.
+
+============================================================
+Architecture Health
+============================================================
+
+Health Score : 95.0/100
+Rating       : Excellent
+
+Warnings
+  • Very high fan-in detected.
+
+Recommendations
+  • Architecture is healthy. Continue following the current layered design.

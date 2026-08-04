@@ -7,25 +7,18 @@ Architecture Intelligence Reporter
 from platform.framework.base_reporter import BaseReporter
 from platform.framework.analysis_result import AnalysisResult
 from platform.models.architecture_report import ArchitectureReport
-from platform.reporters.layer_violation_reporter import (
-    LayerViolationReporter,
-)
 
 
 class ArchitectureReporter(BaseReporter):
-    """
-    Reporter for Architecture Intelligence.
-    """
 
     def __init__(self, output_dir):
         """
         Initialize the reporter.
         """
         super().__init__(output_dir)
-
-        self.layer_violation_reporter = (
-            LayerViolationReporter()
-        )
+    """
+    Reporter for Architecture Intelligence.
+    """
 
     def build_report(
         self,
@@ -116,10 +109,7 @@ class ArchitectureReporter(BaseReporter):
 
             for cycle in report.circular_dependencies:
 
-                if isinstance(
-                    cycle,
-                    (list, tuple),
-                ):
+                if isinstance(cycle, (list, tuple)):
 
                     lines.append(
                         "- "
@@ -302,13 +292,13 @@ class ArchitectureReporter(BaseReporter):
                 lines.append("")
 
             #
-            # Dependency Intelligence Layer Violations
+            # Layer Violations
             #
 
             if intelligence.layer_violations:
 
                 lines.append(
-                    "### Dependency Intelligence Layer Violations"
+                    "### Layer Violations"
                 )
 
                 lines.append("")
@@ -355,65 +345,13 @@ class ArchitectureReporter(BaseReporter):
 
         #
         # ---------------------------------------------------------
-        # Layer Rule Violations
-        # ---------------------------------------------------------
-        #
-
-        if report.layer_violations:
-
-            lines.append(
-                "## Layer Rule Violations"
-            )
-
-            lines.append("")
-
-            for violation in report.layer_violations:
-
-                lines.append(
-                    f"### {violation.source} -> {violation.target}"
-                )
-
-                lines.append("")
-
-                lines.append(
-                    f"- Source Layer : "
-                    f"{violation.source_layer}"
-                )
-
-                lines.append(
-                    f"- Target Layer : "
-                    f"{violation.target_layer}"
-                )
-
-                lines.append(
-                    f"- Severity : "
-                    f"{violation.severity}"
-                )
-
-                lines.append(
-                    f"- Rule : "
-                    f"{violation.rule_name}"
-                )
-
-                lines.append(
-                    f"- Description : "
-                    f"{violation.description}"
-                )
-
-                lines.append("")
-
-        #
-        # ---------------------------------------------------------
         # Warnings
         # ---------------------------------------------------------
         #
 
         if report.warnings:
 
-            lines.append(
-                "## Warnings"
-            )
-
+            lines.append("## Warnings")
             lines.append("")
 
             for warning in report.warnings:
@@ -459,17 +397,12 @@ class ArchitectureReporter(BaseReporter):
         """
 
         print()
-
         print("=" * 60)
-
         print(
             "ClinicalTrialAI Architecture Report"
         )
-
         print("=" * 60)
-
         print()
-
 
         print(
             f"Engine                     : "
@@ -502,7 +435,9 @@ class ArchitectureReporter(BaseReporter):
 
         if report.circular_dependencies:
 
-            for cycle in report.circular_dependencies:
+            for cycle in (
+                report.circular_dependencies
+            ):
 
                 if isinstance(
                     cycle,
@@ -533,7 +468,6 @@ class ArchitectureReporter(BaseReporter):
             )
 
         print()
-
         print("Top Fan-In")
 
         for module, count in (
@@ -605,7 +539,7 @@ class ArchitectureReporter(BaseReporter):
 
                 print()
                 print(
-                    "Dependency Intelligence Layer Violations"
+                    "Layer Violations"
                 )
 
                 for violation in (
@@ -640,58 +574,7 @@ class ArchitectureReporter(BaseReporter):
                         f"  • {recommendation}"
                     )
 
-        #
-        # ---------------------------------------------------------
-        # Layer Rule Violations
-        # ---------------------------------------------------------
-        #
-
-        if report.layer_violations:
-
-            print()
-
-            print("=" * 60)
-            print("Layer Rule Violations")
-            print("=" * 60)
-
-            for violation in report.layer_violations:
-
-                print()
-
-                print(
-                    f"{violation.source}"
-                )
-
-                print(
-                    f"    -> {violation.target}"
-                )
-
-                print(
-                    f"    Source Layer : "
-                    f"{violation.source_layer}"
-                )
-
-                print(
-                    f"    Target Layer : "
-                    f"{violation.target_layer}"
-                )
-
-                print(
-                    f"    Severity : "
-                    f"{violation.severity}"
-                )
-
-                print(
-                    f"    Rule : "
-                    f"{violation.rule_name}"
-                )
-
-                print(
-                    f"    {violation.description}"
-                )
-
         print()
-
         print("=" * 60)
         print("Architecture Health")
         print("=" * 60)
