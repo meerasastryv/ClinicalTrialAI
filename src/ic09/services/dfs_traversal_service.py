@@ -117,6 +117,56 @@ class DFSTraversalService:
             direction=direction,
         )
 
+
+
+
+    def find_path(
+        self,
+        source: str,
+        target: str,
+        direction: str = "downstream",
+    ) -> List[str]:
+        """
+        Find a path from source to target using DFS.
+
+        Returns an empty list if either node is unknown
+        or if no path exists.
+        """
+
+        if source not in self.graph.nodes.keys():
+            return []
+
+        if target not in self.graph.nodes.keys():
+            return []
+
+        visited: Set[str] = set()
+        path: List[str] = []
+
+        def dfs(node: str) -> bool:
+            if node in visited:
+                return False
+
+            visited.add(node)
+            path.append(node)
+
+            if node == target:
+                return True
+
+            for neighbor in self._get_neighbors(node, direction):
+                if dfs(neighbor):
+                    return True
+
+            path.pop()
+            return False
+
+        if dfs(source):
+            return path
+
+        return []
+
+
+
+
     def reachable_nodes(
         self,
         start_node: str,

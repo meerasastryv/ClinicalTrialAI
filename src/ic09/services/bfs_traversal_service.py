@@ -65,7 +65,8 @@ class BFSTraversalService:
 
         if start_node not in self.graph.nodes.keys():
             return []
-
+        if max_depth is not None and max_depth < 0:
+            raise ValueError("max_depth must be non-negative")
         visited: Set[str] = set()
         traversal: List[str] = []
 

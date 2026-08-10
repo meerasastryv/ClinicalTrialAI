@@ -192,3 +192,32 @@ def test_dfs_invalid_depth():
             "A",
             max_depth=-1,
         )
+
+
+
+def test_dfs_find_path():
+
+    graph = build_test_graph()
+    service = DFSTraversalService(graph)
+
+    result = service.find_path("A", "D")
+
+    assert result == ["A", "B", "D"]
+
+
+def test_dfs_find_path_not_found():
+
+    graph = build_test_graph()
+    service = DFSTraversalService(graph)
+
+    result = service.find_path("D", "A")
+
+    assert result == []
+
+
+def test_dfs_find_path_unknown_node():
+
+    graph = build_test_graph()
+    service = DFSTraversalService(graph)
+
+    assert service.find_path("UNKNOWN", "D") == []

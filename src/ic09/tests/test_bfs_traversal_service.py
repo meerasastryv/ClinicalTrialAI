@@ -171,7 +171,13 @@ def test_invalid_node(bfs_service):
 
     assert bfs_service.reachable_nodes("UNKNOWN") == set()
 
+def test_invalid_max_depth(bfs_service):
 
+    with pytest.raises(ValueError):
+        bfs_service.traverse(
+            "A",
+            max_depth=-1,
+        )
 
 
 
