@@ -221,3 +221,18 @@ def test_dfs_find_path_unknown_node():
     service = DFSTraversalService(graph)
 
     assert service.find_path("UNKNOWN", "D") == []
+
+
+
+def test_dfs_find_path_upstream():
+
+    graph = build_test_graph()
+    service = DFSTraversalService(graph)
+
+    result = service.find_path(
+        "D",
+        "A",
+        direction="upstream",
+    )
+
+    assert result == ["D", "B", "A"]

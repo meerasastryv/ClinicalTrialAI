@@ -180,9 +180,33 @@ def test_invalid_max_depth(bfs_service):
         )
 
 
+def test_bfs_find_path(bfs_service):
+
+    result = bfs_service.find_path("A", "D")
+
+    assert result == ["A", "B", "D"]
+
+
+def test_bfs_find_path_not_found(bfs_service):
+
+    result = bfs_service.find_path("D", "A")
+
+    assert result == []
+
+
+def test_bfs_find_path_unknown_node(bfs_service):
+
+    assert bfs_service.find_path("UNKNOWN", "D") == []
 
 
 
 
+def test_bfs_find_path_upstream(bfs_service):
 
+    result = bfs_service.find_path(
+        "D",
+        "A",
+        direction="upstream",
+    )
 
+    assert result == ["D", "B", "A"]

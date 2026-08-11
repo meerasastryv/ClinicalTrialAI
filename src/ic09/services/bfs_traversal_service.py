@@ -194,7 +194,42 @@ class BFSTraversalService:
             source,
             direction=direction,
         )
+    def find_path(
+        self,
+        source: str,
+        target: str,
+        direction: str = "downstream",
+    ) -> List[str]:
+        """
+        Find the shortest path from source to target using BFS.
 
+        Returns an empty list if either node is unknown
+        or if no path exists.
+        """
+
+        if source not in self.graph.nodes.keys():
+            return []
+
+        if target not in self.graph.nodes.keys():
+            return []
+
+        visited: Set[str] = {source}
+        queue = deque([(source, [source])])
+
+        while queue:
+            node, path = queue.popleft()
+
+            if node == target:
+                return path
+
+            for neighbor in self._get_neighbors(node, direction):
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(
+                        (neighbor, path + [neighbor])
+                    )
+
+        return []
 
     def traversal_statistics(
         self,
