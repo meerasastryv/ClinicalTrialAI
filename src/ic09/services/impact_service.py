@@ -127,7 +127,9 @@ class ImpactService:
         """
         self._test_service.link_test_to_suite(test_id,   suite_name, )
 
-    def analyze(self, request: ChangeRequest) -> ImpactResult:
+
+    def analyze(self, request: ChangeRequest,direction: str = "downstream",) -> ImpactResult:
+    #def analyze(self, request: ChangeRequest) -> ImpactResult:
         """
         Analyze the impact of a change request.
         """
@@ -141,13 +143,16 @@ class ImpactService:
 
         # Add the source artifact if it exists in the repository
         source_node = self._repository.get_node(request.artifact_id)
-        if source_node:
-            result.add_node(source_node)
+
 
         # Discover transitive impacts
-        impacted_nodes = self._relationship_service.get_transitive_impacts(
-            request.artifact_id
-        )
+        if direction == "downstream":
+            impacted_nodes = self._relationship_service.get_transitive_impacts(request.artifact_id)
+        elif direction == "upstream":
+            impacted_nodes = self._relationship_service.get_upstream_impacts(request.artifact_id)
+        else:
+            raise ValueError(f"Unsupported impact direction: {direction}")
+        # Discover transitive impacts
 
         for node in impacted_nodes:
             result.add_node(node)
