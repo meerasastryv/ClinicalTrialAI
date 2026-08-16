@@ -2,6 +2,9 @@ from src.ic09.models.change_request import ChangeRequest
 from src.ic09.repositories.impact_repository import ImpactRepository
 from src.ic09.services.impact_service import ImpactService
 import pytest
+from src.ic09.models.impact_edge import ImpactEdge
+from src.ic09.models.impact_node import ImpactNode
+
 
 def test_analyze_downstream_impact():
     repository = ImpactRepository()
@@ -245,3 +248,134 @@ def test_analyze_requirement_downstream_impact_across_domains():
     assert "REQ-001" not in impacted_ids
 
     assert result.total_impacts == 8
+
+def create_node(node_id: str) -> ImpactNode:
+    return ImpactNode(
+        node_id=node_id,
+        node_type="Service",
+        name=f"Service {node_id}",
+    )
+
+
+def create_edge(source: str, target: str) -> ImpactEdge:
+    return ImpactEdge(
+        source_id=source,
+        target_id=target,
+        relationship="DEPENDS_ON",
+    )
+
+
+def test_impact_service_analyze_neighborhood():
+    repository = ImpactRepository()
+
+    for node_id in ["A", "B", "C", "D"]:
+        repository.add_node(
+            create_node(node_id)
+        )
+
+    repository.add_edge(
+        create_edge("A", "B")
+    )
+    repository.add_edge(
+        create_edge("B", "C")
+    )
+    repository.add_edge(
+        create_edge("C", "D")
+    )
+
+    service = ImpactService(repository)
+
+    result = service.analyze_neighborhood(
+        source_id="A",
+        direction="downstream",
+        max_hops=2,
+    )
+
+    assert result.source_node == "A"
+    assert result.direction == "downstream"
+
+    assert result.get_nodes_at_hop(0) == ["A"]
+    assert result.get_nodes_at_hop(1) == ["B"]
+    assert result.get_nodes_at_hop(2) == ["C"]
+
+    assert result.blast_radius == 2
+
+
+def test_impact_service_analyze_upstream_neighborhood():
+    repository = ImpactRepository()
+
+    for node_id in ["A", "B", "C", "D"]:
+        repository.add_node(
+            create_node(node_id)
+        )
+
+    repository.add_edge(
+        create_edge("A", "B")
+    )
+    repository.add_edge(
+        create_edge("B", "C")
+    )
+    repository.add_edge(
+        create_edge("C", "D")
+    )
+
+    service = ImpactService(repository)
+
+    result = service.analyze_neighborhood(
+        source_id="D",
+        direction="upstream",
+        max_hops=2,
+    )
+
+    assert result.get_nodes_at_hop(0) == ["D"]
+    assert result.get_nodes_at_hop(1) == ["C"]
+    assert result.get_nodes_at_hop(2) == ["B"]
+
+    assert result.blast_radius == 2
+
+
+def test_impact_service_analyze_bidirectional_neighborhood():
+    repository = ImpactRepository()
+
+    for node_id in [
+        "UP1",
+        "A",
+        "DOWN1",
+        "DOWN2",
+    ]:
+        repository.add_node(
+            create_node(node_id)
+        )
+
+    repository.add_edge(
+        create_edge("UP1", "A")
+    )
+    repository.add_edge(
+        create_edge("A", "DOWN1")
+    )
+    repository.add_edge(
+        create_edge("DOWN1", "DOWN2")
+    )
+
+    service = ImpactService(repository)
+
+    result = service.analyze_bidirectional_neighborhood(
+        source_id="A",
+        max_hops=2,
+    )
+
+    assert result.source_node == "A"
+
+    assert result.upstream.get_nodes_at_hop(1) == [
+        "UP1"
+    ]
+
+    assert result.downstream.get_nodes_at_hop(1) == [
+        "DOWN1"
+    ]
+
+    assert result.downstream.get_nodes_at_hop(2) == [
+        "DOWN2"
+    ]
+
+    assert result.combined_blast_radius == 3

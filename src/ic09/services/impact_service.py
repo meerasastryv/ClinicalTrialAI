@@ -8,7 +8,13 @@ Author: ClinicalTrialAI
 
 import time
 import uuid
-
+from src.ic09.models.neighborhood_result import NeighborhoodResult
+from src.ic09.models.bidirectional_neighborhood_result import (
+    BidirectionalNeighborhoodResult,
+)
+from src.ic09.services.neighborhood_analysis_service import (
+    NeighborhoodAnalysisService,
+)
 from src.ic09.models.change_request import ChangeRequest
 from src.ic09.models.impact_result import ImpactResult
 from src.ic09.models.impact_node import ImpactNode
@@ -21,6 +27,9 @@ from src.ic09.services.code_impact_service import CodeImpactService
 
 from src.ic09.services.runtime_impact_service import RuntimeImpactService
 from src.ic09.services.test_impact_service import TestImpactService
+
+from src.ic09.services.relationship_service import RelationshipService
+
 
 class ImpactService:
     """
@@ -36,11 +45,16 @@ class ImpactService:
         Initialize the impact service.
         """
         self._repository = repository
+
         self._relationship_service = RelationshipService(repository)
+        self._neighborhood_service = NeighborhoodAnalysisService(repository)
         self._requirement_service = RequirementImpactService(repository)
         self._code_service = CodeImpactService(repository)
         self._runtime_service = RuntimeImpactService(repository)
         self._test_service = TestImpactService(repository)
+
+
+
     def register_requirement(self,requirement_id: str,requirement_name: str,) -> ImpactNode:
         """
         Register a requirement in the impact graph.
@@ -127,7 +141,37 @@ class ImpactService:
         """
         self._test_service.link_test_to_suite(test_id,   suite_name, )
 
+    def analyze_neighborhood(
+        self,
+        source_id: str,
+        direction: str = "downstream",
+        max_hops: int = 1,
+    ) -> NeighborhoodResult:
+        """
+        Analyze the N-Hop neighborhood surrounding an artifact.
 
+        This provides a higher-level entry point for neighborhood
+        analysis through the ImpactService.
+        """
+        return self._neighborhood_service.analyze(
+            source_id=source_id,
+            direction=direction,
+            max_hops=max_hops,
+        )
+
+    def analyze_bidirectional_neighborhood(
+        self,
+        source_id: str,
+        max_hops: int = 1,
+    ) -> BidirectionalNeighborhoodResult:
+        """
+        Analyze both upstream and downstream neighborhoods
+        surrounding an artifact.
+        """
+        return self._neighborhood_service.analyze_bidirectional(
+            source_id=source_id,
+            max_hops=max_hops,
+        )
     def analyze(self, request: ChangeRequest,direction: str = "downstream",) -> ImpactResult:
     #def analyze(self, request: ChangeRequest) -> ImpactResult:
         """
